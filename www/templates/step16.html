@@ -1,0 +1,17 @@
+<ion-view view-title=Step16 name=step16-view>
+<ion-content>
+          <progress class="progressBar" max="28" value="16"></progress>
+  </ion-content> 
+  <ion-content class="containQuestion">
+
+       <h3 class="questionText">{{QAlcool}}</h3>
+<p>L' alcool est extrêment toxique pour le foetus. L'objectif est de ne pas consommer d'alcool du tout pendant la grossesse. Ne pas boire est l' un des plus beau cadeau qu'une mère puisse faire à son enfant. </p>
+     <div class=item range>       
+<input type=range name=volume min=0 max=30 ng-model=data.nb ng-change=drag(data.nb)></div>
+<div>{{data.nb}}</div>
+  <div class="buttonValid">
+<button class=button button-block button-calm ng-click=nb()>Valider</button>
+</div>
+
+
+</ion-view>

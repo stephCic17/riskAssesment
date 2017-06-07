@@ -1,0 +1,179 @@
+/* Empty. Add your own CSS if you like */
+.progressBar{
+	background: transparent;
+	height: 5px;
+}
+.questionText{
+	color: rgb(106,144,149);
+}
+.containQuestion{
+	margin-top: 20px;
+	padding: 30px;
+}
+.buttons{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.checkboxValid{
+	background-color: transparent;
+	border: 2px solid rgb(230,230,230);
+	display: inline-block;
+	color: rgb(200,200,200);
+}
+.numberInput{
+	border-style: solid;
+	border-width:1px;
+	border-color:rgb(218,218,218); 
+	text-align: center;
+	margin: auto;
+	min-width: 50%;
+}
+.numberInput::hover{
+border-color: rgb(106,144,149);
+}
+
+.buttonValid{
+	margin: 10px;
+	text-align: center;
+}
+.buttonValid button{
+	padding: 6px;
+	line-height:16px;
+	border-radius: 1px;
+	min-width: 50%;
+}
+
+.derniereRegle {
+	text-align: center;
+}
+.derniereRegle label{
+	font-size: 1.3em;
+	font-weight: bold;
+	font-family: cursive;
+}
+.derniereRegle p{
+	font-family: cursive;
+	font-size: 1.1em;
+}
+.derniereRegle input{
+text-align: center;
+background-color: #E2E2E2;
+min-width: 100%;
+}
+
+.questionaire{
+	text-align: center;
+	vertical-align: inline-block;
+}
+.passe {
+	background-color: rgba(0,0,0,0.1);
+	color: black
+}
+.avenir{
+	background-color: rgba(0,100,0,0.2);
+	color: black;
+}
+button.accordion{
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+div.panel {
+    padding: 0 18px;
+}
+div.passe button{
+	background-color: rgba(239,255,247,1);
+	color: black
+}
+div.avenir button{
+	background-color: rgba(255,207,207,1);
+	color: black;
+}
+.questionaire select {
+	width: 100%;
+	background-color: rgba(255, 255,255, 0.6);
+	border-radius: 2px;
+
+}
+.questionaire button {
+	width: 100%;
+		background-color: rgba(234, 105,126, 0.9);
+
+}
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.question{
+	background-color: #DEB9BF;
+	border-radius: 2px;
+	font-style: bold;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	margin-bottom: 10px;
+	min-height: 40px;
+}
+.orange{
+	background-color: #E16135;
+	color: white;
+	text-align: center;
+}
+.or{
+	background-color: #EA9071;
+	color: white;
+	text-align: center;
+}
+.o{
+	background-color: #B5E135;
+	color: white;
+	text-align: center;
+}
+.bl{
+	background-color: #8A68A0;
+	color: white;
+	text-align: center;
+}
+.bl1{
+	background-color: #AD95BC;
+	color: white;
+	text-align: center;
+}
+.item {
+	font-size: 15px;
+}
+h6 {
+	text-align: center;
+	color: #124861;
+	font-family: "wmMensch";
+	font-size: 16px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+h3{
+	text-align: center;
+	color: green;
+font-family: monaco,Consolas,Lucida Console,monospace;
+font-weight: bold;
+	padding-bottom: 30px;
+}
+h4{
+	text-align: center;
+	font-weight: bold;
+	color: #1E78A3;
+}

@@ -1,0 +1,15 @@
+<ion-view view-title=Step1 name=step1-view>
+  <ion-content>
+  <div class="divProgress">
+          <progress class="progressBar" max="28" value="1"></progress>
+  </div>
+  </ion-content> 
+  <ion-content class="containQuestion">
+      <h3 class="questionText">{{QAge}}</h3>
+      <p>Plus votre âge est elevé, plus les risques de complications obstétricales sont importantes, pour le foetus et pour vous. </p>
+      <input class="numberInput" type=number ng-model=HAge placeholder=>
+      <div class="buttonValid">
+      <button class=button button-block button-calm ng-click=nb(HAge)>Valider</button>
+    </div>
+  </ion-content>
+</ion-view>

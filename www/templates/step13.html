@@ -1,0 +1,25 @@
+<ion-view view-title=Step14 name=step14-view>
+<ion-content>
+          <progress class="progressBar" max="28" value="13"></progress>
+  </ion-content> 
+  <ion-content class="containQuestion">
+ 
+     <h3 class="questionText">{{QMiscarriage}}</h3>    
+     <p>La perte foetale est un facteur de stress émotionnel important, de plus, les fausses couches à répétion sont à explorer avant une nouvelle grossesse car il existe des traitements à débuter dès la conception, voire avant la conception. </p>
+    <form name="check" ng-submit="Submit(yes, no)" novalidate="">
+      <div class="buttons">
+        <ion-list>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="yesc" ng-click="yeschecked(yes, no)" ng-model="yes">Oui</ion-checkbox>
+          </div>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="noc" ng-click="nochecked(yes, no)" ng-model="no">Non</ion-checkbox>
+          </div>
+        </ion-list>
+      </div>    
+      <div class="buttonValid">
+        <button type="Submit" class="button">Valider</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

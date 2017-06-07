@@ -1,0 +1,24 @@
+<ion-view view-title=Step21 name=step21-view>
+<ion-content>
+          <progress class="progressBar" max="28" value="21"></progress>
+  </ion-content> 
+  <ion-content class="containQuestion">
+  
+     <h3 class="questionText">{{QMedicament}}</h3>    
+     <form name="check" ng-submit="Submit(yes, no)" novalidate="">
+      <div class="buttons">
+        <ion-list>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="yesc" ng-click="yeschecked(yes, no)" ng-model="yes">Oui</ion-checkbox>
+          </div>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="noc" ng-click="nochecked(yes, no)" ng-model="no">Non</ion-checkbox>
+          </div>
+        </ion-list>
+      </div>    
+      <div class="buttonValid">
+        <button type="Submit" class="button">Valider</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

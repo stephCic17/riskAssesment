@@ -1,0 +1,14 @@
+<ion-view view-title=Step24 name=step24-view>
+<ion-content>
+          <progress class="progressBar" max="28" value="24"></progress>
+  </ion-content> 
+  <ion-content class="containQuestion">
+ 
+     <h3 class="questionText">{{QWeight}}</h3>    
+     <p>Le sous poids augmente l'accouchement prématuré et augmente le taux d'échec d'allaitement. Le surpoids augmente les complications maternelles et foetales. </p>
+<input class="numberInput" type=number ng-model=Weight placeholder=>
+      <div class="buttonValid">
+      <button class=button button-block button-calm ng-click=nb(Weight)>{{OK}}</button>
+  </div>
+  </ion-content>
+</ion-view>

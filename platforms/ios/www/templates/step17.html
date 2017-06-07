@@ -1,0 +1,25 @@
+<ion-view view-title=Step17 name=step17-view>
+<ion-content>
+          <progress class="progressBar" max="28" value="17"></progress>
+  </ion-content> 
+  <ion-content class="containQuestion">
+ 
+     <h3 class="questionText">{{QEpilepsy}}</h3>  
+     <p>Certaines maladies imposent un traitement qui doit être adpaté en cas de grossesse. Certaines maladies imposent un suivi particulier. Il est indipensable que les femmes soient informées, avant d'^tre enceintes, afin d'anticiper la nature de votre prise en charge. </p>
+    <form name="check" ng-submit="Submit(yes, no)" novalidate="">
+      <div class="buttons">
+        <ion-list>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="yesc" ng-click="yeschecked(yes, no)" ng-model="yes">Oui</ion-checkbox>
+          </div>
+          <div class=checkboxValid>
+            <ion-checkbox ng-checked="noc" ng-click="nochecked(yes, no)" ng-model="no">Non</ion-checkbox>
+          </div>
+        </ion-list>
+      </div>    
+      <div class="buttonValid">
+        <button type="Submit" class="button">Valider</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
