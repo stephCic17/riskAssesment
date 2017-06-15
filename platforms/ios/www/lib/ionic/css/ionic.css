@@ -3488,7 +3488,6 @@ ion-infinite-scroll {
 
 .overflow-scroll {
   overflow-x: hidden;
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   top: 0;
@@ -8585,11 +8584,11 @@ select[multiple], select[size] {
 progress {
   display: block;
   width: 100%; 
-  background: #FFF;
+  background: transparent;
 }
 
 progress[value]{
-  background-color: #FFF;
+
 }
 progress::-webkit-progress-value { background: rgb(217,157,164); }
 progress { color: rgb(217,157,164); }

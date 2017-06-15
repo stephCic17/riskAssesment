@@ -858,7 +858,7 @@ angular.module('starter.controllers', [])
       if (yes==true){
         $rootScope.Miscarriage= 1;
         $rootScope.score += 2;
-      if (yes == true || no == true )
+      if (yes == true)
         $state.go('step14');
       }
       else {
@@ -1290,7 +1290,7 @@ angular.module('starter.controllers', [])
     $scope.Submit = function(yes, no){
       if (yes==true) {
         $rootScope.diabetesH = 1;
-        $rootScope.score += 200;
+        $rootScope.score += 50;
       }
       else
         $rootScope.diabetesH = 0;
@@ -1398,6 +1398,9 @@ angular.module('starter.controllers', [])
     if ($rootScope.AntidepressantAnswer == 1)
         $rootScope.score += 2;
     $rootScope.InsulineAnswer = InsulineAnswer;
+    if ($rootScope.InsulineAnswer == 1)
+        $rootScope.score += 200;
+
     $state.go('step23');
   }
 })
@@ -1421,7 +1424,7 @@ angular.module('starter.controllers', [])
     $rootScope.Weight = Weight;
     $rootScope.IMC = $rootScope.Weight / Math.pow($rootScope.Size/100, 2);
     if ($rootScope.IMC > 28)
-      $rootScope.score += 200;
+      $rootScope.score += 50;
     else if ($rootScope.IMC > 22)
       $rootScope.score += 20;     
     else if ($rootScope.IMC > 17)
@@ -1533,8 +1536,11 @@ angular.module('starter.controllers', [])
   $scope.nb = function(TimeTravel){
     $rootScope.TimeTravel = TimeTravel;
     if ($rootScope.TimeTravel > 90)
-      $rootScope.score += 2;      
-    $state.go('step28');
+      $rootScope.score += 2; 
+    if ($rootScope.NbWork <= 6)     
+      $state.go('step0');
+    else
+      $state.go('step28');
   }
 })
 

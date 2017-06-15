@@ -963,6 +963,7 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
+  $scope.data.nb = 0;
   $scope.nb = function() {
     $rootScope.Alcool = $scope.data.nb;
     if ($rootScope.Alcool >= 0){
@@ -1683,27 +1684,31 @@ angular.module('starter.controllers', [])
     else if ($rootScope.Alcool >= 10){
       $scope.profil += $rootScope.AlcoolAnswerHighoTen;
     }
-
-    if ($rootScope.Epilepsy == 1)
+   if ($rootScope.Epilepsy == 1)
       $scope.profil += $rootScope.EpilepsyAnswer;
 
     if ($rootScope.Phlebitis == 1)
       $scope.profil += $rootScope.PhlebitisAnswer;
 
     if ($rootScope.HighBloodPresure == 1)
+      $scope.profil += $rootScope.HighBloodPresureAnswer;
+    if ($rootScope.diabetesH == 1)
       $scope.profil += $rootScope.diabetesHAnswer;
 
     if ($rootScope.IMC < 17){
       $scope.profil += $rootScope.IMCLessAnswer;
     }
+    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) {
+      $scope.profil += "surpoid+diabete";
+    }
     else if ($rootScope.IMC > 22 && $rootScope.IMC <= 28){
-      console.log("Toto");
       $scope.profil += $rootScope.IMCHighAnswer;
     }
     else if ($rootScope.IMC > 28){
       $scope.profil += $rootScope.IMCMoreHighAnswer;
     }
 
+ 
     if ($rootScope.Work == 1){
       if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12){
         $scope.profil += $rootScope.NbWorkTenAnswer;

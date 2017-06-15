@@ -9680,8 +9680,8 @@ a.button {
 
 .slide-in-up.ng-enter,
 .slide-in-up > .ng-enter {
-  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
-  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 800ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 800ms; }
 
 .slide-in-up.ng-enter-active,
 .slide-in-up > .ng-enter-active {
@@ -9727,8 +9727,8 @@ a.button {
 
 [nav-view-transition="ios"] [nav-view="entering"],
 [nav-view-transition="ios"] [nav-view="leaving"] {
-  -webkit-transition-duration: 500ms;
-  transition-duration: 500ms;
+  -webkit-transition-duration: 1200ms;
+  transition-duration: 1200ms;
   -webkit-transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
   transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
   -webkit-transition-property: opacity, -webkit-transform, box-shadow;
@@ -9739,7 +9739,7 @@ a.button {
 
 [nav-view-transition="ios"] [nav-view="active"],
 [nav-view-transition="ios"][nav-view-direction="forward"] [nav-view="entering"],
-[nav-view-transition="ios"][nav-view-direction="back"] [nav-view="leaving"] {
+[nav-view-transition="ios"][nav-view-direction="back"] [ nav-view="leaving"] {
   z-index: 3; }
 
 [nav-view-transition="ios"][nav-view-direction="back"] [nav-view="entering"],
@@ -9770,12 +9770,14 @@ a.button {
 
 [nav-view-transition="android"] [nav-view="entering"],
 [nav-view-transition="android"] [nav-view="leaving"] {
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
+  -webkit-transition-duration: 1200ms;
+  transition-duration: 1200ms;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
   transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
   -webkit-transition-property: -webkit-transform;
-  transition-property: transform; }
+  transition-property: transform; 
+  opacity: 0.1;
+}
 
 [nav-view-transition="android"] [nav-view="active"],
 [nav-view-transition="android"][nav-view-direction="forward"] [nav-view="entering"],
