@@ -1,5 +1,8 @@
 angular.module('starter.controllers', [])
 
+.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.backButton.text('').icon('ion-chevron-left');
+})
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
 
     })
@@ -1747,6 +1750,7 @@ angular.module('starter.controllers', [])
   }
 })
 .controller('HomeCtrl', function($scope, $state, $http, $rootScope) {
+
     $scope.data = {};
   $scope.test = 
     url = ""

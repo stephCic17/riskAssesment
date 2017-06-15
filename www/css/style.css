@@ -1,4 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.progressingDiv{
+  min-width:100%;
+  height:10px;
+  border: 1px solid rgb(230,230,230);
+}
+.progressingInsideDiv {
+  background-color:rgb(217,157,164);
+  border-radius: 1px;
+  margin: 0;
+  padding: 0;
+  max-height: 8px;
+}
+.transparentText{
+  color:rgba(0,0,0,0); 
+  font-size:1px;
+}
 .progressBar{
   /* Reset the default appearance */
   -webkit-appearance: none;
