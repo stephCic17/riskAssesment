@@ -975,88 +975,88 @@ angular.module('starter.controllers', [])
       $rootScope.resultProfil = "D'apres vos réponses vous ne présentez pas de risque particulier pour votre grossesse";
     }
     if ( $rootScope.Age < 35 ){
-      $scope.profil = $rootScope.RAgeA;
+      $scope.profil1 = $rootScope.RAgeA;
     }
     else if ( $rootScope.Age < 38 ){
-      $scope.profil = $rootScope.RAgeB;
+      $scope.profil1 = $rootScope.RAgeB;
     }
     else if ( $rootScope.Age < 42 ){
-      $scope.profil = $rootScope.RAgeC;
+      $scope.profil1 = $rootScope.RAgeC;
     }
     else if ( $rootScope.Age >= 42 ){
-      $scope.profil = $rootScope.RAgeD; 
+      $scope.profil1 = $rootScope.RAgeD; 
     }
     
     if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1){
-      $scope.profil = $rootScope.RSmokeA;
+      $scope.profil2 = $rootScope.RSmokeA;
     }
     else if ($rootScope.Smoke == 1){
-      $scope.profil = $rootScope.RSmokeB;
+      $scope.profil2 = $rootScope.RSmokeB;
     }
 
     if ($rootScope.BigChild == 1)
-      $rootScope.profil += $rootScope.BigChildAnswer;
+      $rootScope.profil3 = $rootScope.BigChildAnswer;
 
     if ($rootScope.Prema == 0)
-      $rootScope.profil += $rootScope.PremaNo;
+      $rootScope.profil4 = $rootScope.PremaNo;
     
 
     if ($rootScope.NbCesa >= 2)
-      $rootScope.profil += $rootScope.NbCesaAnswer;
+      $rootScope.profil5 = $rootScope.NbCesaAnswer;
 
     if ($rootScope.NbMiacarriage >= 3)
-      $rootScope.profil += $rootScope.NbMiacarriageAnswer;
+      $rootScope.profil6 = $rootScope.NbMiacarriageAnswer;
 
     if ($rootScope.IMG == 1)
-      $rootScope.profil += $rootScope.IMGYesAnswer;
+      $rootScope.profil7 = $rootScope.IMGYesAnswer;
 
     if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0){
-      $scope.profil += $rootScope.AlcoolAnswerHighoZero;
+      $scope.profil8 = $rootScope.AlcoolAnswerHighoZero;
     }
     else if ($rootScope.Alcool >= 10){
-      $scope.profil += $rootScope.AlcoolAnswerHighoTen;
+      $scope.profil8 = $rootScope.AlcoolAnswerHighoTen;
     }
    if ($rootScope.Epilepsy == 1)
-      $scope.profil += $rootScope.EpilepsyAnswer;
+      $scope.profil9 = $rootScope.EpilepsyAnswer;
 
     if ($rootScope.Phlebitis == 1)
-      $scope.profil += $rootScope.PhlebitisAnswer;
+      $scope.profil10 = $rootScope.PhlebitisAnswer;
 
     if ($rootScope.HighBloodPresure == 1)
-      $scope.profil += $rootScope.HighBloodPresureAnswer;
+      $scope.profil11 = $rootScope.HighBloodPresureAnswer;
     if ($rootScope.diabetesH == 1)
-      $scope.profil += $rootScope.diabetesHAnswer;
+      $scope.profil12 = $rootScope.diabetesHAnswer;
 
     if ($rootScope.IMC < 17){
-      $scope.profil += $rootScope.IMCLessAnswer;
+      $scope.profil13 = $rootScope.IMCLessAnswer;
     }
     else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) {
-      $scope.profil += "surpoid+diabete";
+      $scope.profil13 = "surpoid+diabete";
     }
     else if ($rootScope.IMC > 22 && $rootScope.IMC <= 28){
-      $scope.profil += $rootScope.IMCHighAnswer;
+      $scope.profil14 = $rootScope.IMCHighAnswer;
     }
     else if ($rootScope.IMC > 28){
-      $scope.profil += $rootScope.IMCMoreHighAnswer;
+      $scope.profil14 = $rootScope.IMCMoreHighAnswer;
     }
 
  
     if ($rootScope.Work == 1){
       if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12){
-        $scope.profil += $rootScope.NbWorkTenAnswer;
+        $scope.profil15 = $rootScope.NbWorkTenAnswer;
       }
       else if ($rootScope.NbWork > 12){
-        $scope.profil += $rootScope.NbWorkTwelveAnswer;
+        $scope.profil15 = $rootScope.NbWorkTwelveAnswer;
       }
       if ($rootScope.TimeTravel > 90){
-        $scope.profil += $rootScope.TimeTravelAnswer;
+        $scope.profil16 = $rootScope.TimeTravelAnswer;
       }
       if ($rootScope.StandingWork == 1){
-        $scope.profil += $rootScope.StandingWorkAnswer;
+        $scope.profil17 = $rootScope.StandingWorkAnswer;
       }
     }
     else{
-      $scope.profil += $rootScope.WorkNoAnswer;
+      $scope.profil18 = $rootScope.WorkNoAnswer;
     }
 
     
