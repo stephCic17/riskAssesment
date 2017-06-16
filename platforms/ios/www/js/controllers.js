@@ -1,5 +1,8 @@
 angular.module('starter.controllers', [])
 
+.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.backButton.text('').icon('ion-chevron-left custom-icon');
+})
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
 
     })
@@ -40,30 +43,55 @@ angular.module('starter.controllers', [])
         no=false;
         $scope.yesc=true;
         $scope.noc=false;
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       }
       else if (yes == true && no == false){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
+
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       }
       else if (yes == false && no == true){
         yes = true;
         no = false;
         $scope.yesc=true;
+               console.log('here');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+
         $scope.noc=false;
       }
       else if (yes == true && no == true){
         yes = true;
         no=false;
         $scope.yesc=true;
+               console.log('here');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+
+
         $scope.noc=false;
+      }
+      else if ($scope.yesc == true){
+        yes = false;
+        no=false;
+        $scope.yesc=false;
+        $scope.noc=false;
+       console.log('here');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+
       }
       else{
         yes = true;
         no=false;
         $scope.yesc=true;
         $scope.noc=false;
+       console.log('here');
+               document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+
       }
     }
     $scope.nochecked = function(yes, no){
@@ -72,30 +100,48 @@ angular.module('starter.controllers', [])
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
+
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       }
       else if (no == true && yes == false){
         no = false;
         yes=false;
         $scope.noc=false;
         $scope.yesc=false;
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       }
       else if (no == false && yes == true){
         no = true;
         yes = false;
         $scope.yesc=false;
         $scope.noc=true;
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       }
       else if (no == true && yes == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+      }
+       else if ($scope.noc == true){
+        yes = false;
+        no=false;
+        $scope.yesc=false;
+        $scope.noc=false;
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+
       }
       else{
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       }
     }
     $scope.Submit = function(yes, no){
@@ -858,7 +904,7 @@ angular.module('starter.controllers', [])
       if (yes==true){
         $rootScope.Miscarriage= 1;
         $rootScope.score += 2;
-      if (yes == true || no == true )
+      if (yes == true)
         $state.go('step14');
       }
       else {
@@ -1290,7 +1336,7 @@ angular.module('starter.controllers', [])
     $scope.Submit = function(yes, no){
       if (yes==true) {
         $rootScope.diabetesH = 1;
-        $rootScope.score += 200;
+        $rootScope.score += 50;
       }
       else
         $rootScope.diabetesH = 0;
@@ -1398,6 +1444,9 @@ angular.module('starter.controllers', [])
     if ($rootScope.AntidepressantAnswer == 1)
         $rootScope.score += 2;
     $rootScope.InsulineAnswer = InsulineAnswer;
+    if ($rootScope.InsulineAnswer == 1)
+        $rootScope.score += 200;
+
     $state.go('step23');
   }
 })
@@ -1421,7 +1470,7 @@ angular.module('starter.controllers', [])
     $rootScope.Weight = Weight;
     $rootScope.IMC = $rootScope.Weight / Math.pow($rootScope.Size/100, 2);
     if ($rootScope.IMC > 28)
-      $rootScope.score += 200;
+      $rootScope.score += 50;
     else if ($rootScope.IMC > 22)
       $rootScope.score += 20;     
     else if ($rootScope.IMC > 17)
@@ -1533,8 +1582,11 @@ angular.module('starter.controllers', [])
   $scope.nb = function(TimeTravel){
     $rootScope.TimeTravel = TimeTravel;
     if ($rootScope.TimeTravel > 90)
-      $rootScope.score += 2;      
-    $state.go('step28');
+      $rootScope.score += 2; 
+    if ($rootScope.NbWork <= 6)     
+      $state.go('step0');
+    else
+      $state.go('step28');
   }
 })
 
@@ -1741,6 +1793,7 @@ angular.module('starter.controllers', [])
   }
 })
 .controller('HomeCtrl', function($scope, $state, $http, $rootScope) {
+
     $scope.data = {};
   $scope.test = 
     url = ""

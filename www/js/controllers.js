@@ -37,112 +37,31 @@ angular.module('starter.controllers', [])
     $scope.data = {};
   $scope.test = 
     url = ""
-    $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-      }
-      else if (yes == false && no == true){
+        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
-        no = false;
+        no=false;
         $scope.yesc=true;
-               console.log('here');
+        $scope.noc=false; 
         document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
         document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-               console.log('here');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-
-
-        $scope.noc=false;
-      }
-      else if ($scope.yesc == true){
-        yes = false;
-        no=false;
-        $scope.yesc=false;
-        $scope.noc=false;
-       console.log('here');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-       console.log('here');
-               document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-
         document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
         document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-      }
-       else if ($scope.noc == true){
-        yes = false;
-        no=false;
-        $scope.yesc=false;
-        $scope.noc=false;
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-        document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
-        document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-      }
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true)
@@ -150,8 +69,8 @@ angular.module('starter.controllers', [])
       else
         $rootScope.Pregnant = 0;
       if ($rootScope.Pregnant == 1)
-      $state.go('step2-1');
-      else
+       $state.go('step2-1');
+      else if (no == true)
      $state.go('step3');
     }
 })
@@ -159,69 +78,39 @@ angular.module('starter.controllers', [])
     $scope.data = {};
   $scope.test = 
     url = ""
-    $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
+   yes = false;
         no=false;
-        $scope.yesc=true;
+        $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+
+    console.log('toto');
+        document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true ){
         yes = true;
         no=false;
         $scope.yesc=true;
         $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+
+    console.log('toto'); 
+        document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true)
@@ -237,69 +126,31 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck2").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck2").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck2").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck2").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck2").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck2").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -318,69 +169,31 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck3").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck3").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck3").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck3").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck3").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck3").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if ($scope.yesc == true){
@@ -412,69 +225,31 @@ angular.module('starter.controllers', [])
     $scope.data = {};
   $scope.test = 
     url = ""
-    $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck4").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck4").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck4").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck4").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck4").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck4").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -496,69 +271,31 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-        $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck5").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck5").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck5").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck5").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck5").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck5").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -578,69 +315,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -658,69 +357,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-        $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck7").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck7").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck7").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck7").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck7").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck7").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -739,69 +400,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-        $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck8").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck8").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck8").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck8").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck8").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck8").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -832,73 +455,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('Step13Ctrl', function($scope, $state, $http, $rootScope) {
-      $scope.data = {};
+  $scope.data = {};
   $scope.test = 
-    url = ""
-
-            $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+  url = ""
+  $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck9").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck9").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck9").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck9").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck9").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck9").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -929,69 +513,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-        $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck10").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck10").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck10").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -1026,69 +572,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -1107,69 +615,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck12").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck12").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck12").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -1187,69 +657,31 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck13").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck13").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck13").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck13").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck13").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck13").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -1269,69 +701,31 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
     url = ""
-      $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+    $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck14").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck14").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck14").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true) {
@@ -1349,69 +743,31 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+  $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck15").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck15").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck15").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -1482,72 +838,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('Step25Ctrl', function($scope, $state,  $http, $rootScope) {
-      $scope.data = {};
+  $scope.data = {};
   $scope.test = 
-    url = ""
-    $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+  url = ""
+  $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck16").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-    }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
+        $scope.noc=false; 
+        document.getElementById("yesCheck16").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
         no = true;
         yes=false;
         $scope.yesc=false;
         $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
+        document.getElementById("yesCheck16").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
     $scope.Submit = function(yes, no){
       if (yes==true){
@@ -1594,71 +912,33 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   $scope.url = ""
-  $scope.yeschecked = function(yes, no){
-      if (yes == false && no == false){
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == false){
+  $scope.checked = function(yes, no){
+     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
         yes = false;
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-      }
-      else if (yes == false && no == true){
-        yes = true;
-        no = false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else if (yes == true && no == true){
+        document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (yes == true && !no || $scope.noc == true && yes == true){
         yes = true;
         no=false;
         $scope.yesc=true;
-        $scope.noc=false;
-      }
-      else{
-        yes = true;
-        no=false;
-        $scope.yesc=true;
-        $scope.noc=false;
-      }
+        $scope.noc=false; 
+        document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(106,144,149)');
+        document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+     }
+     else if (no == true && !yes || $scope.yesc == true && no == true){
+        no = true;
+        yes=false;
+        $scope.yesc=false;
+        $scope.noc=true;
+        document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(218,218,218)');
+        document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(106,144,149)');
+     }
     }
-    $scope.nochecked = function(yes, no){
-      if (no == false && yes == false){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == false){
-        no = false;
-        yes=false;
-        $scope.noc=false;
-        $scope.yesc=false;
-      }
-      else if (no == false && yes == true){
-        no = true;
-        yes = false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else if (no == true && yes == true){
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-      else{
-        no = true;
-        yes=false;
-        $scope.yesc=false;
-        $scope.noc=true;
-      }
-    }
-    $scope.Submit = function(yes, no){
+      $scope.Submit = function(yes, no){
       if (yes==true) {
         $rootScope.StandingWork = 1;
         $rootScope.score += 2;
