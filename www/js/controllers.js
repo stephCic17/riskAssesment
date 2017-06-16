@@ -963,15 +963,20 @@ angular.module('starter.controllers', [])
      $scope.ProfilPregnant = "Vous avez le choix de l' IVG , prenez le temps de la réflexion, et pour se faire surfez sur www.ivg.org ."; 
     }
     if ($rootScope.score >= 200) {
+
+      document.getElementById("resultProfil").setAttribute('style','color : red');
       $scope.resultProfil = "D'après vos réponse vous présentez une grossesse à haut et devez être suivi dans une maternité de type 3.";
     }   
     else if ($rootScope.score >= 50) {
+      document.getElementById("resultProfil").setAttribute('style','color : red');
       $rootScope.resultProfil = "D'apres vos réponse vous présentez une grossesse à haut risque mais qui ne necessite pas un suivi dans une maternité de type 3";
     }
     else if ($rootScope.score >= 20) {
+            document.getElementById("resultProfil").setAttribute('style','color : orange');
       $rootScope.resultProfil = "D'apres vos réponses vous présentez une grossesse à risque ";
     }
     else {
+            document.getElementById("resultProfil").setAttribute('style','color : green');
       $rootScope.resultProfil = "D'apres vos réponses vous ne présentez pas de risque particulier pour votre grossesse";
     }
     if ( $rootScope.Age < 35 ){
