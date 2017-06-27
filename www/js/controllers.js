@@ -88,8 +88,6 @@ angular.module('starter.controllers', [])
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-
-    console.log('toto');
         document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
         document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
      }
@@ -98,8 +96,6 @@ angular.module('starter.controllers', [])
         no=false;
         $scope.yesc=true;
         $scope.noc=false;
-
-    console.log('toto'); 
         document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
         document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
      }
@@ -117,8 +113,10 @@ angular.module('starter.controllers', [])
         $rootScope.PregnantGood = 1;
       else
         $rootScope.PregnantBad = 0;
-      if (yes == true || no == true )
-      $state.go('step3');
+      if (yes == true )
+          $state.go('step3');
+      if (no == true)
+        $state.go('dateIVG');
     }
 })
 
@@ -796,7 +794,7 @@ angular.module('starter.controllers', [])
     $rootScope.AntiHighBloodAnswer = AntiHighBloodAnswer;
     if ($rootScope.AntiHighBloodAnswer == 1)
         $rootScope.score += 2;
-    $rootScope.AntidepressantAnswer = AntiCoagulentAnswer;
+    $rootScope.AntidepressantAnswer = AntidepressantAnswer;
     if ($rootScope.AntidepressantAnswer == 1)
         $rootScope.score += 2;
     $rootScope.InsulineAnswer = InsulineAnswer;
@@ -875,7 +873,7 @@ angular.module('starter.controllers', [])
       else {
         $rootScope.Work= 0;
       if (yes == true || no == true )
-        $state.go('step0');
+        $state.go('step29');
       }
     }
 })
@@ -902,7 +900,7 @@ angular.module('starter.controllers', [])
     if ($rootScope.TimeTravel > 90)
       $rootScope.score += 2; 
     if ($rootScope.NbWork <= 6)     
-      $state.go('step0');
+      $state.go('step29');
     else
       $state.go('step28');
   }
@@ -946,12 +944,74 @@ angular.module('starter.controllers', [])
       else
         $rootScope.StandingWork = 0;
       if (yes == true || no == true )
-      $state.go('step0');
+      $state.go('step29');
     }
 })
+.controller('Step29Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('step0');
+  }
+})
 
-
-
+.controller('Step30Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('step0');
+  }
+})
 .controller('Step0Ctrl', function($scope, $state, $http, $rootScope) {
       $scope.data = {};
   $scope.test = 
@@ -1064,11 +1124,37 @@ angular.module('starter.controllers', [])
       $scope.profil18 = $rootScope.WorkNoAnswer;
     }
 
-    
+    $scope.changeview = function() {
+      $state.go('step00');
+    }
     $scope.continue = function() {
         $state.go('app.launch');
       }
 })
+
+.controller('stopIVGCtrl', function($scope, $state,$http,$rootScope){
+  $scope.data = {};
+  $scope.test = 
+  $scope.url = ""
+  $scope.nbReste = 14 - $rootScope.WeekPregnant;
+  console.log($rootScope.WeekPregnant);
+  console.log($rootScope.LastMenstruation);
+  $scope.submit = function(){
+
+  }
+
+})
+.controller('dateIVGCtrl', function($scope, $state,$http,$rootScope){
+
+ $scope.submit = function(gros) {
+  
+      // Date des dernieres regles //
+      $rootScope.LastMenstruation = new Date(gros);
+      $rootScope.WeekPregnant = Math.round(((new Date().getTime() - $rootScope.LastMenstruation.getTime()) / (1000 * 60 * 60 * 24)) / 7);
+    $state.go('stopIVG');
+    }
+})
+
 .controller('CongratsCtrl', function($scope, $state, $http, $rootScope){
   $scope.data = {};
   $scope.test = 
