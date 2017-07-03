@@ -88,8 +88,6 @@ angular.module('starter.controllers', [])
         no=false;
         $scope.yesc=false;
         $scope.noc=false;
-
-    console.log('toto');
         document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
         document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
      }
@@ -98,8 +96,6 @@ angular.module('starter.controllers', [])
         no=false;
         $scope.yesc=true;
         $scope.noc=false;
-
-    console.log('toto'); 
         document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
         document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
      }
@@ -117,8 +113,10 @@ angular.module('starter.controllers', [])
         $rootScope.PregnantGood = 1;
       else
         $rootScope.PregnantBad = 0;
-      if (yes == true || no == true )
-      $state.go('step3');
+      if (yes == true )
+          $state.go('step3');
+      if (no == true)
+        $state.go('dateIVG');
     }
 })
 
@@ -796,7 +794,7 @@ angular.module('starter.controllers', [])
     $rootScope.AntiHighBloodAnswer = AntiHighBloodAnswer;
     if ($rootScope.AntiHighBloodAnswer == 1)
         $rootScope.score += 2;
-    $rootScope.AntidepressantAnswer = AntiCoagulentAnswer;
+    $rootScope.AntidepressantAnswer = AntidepressantAnswer;
     if ($rootScope.AntidepressantAnswer == 1)
         $rootScope.score += 2;
     $rootScope.InsulineAnswer = InsulineAnswer;
@@ -875,7 +873,7 @@ angular.module('starter.controllers', [])
       else {
         $rootScope.Work= 0;
       if (yes == true || no == true )
-        $state.go('step0');
+        $state.go('step00');
       }
     }
 })
@@ -902,7 +900,7 @@ angular.module('starter.controllers', [])
     if ($rootScope.TimeTravel > 90)
       $rootScope.score += 2; 
     if ($rootScope.NbWork <= 6)     
-      $state.go('step0');
+      $state.go('step00');
     else
       $state.go('step28');
   }
@@ -946,12 +944,74 @@ angular.module('starter.controllers', [])
       else
         $rootScope.StandingWork = 0;
       if (yes == true || no == true )
-      $state.go('step0');
+      $state.go('step00');
     }
 })
+.controller('Step29Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('step00');
+  }
+})
 
-
-
+.controller('Step30Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('step00');
+  }
+})
 .controller('Step0Ctrl', function($scope, $state, $http, $rootScope) {
       $scope.data = {};
   $scope.test = 
@@ -1002,7 +1062,9 @@ angular.module('starter.controllers', [])
     if ($rootScope.BigChild == 1)
       $rootScope.profil3 = $rootScope.BigChildAnswer;
 
-    if ($rootScope.Prema == 0)
+    if ($rootScope.Prema == 0 && $rootScope.LessChild == 1)
+      $rootScope.profil4 =  "Vous avez eu un enfant de -2k200 qui n'était pas prématuré, Il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % pour la prochaine grossesse (si la femme a répondu pas encore enceinte) pour cette grossesse (si la dame a répondu oui je suis déjà enceinte)";
+    else if ($rootScope.Prema == 0)
       $rootScope.profil4 = $rootScope.PremaNo;
     
 
@@ -1064,11 +1126,235 @@ angular.module('starter.controllers', [])
       $scope.profil18 = $rootScope.WorkNoAnswer;
     }
 
-    
+    $scope.changeview = function() {
+      $state.go('step00');
+    }
     $scope.continue = function() {
         $state.go('app.launch');
       }
 })
+.controller('Step00Ctrl', function($scope, $state, $http, $rootScope) {
+      $scope.data = {};
+  $scope.test = 
+    url = ""
+    if ($rootScope.PregnantGood == 1) {
+      $scope.Positif = "Félicitation vous êtes enceinte !";
+    }
+    else if ($rootScope.Child == 1){
+     $scope.Positif = "Félicitation vous allez avoir votre premier enfant"; 
+    }
+    else if ($rootScope.Age < 38)
+      $scope.Positif = "Vous avez le bon age pour faire un enfant";
+    document.getElementById("Positif").setAttribute('style','color : green');
+    if ($rootScope.score >= 200) {
+
+      document.getElementById("cresultProfil").setAttribute('style','color : red');
+      $scope.cresultProfil = "D'après vos réponse vous présentez une grossesse à haut et devez être suivi dans une maternité de type 3.";
+    }   
+    else if ($rootScope.score >= 50) {
+      document.getElementById("cresultProfil").setAttribute('style','color : red');
+      $rootScope.cresultProfil = "D'apres vos réponse vous présentez une grossesse à haut risque mais qui ne necessite pas un suivi dans une maternité de type 3";
+    }
+    else if ($rootScope.score >= 20) {
+            document.getElementById("cresultProfil").setAttribute('style','color : orange');
+      $rootScope.cresultProfil = "D'apres vos réponses vous présentez une grossesse à risque ";
+    }
+    else {
+            document.getElementById("cresultProfil").setAttribute('style','color : green');
+      $rootScope.cresultProfil = "D'apres vos réponses vous ne présentez pas de risque particulier pour votre grossesse";
+    }
+    if ( $rootScope.Age < 35 ){
+      $scope.profil1 = $rootScope.RAgeA;
+    }
+    else if ( $rootScope.Age < 38 ){
+      $scope.profil1 = $rootScope.RAgeB;
+    }
+    else if ( $rootScope.Age < 42 ){
+      $scope.risk1 = " - Votre Age, vous présentez un risque élevé d'anomalie chromosomique foetale";
+    }
+    else if ( $rootScope.Age >= 42 ){
+      $scope.risk1 = " - Votre Age, vous présentez un risque très élevé d'anomalie chromosomique foetale";
+    }
+    
+    if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1){
+      $scope.risk2 = " - Vous fumez, ce qui peut entrainer de nombreuse complication.";
+    }
+    else if ($rootScope.Smoke == 1){
+      $scope.risk2 = "- Vous fumez, ce qui va entrainer de nombreuse complication lors d'une futur grossesse.";
+    }
+
+    if ($rootScope.BigChild == 1)
+      $rootScope.risk3 = "- Vous avez eus un enfant de  + de 4kg, ce qui peut favoriser l'apparition du diabete de grossesse";
+
+    if ($rootScope.Prema == 0 && $rootScope.LessChild == 1)
+      $rootScope.risk4 =  "Vous avez eu un enfant de -2k200 qui n'était pas prématuré, il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
+    if ($rootScope.NbMiacarriage >= 3)
+      $rootScope.risk6 = "- Vous avez eus un nombre élevé de fausse couches";
+    if ($rootScope.IMG == 1)
+      $rootScope.risk7 = " - Vous avez déjà effectué une IMG vous avez donc un risque de récidive";
+    if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0){
+      $scope.risk8 = " - Vous consommez de l'alcool";
+    }
+    else if ($rootScope.Alcool >= 10){
+      $scope.risk8 = " - Vous consommez une quantité d'alcool importante";
+    }
+   if ($rootScope.Epilepsy == 1)
+      $scope.risk9 = " - Votre épilepsie.";
+
+    if ($rootScope.Phlebitis == 1)
+      $scope.risk10 = " - Votre antécédent de phlébite";
+
+    if ($rootScope.HighBloodPresure == 1)
+      $scope.risk11 = " -Votre hypertension";
+    if ($rootScope.diabetesH == 1)
+      $scope.risk12 = "Votre diabète";
+    if ($rootScope.IMC < 17){
+      $scope.risk13 = "- Votre Poids ";
+    }
+    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) {
+      $scope.risk13 = " - Votre Poids ";
+    }
+    else if ($rootScope.IMC > 22 && $rootScope.IMC <= 28){
+      $scope.risk14 = " - Votre poids ";
+    }
+    else if ($rootScope.IMC > 28){
+      $scope.risk14 = " - Votre Poids ";
+    }
+    if ($rootScope.Work == 1){
+      if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12){
+        $scope.risk15 = " - Votre nombre d'heure de travail est élevé.";
+      }
+      else if ($rootScope.NbWork > 12){
+        $scope.risk15 = " - Votre nombre d'heure de travail est vraiment très élevé";
+      }
+      if ($rootScope.TimeTravel > 90){
+        $scope.risk16 = " - Votre temps de trajet pour aller au travail est élevé";
+      }
+      if ($rootScope.StandingWork == 1){
+        $scope.risk17 = " - Vous travaillez debout plus de 6 heures par jour";
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////Conseil
+
+    if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1){
+      $scope.conseil2 = " - Arretez de fumer !";
+    }
+    else if ($rootScope.Smoke == 1){
+      $scope.conseil2 = "- Arretez de fumer avant d'entammer une grossesse ! ";
+    }
+
+    if ($rootScope.BigChild == 1 && $rootScope.diabetesH == 0)
+      $rootScope.conseil3 = "- Effectuez un dépistage de diabète de grossesse";
+
+    if ($rootScope.NbMiacarriage >= 3)
+      $rootScope.conseil6 = " - Effectuer un bilan de fausse couche à répétition et bénéficier d'une prise en charge adaptée en fonction des résultats de ce bilan.";
+    if ($rootScope.IMG == 1)
+      $rootScope.conseil7 = " - Prennez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
+    if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 1){
+      $scope.conseil8 = " - Stopper votre consommation d'alcool !";
+    }
+    else if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 0){
+      $scope.conseil8 = " - Il sera nécessaire de stopper votre consommation d'alcool lorsque vous serez enceinte!";
+    }
+    
+    else if ($rootScope.Alcool >= 10){
+      $scope.conseil8 = " - Prennez rendez-vous dans un centre spécialisée pour vous aider à arreter l'alcool ";
+    }
+   if ($rootScope.AntiepilepsyAnswer == 1)
+    $scope.conseil9 = " - Vous devez bénéficier d'une prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+    if ($rootScope.Phlebitis == 1)
+      $scope.conseil10 = " - Porter des bas de contention durant toute la grossesse et les 6 semaines après l'accouchement.  Il peut également être nécessaire de vous prescrire de l'héparine durant votre  grossesse et / ou après l'accouchement.  Discutez-en avec votre gynécologue.";
+
+    if ($rootScope.AntiHighBloodAnswer == 1)
+      $scope.conseil11 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+    if ($rootScope.InsulineAnswer == 1)
+      $scope.conseil12 = " -Vous devez être prise en charge par une équipe spécialisée pour le choix des antidiabetiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée. ";
+    if ($rootScope.IMC < 17){
+      $scope.conseil13 = "- Alimentez-vous correctement ";
+    }
+    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) {
+      $scope.conseil13 = " - Attention à ne pas prendre trop de poids ";
+    }
+    if ($rootScope.Work == 1){
+      if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12){
+        $scope.conseil15 = " - Essayer d'aménager vos heures de travail";
+      }
+      else if ($rootScope.NbWork > 12){
+        $scope.conseil15 = " - Essayer d'aménager vos heures de travail";
+      }
+      if ($rootScope.TimeTravel > 90){
+        $scope.conseil16 = " - Essayer d'aménager vos heures de présence au travail pour éviter les trajets";
+      }
+      if ($rootScope.StandingWork == 1){
+        $scope.conseil17 = " - Discuter dès à présent avec votre employeur d'aménager vos conditions de travail, vous allez être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
+      }
+    }
+
+
+
+
+///////////////////////////////////////////////////////////positif
+  
+  if ($rootScope.Age < 38)
+    $scope.positif1 = " - Vous avez le bon age";
+  if ($rootScope.Smoke == 0){
+      $scope.positif2 = "- Vous ne fumez pas ";
+    }
+
+    if ($rootScope.BigChild == 0 && $rootScope.LessChild == 0 && $rootScope.Prema == 0 && $rootScope.PreEclamp == 0 && $rootScope.Child == 1 && $rootScope.IMG == 0 && $rootScope.Miscarriage == 0)
+      $rootScope.positif3 = "- Vos précédente grossesse se sont bien passé .";
+    if ($rootScope.Alcool == 0){
+      $scope.positif8 = " - Vous ne buvez pas !";
+    }
+   if ($rootScope.HighBloodPresure == 0 && $rootScope.epilepsy == 0 && $rootScope.Phlebitis == 0 && $rootScope.diabetesH == 0)
+    $scope.positif9 = " - Vous ne présentez pas de problème de santé ayant un impac sur la grossesse";
+ if  ($rootScope.IMC <= 22 && $rootScope.IMC >= 17 ) {
+      $scope.positif13 = " - Votre poids est idéal ";
+    }
+    if ($rootScope.Work == 0){
+      $scope.profil18 = " - Vous ne travaillez pas vous pourrez donc prendre tout le temps pour vous occuper de vous et pre2parer la venu de votre enfant";
+      }
+
+    $scope.changeview = function() {
+      $state.go('step0');
+    }
+    $scope.continue = function() {
+        $state.go('app.launch');
+      }
+})
+.controller('stopIVGCtrl', function($scope, $state,$http,$rootScope){
+  $scope.data = {};
+  $scope.test = 
+  $scope.url = ""
+  $scope.nbReste = 14 - $rootScope.WeekPregnant;
+  console.log($rootScope.WeekPregnant);
+  console.log($rootScope.LastMenstruation);
+  $scope.submit = function(){
+
+  }
+
+})
+.controller('dateIVGCtrl', function($scope, $state,$http,$rootScope){
+
+ $scope.submit = function(gros) {
+  
+      // Date des dernieres regles //
+      $rootScope.LastMenstruation = new Date(gros);
+      $rootScope.WeekPregnant = Math.round(((new Date().getTime() - $rootScope.LastMenstruation.getTime()) / (1000 * 60 * 60 * 24)) / 7);
+    $state.go('stopIVG');
+    }
+})
+
 .controller('CongratsCtrl', function($scope, $state, $http, $rootScope){
   $scope.data = {};
   $scope.test = 
@@ -1126,7 +1412,7 @@ angular.module('starter.controllers', [])
       $rootScope.QLessChild = "Avez-vous accouché d'un enfant de moins de 2kg200 ?";
 
       $rootScope.QPrema = "Votre enfant était il prématuré ?";
-      $rootScope.PremaNo =  "Il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % pour la prochaine grossesse (si la femme a répondu pas encore enceinte) pour cette grossesse (si la dame a répondu oui je suis déjà enceinte)";
+      $rootScope.PremaNo =  "Il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
 
       $rootScope.QPreEclamp = "Avez-vous eu une pré-éclampsie ? ";
 
@@ -1149,7 +1435,7 @@ angular.module('starter.controllers', [])
       $rootScope.AlcoolAnswerHighoTen = "Vous avez peut être un problème de dépendance avec l'alcool, nous vous conseillons une consultation spécialisée afin de faire le point.";
 
       $rootScope.QEpilepsy = "Avez-vous une épilepsie ? ";
-      $rootScope.EpilepsyAnswer = "A cause de votre épilepsie, vous présentez une grossesse à risque. Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+      $rootScope.EpilepsyAnswer = "Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
 
       $rootScope.QPhlebitis = "Avez-vous déjà eu une phlébite ?";
       $rootScope.PhlebitisAnswer = "Votre condition de femme enceinte augmente votre risque de récidive de phlébite et ce jusqu'à 6 semaines après l'accouchement. Vous devez porter des bas de contention durant toute la grossesse et les 6 semaines après l'accouchement. Il peut être nécessaire de vous prescrire de l'héparine durant la grossesse et ou après l'accouchement. Vous devrez en discuter avec votre gynécologue.";

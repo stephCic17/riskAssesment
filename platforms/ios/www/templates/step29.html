@@ -1,0 +1,39 @@
+<ion-view name=step29-view>
+<ion-content class="noscroll">
+    <div class="progressingDiv">
+    <div class="progressingInsideDiv" style="width:66%;"><p class="transparentText">t </p></div></div>
+  </ion-content> 
+  <ion-content class="containQuestion">
+ 
+     <h3 class="questionText">Vous et votre psychologie</h3>
+<form name="med" ng-submit="Submit(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer )" novalidate="">
+  <ion-list>
+    <ion-checkbox ng-model="AngoisseCriseAnswer">
+      Crises d'angoisse
+    </ion-checkbox>
+    <ion-checkbox ng-model="BoulimieAnswer">
+      Boulimie
+    </ion-checkbox>
+    <ion-checkbox ng-model="AnorexieAnswer">
+      Anorexie
+    </ion-checkbox>
+    <ion-checkbox ng-model="TocAnswer">
+      Trouble Obsessionnels compulsif TOC
+    </ion-checkbox>
+      <ion-checkbox ng-model="DepressionAnswer">
+      Dépression
+      </ion-checkbox>
+       <ion-checkbox ng-model="PhobieAnswer">
+      Phobie
+      </ion-checkbox>
+       <ion-checkbox ng-model="BipolaireAnswer">
+      trouble bipolaires
+      </ion-checkbox>
+      <ion-checkbox ng-model="HPAnswer">
+      hospitalisation dans un service psychiatrique
+      </ion-checkbox>
+  </ion-list>
+   <button type="Submit">{{OK}}</button>
+</form>
+   </ion-content>
+</ion-view>

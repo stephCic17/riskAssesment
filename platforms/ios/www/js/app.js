@@ -210,12 +210,31 @@ url:'/step28',
 templateUrl: 'templates/step28.html',
 controller: 'Step28Ctrl'
 })
-
+.state('step29', {
+url:'/step29',
+templateUrl: 'templates/step29.html',
+controller: 'Step29Ctrl'
+})
+.state('stopIVG', {
+url:'/stopIVG',
+templateUrl: 'templates/stopIVG.html',
+controller: 'stopIVGCtrl'
+})
+.state('dateIVG', {
+url:'/dateIVG',
+templateUrl: 'templates/dateIVG.html',
+controller: 'dateIVGCtrl'
+})
 
 .state('step0', {
       url: '/step0',
           templateUrl: 'templates/step0.html',
           controller: 'Step0Ctrl'
+    })
+.state('step00', {
+      url: '/step00',
+          templateUrl: 'templates/step00.html',
+          controller: 'Step00Ctrl'
     })
   .state('tab.dash', {
     url: '/dash',

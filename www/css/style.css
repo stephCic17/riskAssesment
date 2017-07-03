@@ -1,4 +1,28 @@
 /* Empty. Add your own CSS if you like */
+
+.resultDivRisk {
+ background-color: rgba(255,153,153, 0.5);
+ padding: 4px;
+}
+.resultDivRisk p{
+ text-align: left;
+ font-size: .9em;
+}
+
+.resultDivConseil {
+ background-color: rgba(106,144,149, 0.5);
+}
+.resultDivConseil p {
+ text-align: left;
+ font-size: .9em;
+}
+.resultDivPositif {
+ background-color: rgba(230,230,230, 0.5);
+}
+.resultDivPositif p{
+ text-align: left;
+ font-size: .9em;
+}
 .progressingDiv{
   min-width:100%;
   height:10px;
@@ -79,7 +103,6 @@ border-color: rgb(106,144,149);
 	border-radius: 5px;
   font-weight: bold;
 	min-width: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.3);
 }
 
 
