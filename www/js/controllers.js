@@ -1144,7 +1144,7 @@ angular.module('starter.controllers', [])
      $scope.Positif = "Félicitation vous allez avoir votre premier enfant"; 
     }
     else if ($rootScope.Age < 38)
-      $scope.Positif = "Vous avez le bon age pour faire un enfant";
+      $scope.Positif = "Vous avez le bon l'âge optimal pour faire un enfantt";
     document.getElementById("Positif").setAttribute('style','color : green');
     if ($rootScope.score >= 200) {
 
@@ -1170,28 +1170,28 @@ angular.module('starter.controllers', [])
       $scope.profil1 = $rootScope.RAgeB;
     }
     else if ( $rootScope.Age < 42 ){
-      $scope.risk1 = " - Votre Age, vous présentez un risque élevé d'anomalie chromosomique foetale";
+      $scope.risk1 = " - A votre Age, vous présentez un risque élevé d'anomalie chromosomique foetale";
     }
     else if ( $rootScope.Age >= 42 ){
-      $scope.risk1 = " - Votre Age, vous présentez un risque très élevé d'anomalie chromosomique foetale";
+      $scope.risk1 = " - A votre Age, vous présentez un risque très élevé d'anomalie chromosomique foetale";
     }
     
     if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1){
-      $scope.risk2 = " - Vous fumez, ce qui peut entrainer de nombreuse complication.";
+      $scope.risk2 = " - Vous fumez, ce qui peut entrainer de nombreuses complications.";
     }
     else if ($rootScope.Smoke == 1){
-      $scope.risk2 = "- Vous fumez, ce qui va entrainer de nombreuse complication lors d'une futur grossesse.";
+      $scope.risk2 = "- Vous fumez, ce qui va entrainer de nombreuses complications lors d'une future grossesse.";
     }
 
     if ($rootScope.BigChild == 1)
-      $rootScope.risk3 = "- Vous avez eus un enfant de  + de 4kg, ce qui peut favoriser l'apparition du diabete de grossesse";
+      $rootScope.risk3 = "- Vous avez eus un enfant de  + de 4kg, ce qui peut favoriser l'apparition du vous place dans un groupe à risque de développer un diabète de grossesse";
 
     if ($rootScope.Prema == 0 && $rootScope.LessChild == 1)
-      $rootScope.risk4 =  "Vous avez eu un enfant de -2k200 qui n'était pas prématuré, il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
+      $rootScope.risk4 =  "Vous avez eu un enfant de - de 2kg200 qui n'était pas prématuré, il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
     if ($rootScope.NbMiacarriage >= 3)
-      $rootScope.risk6 = "- Vous avez eus un nombre élevé de fausse couches";
+      $rootScope.risk6 = "- Vous avez eu un nombre élevé de fausse couches";
     if ($rootScope.IMG == 1)
-      $rootScope.risk7 = " - Vous avez déjà effectué une IMG vous avez donc un risque de récidive";
+      $rootScope.risk7 = " - Vous avez déjà effectué une IMG et vous pourriez avoir un risque de récidive";
     if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0){
       $scope.risk8 = " - Vous consommez de l'alcool";
     }
@@ -1247,10 +1247,10 @@ angular.module('starter.controllers', [])
 ///////////////////////////////////////////////////////////Conseil
 
     if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1){
-      $scope.conseil2 = " - Arretez de fumer !";
+      $scope.conseil2 = " - Arrêtez de fumer !";
     }
     else if ($rootScope.Smoke == 1){
-      $scope.conseil2 = "- Arretez de fumer avant d'entammer une grossesse ! ";
+      $scope.conseil2 = "- Arrêtez de fumer avant d'entammer une grossesse ! ";
     }
 
     if ($rootScope.BigChild == 1 && $rootScope.diabetesH == 0)
@@ -1261,23 +1261,24 @@ angular.module('starter.controllers', [])
        $rootScope.conseil4 = "- Vous devez prendre de acide folique au dosage de 0,4 mg par jour avant la conception et jusqu'au 3 ème mois de grossesse.";
       
     if ($rootScope.NbMiacarriage >= 3)
-      $rootScope.conseil6 = " - Effectuer un bilan de fausse couche à répétition et bénéficier d'une prise en charge adaptée en fonction des résultats de ce bilan.";
+      $rootScope.conseil6 = " - Effectuez un bilan de fausse couche à répétition et bénéficiez d'une prise en charge adaptée en fonction des résultats de ce bilan.";
     if ($rootScope.IMG == 1)
-      $rootScope.conseil7 = " - Prennez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
+      $rootScope.conseil7 = " - Prenez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
     if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 1){
-      $scope.conseil8 = " - Stopper votre consommation d'alcool !";
+      $scope.conseil8 = " - Stoppez votre consommation d'alcool !";
     }
     else if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 0){
       $scope.conseil8 = " - Il sera nécessaire de stopper votre consommation d'alcool lorsque vous serez enceinte!";
     }
     
     else if ($rootScope.Alcool >= 10){
-      $scope.conseil8 = " - Prennez rendez-vous dans un centre spécialisée pour vous aider à arreter l'alcool ";
+      $scope.conseil8 = " - Prenez rendez-vous dans un centre spécialisée pour vous aider à arrêter l'alcool ";
     }
    if ($rootScope.AntiepilepsyAnswer == 1)
-    $scope.conseil9 = " - Vous devez bénéficier d'une prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
-    if ($rootScope.Phlebitis == 1)
-      $scope.conseil10 = " ";
+    $scope.conseil9 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+    if ($rootScope.AntiCoagulentAnswer == 1)
+      $scope.conseil10 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+
 
     if ($rootScope.AntiHighBloodAnswer == 1)
       $scope.conseil11 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
@@ -1297,10 +1298,10 @@ angular.module('starter.controllers', [])
         $scope.conseil15 = " - Essayer d'aménager vos heures de travail";
       }
       if ($rootScope.TimeTravel > 90){
-        $scope.conseil16 = " - Essayer d'aménager vos heures de présence au travail pour éviter les trajets";
+        $scope.conseil16 = " - Essayer d'aménager vos heures de présence au travail pour diminuer les temps de trajets.";
       }
       if ($rootScope.StandingWork == 1){
-        $scope.conseil17 = " - Discuter dès à présent avec votre employeur d'aménager vos conditions de travail, vous allez être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
+        $scope.conseil17 = " - Nous vous conseillons de discuter dès à présent avec votre employeur de la possibilité d'aménager vos conditions de travail. Vous risquez d'être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
       }
     }
 
@@ -1310,13 +1311,15 @@ angular.module('starter.controllers', [])
 ///////////////////////////////////////////////////////////positif
   
   if ($rootScope.Age < 38)
-    $scope.positif1 = " - Vous avez le bon age pour faire un enfant";
+    $scope.positif1 = " - Vous avez le bon l'âge optimal pour faire un enfant";
   if ($rootScope.Smoke == 0){
       $scope.positif2 = "- Vous ne fumez pas ";
     }
 
     if ($rootScope.BigChild == 0 && $rootScope.LessChild == 0 && $rootScope.Prema == 0 && $rootScope.PreEclamp == 0 && $rootScope.Child == 1 && $rootScope.IMG == 0 && $rootScope.Miscarriage == 0)
-      $rootScope.positif3 = "- Vos précédente grossesse se sont bien passé .";
+      $rootScope.positif3 = "- Vos précédentes grossesses se sont bien passées .";
+    if ($rootScope.IMG == 1)
+      $scope.profil4 = " - La plus grande partie des anomalies foetales sont des accidents et leur récidive est rare";
     if ($rootScope.Alcool == 0){
       $scope.positif8 = " - Vous ne buvez pas !";
     }
@@ -1326,7 +1329,7 @@ angular.module('starter.controllers', [])
       $scope.positif13 = " - Votre poids est idéal ";
     }
     if ($rootScope.Work == 0){
-      $scope.profil18 = " - Vous ne travaillez pas vous pourrez donc prendre tout le temps pour vous occuper de vous et préparer la venu de votre enfant";
+      $scope.profil18 = " - Vous ne travaillez pas, vous pouvez donc prendre le temps de vous occuper de vous et préparer la venue de votre enfant ";
       }
 
     $scope.changeview = function() {
