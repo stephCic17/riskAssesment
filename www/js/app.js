@@ -7,6 +7,10 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
+
+ })
+
 .run(function($ionicPlatform) {
   
   $ionicPlatform.ready(function() {
@@ -31,7 +35,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
+ .state('app',{
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -40,11 +49,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
-.state('home', {
+.state('app.home', {
   url: '/home',
+  views: {
+'menuContent': {
   templateUrl: 'templates/home.html',
   controller: 'HomeCtrl'
+}
+}
   })
+.state('app.psychoHome', {
+  url: '/psychoHome',
+  views: {
+'menuContent': {
+  templateUrl: 'templates/psychoTest/psychoHome.html',
+  controller: 'PsychoHomeCtrl'
+}
+}
+})
+.state('psycho1', {
+url:'/psycho1',
+templateUrl: 'templates/psychoTest/psycho1.html',
+controller: 'Psycho1Ctrl'
+})
+.state('psycho2', {
+url:'/psycho2',
+templateUrl: 'templates/psychoTest/psycho2.html',
+controller: 'Psycho2Ctrl'
+})
 
 .state('step1', {
 url:'/step1',
@@ -210,11 +242,7 @@ url:'/step28',
 templateUrl: 'templates/step28.html',
 controller: 'Step28Ctrl'
 })
-.state('step29', {
-url:'/step29',
-templateUrl: 'templates/step29.html',
-controller: 'Step29Ctrl'
-})
+
 .state('stopIVG', {
 url:'/stopIVG',
 templateUrl: 'templates/stopIVG.html',
@@ -231,10 +259,14 @@ controller: 'dateIVGCtrl'
           templateUrl: 'templates/step0.html',
           controller: 'Step0Ctrl'
     })
+
 .state('step00', {
       url: '/step00',
+        views: {
+'menuContent': {
           templateUrl: 'templates/step00.html',
           controller: 'Step00Ctrl'
+}}
     })
   .state('tab.dash', {
     url: '/dash',
@@ -276,6 +308,6 @@ controller: 'dateIVGCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/app/home');
 
 });

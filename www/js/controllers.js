@@ -3,9 +3,10 @@ angular.module('starter.controllers', [])
 .config(function($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('ion-chevron-left custom-icon');
 })
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $rootScope) {
 
-    })
+})
 
 .controller('RecordCtrl', function($scope, $state,  $http, $rootScope) {
     $scope.continue = function() {
@@ -13,6 +14,16 @@ angular.module('starter.controllers', [])
     }
 })
 
+.controller('PsychoHomeCtrl', function($scope, $state, $http , $rootScope){
+$scope.data = {};
+$scope.test =
+url = ""
+console.log('toto');
+$scope.goPsycho = function(){
+  $state.go('psycho1');
+}
+
+})
 .controller('Step1Ctrl', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
@@ -873,7 +884,7 @@ angular.module('starter.controllers', [])
       else {
         $rootScope.Work= 0;
       if (yes == true || no == true )
-        $state.go('step00');
+        $state.go('app.step00');
       }
     }
 })
@@ -900,7 +911,7 @@ angular.module('starter.controllers', [])
     if ($rootScope.TimeTravel > 90)
       $rootScope.score += 2; 
     if ($rootScope.NbWork <= 6)     
-      $state.go('step00');
+      $state.go('app.step00');
     else
       $state.go('step28');
   }
@@ -944,40 +955,8 @@ angular.module('starter.controllers', [])
       else
         $rootScope.StandingWork = 0;
       if (yes == true || no == true )
-      $state.go('step00');
+      $state.go('app.step00');
     }
-})
-.controller('Step29Ctrl', function($scope, $state,  $http, $rootScope) {
-  $scope.data = {};
-  $scope.test = 
-  url = ""
-  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1)
-        $rootScope.scorePsy += 2;
-        $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $state.go('step00');
-  }
 })
 
 .controller('Step30Ctrl', function($scope, $state,  $http, $rootScope) {
@@ -1009,7 +988,7 @@ angular.module('starter.controllers', [])
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1)
         $rootScope.scorePsy += 2;
-    $state.go('step00');
+    $state.go('app.step00');
   }
 })
 .controller('Step0Ctrl', function($scope, $state, $http, $rootScope) {
@@ -1127,7 +1106,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.changeview = function() {
-      $state.go('step00');
+      $state.go('app.step00');
     }
     $scope.continue = function() {
         $state.go('app.launch');
@@ -1845,6 +1824,73 @@ angular.module('starter.controllers', [])
     }
 
 })
+
+.controller('Psycho1Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('psycho2');
+  }
+})
+.controller('Psycho2Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('psycho2');
+  }
+})
+
+
 
 .controller('DashCtrl', function($scope) {})
 
