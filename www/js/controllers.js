@@ -1883,7 +1883,10 @@ $scope.goPsycho = function(){
     $rootScope.spermDonation = spermDonation;
     if ($rootScope.spermDonation == 1)
         $rootScope.scorePsy2 += 2;
-    $state.go('psycho3');
+    if ($rootScope.Child == 1)
+      $state.go('psycho3');
+    else 
+      $state.go('psycho4');
   }
 })
 
@@ -1891,31 +1894,35 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1)
-        $rootScope.scorePsy += 2;
-        $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1)
-        $rootScope.scorePsy += 2;
+  $scope.Submit = function(forceps, ventouse, urgenceCesa, generalAnest, hemorragie, babySeparation, dieDelevery, dieBaby, traumaDelevery){
+    $rootScope.forceps = forceps;
+    if ($rootScope.forceps == 1)
+        $rootScope.scorePsy3 += 1;
+    $rootScope.ventouse = ventouse;
+    if ($rootScope.ventouse == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.urgenceCesa = urgenceCesa;
+    if ($rootScope.urgenceCesa == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.generalAnest = generalAnest;
+    if ($rootScope.generalAnest == 1)
+        $rootScope.scorePsy3 += 1;
+    $rootScope.hemorragie = hemorragie;
+    if ($rootScope.hemorragie == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.babySeparation = babySeparation;
+    if ($rootScope.babySeparation == 1)
+        $rootScope.scorePsy3 += 5;
+    $rootScope.dieDelevery = dieDelevery;
+    if ($rootScope.dieDelevery == 1)
+        $rootScope.scorePsy3 += 5;
+        $rootScope.dieBaby = dieBaby;
+    if ($rootScope.dieBaby == 1)
+        $rootScope.scorePsy3 += 5;
+      $rootScope.traumaDelevery = traumaDelevery;
+    if ($rootScope.traumaDelevery == 1)
+        $rootScope.scorePsy3 += 5;
+
     $state.go('psycho2');
   }
 })
