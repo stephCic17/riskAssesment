@@ -1886,10 +1886,114 @@ $scope.goPsycho = function(){
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1)
         $rootScope.scorePsy += 2;
-    $state.go('psycho2');
+    $state.go('psycho3');
   }
 })
 
+.controller('Psycho3Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('psycho2');
+  }
+})
+.controller('Psycho4Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('psycho5');
+  }
+})
+.controller('Psycho5Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1)
+        $rootScope.scorePsy += 1;
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1)
+        $rootScope.scorePsy += 2;
+    $state.go('psychoResult');
+  }
+})
+.controller('PsychoResult', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(){
+
+  }
+})
 
 
 .controller('DashCtrl', function($scope) {})
