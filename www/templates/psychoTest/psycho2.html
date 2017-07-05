@@ -11,16 +11,13 @@
     <ion-checkbox ng-model="procreation">
       recours à l'aide médicale à la procréation  
     </ion-checkbox>
-    <div ng-hide="procreation == 1">
+    <div ng-hide="procreation == 0">
       <p>combien d'années avez vous passé entre le début du traitement et l'arrivée d'une grossesse
     <input type="number" ng-model="yearsProcreation"> </p>
       </div>  
     </ion-checkbox>
     <ion-checkbox ng-model="AnorexieAnswer">
       Anorexie
-    </ion-checkbox>
-    <ion-checkbox ng-hide="AnorexieAnswer == 0" ng-model="TocAnswer">
-      Trouble Obsessionnels compulsif TOC
     </ion-checkbox>
       <ion-checkbox ng-model="DepressionAnswer">
       Dépression
