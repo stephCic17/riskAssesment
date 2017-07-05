@@ -1943,75 +1943,44 @@ $scope.goPsycho = function(){
   $scope.Submit = function(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy){
     $rootScope.FCPsy = FCPsy;
     if ($rootScope.FCPsy == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy4 += 1;
     $rootScope.IVGPsy = IVGPsy;
     if ($rootScope.IVGPsy == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 1;
     $rootScope.GEUPsy = GEUPsy;
     if ($rootScope.GEUPsy == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 1;
     $rootScope.DieIV = DieIV;
     if ($rootScope.DieIV == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy4 += 2;
     $rootScope.IMGPsy = IMGPsy;
     if ($rootScope.IMGPsy == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 2;
     $rootScope.ISGPsy = ISGPsy;
     if ($rootScope.ISGPsy == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy4 += 3;
     $rootScope.ChildHand = ChildHand;
     if ($rootScope.ChildHand == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 3;
         $rootScope.ChildPrema = ChildPrema;
     if ($rootScope.ChildPrema == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 1;
         $rootScope.ChildChronique = ChildChronique;
     if ($rootScope.ChildChronique == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 3;
             $rootScope.DieBabyPsy = DieBabyPsy;
     if ($rootScope.DieBabyPsy == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 3;
             $rootScope.PregnantTraumaPsy = PregnantTraumaPsy;
     if ($rootScope.PregnantTraumaPsy == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 10;
         $rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
     if ($rootScope.TraumaExperiencePsy == 1)
-        $rootScope.scorePsy += 2;
-    $state.go('psycho5');
-  }
-})
-.controller('Psycho5Ctrl', function($scope, $state,  $http, $rootScope) {
-  $scope.data = {};
-  $scope.test = 
-  url = ""
-  $scope.Submit = function(){
-    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1)
-        $rootScope.scorePsy += 2;
-        $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy4 += 10;
     $state.go('psychoResult');
   }
 })
+
 .controller('PsychoResult', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
