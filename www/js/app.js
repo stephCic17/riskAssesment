@@ -77,6 +77,21 @@ url:'/psycho2',
 templateUrl: 'templates/psychoTest/psycho2.html',
 controller: 'Psycho2Ctrl'
 })
+.state('psycho3', {
+url:'/psycho3',
+templateUrl: 'templates/psychoTest/psycho3.html',
+controller: 'Psycho3Ctrl'
+})
+.state('psycho4', {
+url:'/psycho4',
+templateUrl: 'templates/psychoTest/psycho4.html',
+controller: 'Psycho4Ctrl'
+})
+.state('psycho5', {
+url:'/psycho5',
+templateUrl: 'templates/psychoTest/psycho5.html',
+controller: 'Psycho5Ctrl'
+})
 
 .state('step1', {
 url:'/step1',

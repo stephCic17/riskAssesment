@@ -1930,30 +1930,52 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1)
+  $scope.FCPsy = 0;
+  $scope.IVGPsy = 0;
+  $scope.GEUPsy = 0;
+  $scope.DieIV = 0;
+  $scope.IMGPsy = 0;
+  $scope.ISGPsy = 0;
+  $scope.ChildHand = 0;
+  $scope.ChildPrema = 0;
+  $scope.ChildChronique = 0;
+  $scope.DieBabyPsy = 0;
+  $scope.Submit = function(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy){
+    $rootScope.FCPsy = FCPsy;
+    if ($rootScope.FCPsy == 1)
         $rootScope.scorePsy += 1;
-    $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1)
+    $rootScope.IVGPsy = IVGPsy;
+    if ($rootScope.IVGPsy == 1)
         $rootScope.scorePsy += 2;
-    $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1)
+    $rootScope.GEUPsy = GEUPsy;
+    if ($rootScope.GEUPsy == 1)
         $rootScope.scorePsy += 2;
-    $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1)
+    $rootScope.DieIV = DieIV;
+    if ($rootScope.DieIV == 1)
         $rootScope.scorePsy += 1;
-    $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1)
+    $rootScope.IMGPsy = IMGPsy;
+    if ($rootScope.IMGPsy == 1)
         $rootScope.scorePsy += 2;
-    $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1)
+    $rootScope.ISGPsy = ISGPsy;
+    if ($rootScope.ISGPsy == 1)
         $rootScope.scorePsy += 1;
-    $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1)
+    $rootScope.ChildHand = ChildHand;
+    if ($rootScope.ChildHand == 1)
         $rootScope.scorePsy += 2;
-        $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1)
+        $rootScope.ChildPrema = ChildPrema;
+    if ($rootScope.ChildPrema == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.ChildChronique = ChildChronique;
+    if ($rootScope.ChildChronique == 1)
+        $rootScope.scorePsy += 2;
+            $rootScope.DieBabyPsy = DieBabyPsy;
+    if ($rootScope.DieBabyPsy == 1)
+        $rootScope.scorePsy += 2;
+            $rootScope.PregnantTraumaPsy = PregnantTraumaPsy;
+    if ($rootScope.PregnantTraumaPsy == 1)
+        $rootScope.scorePsy += 2;
+        $rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
+    if ($rootScope.TraumaExperiencePsy == 1)
         $rootScope.scorePsy += 2;
     $state.go('psycho5');
   }
@@ -1962,7 +1984,7 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+  $scope.Submit = function(){
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1)
         $rootScope.scorePsy += 1;
