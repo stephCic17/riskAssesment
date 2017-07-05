@@ -1832,28 +1832,28 @@ $scope.goPsycho = function(){
   $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy1 += 1;
     $rootScope.BoulimieAnswer = BoulimieAnswer;
     if ($rootScope.BoulimieAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy1 += 2;
     $rootScope.AnorexieAnswer = AnorexieAnswer;
     if ($rootScope.AnorexieAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy1 += 2;
     $rootScope.TocAnswer = TocAnswer;
     if ($rootScope.TocAnswer == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy1 += 1;
     $rootScope.DepressionAnswer = DepressionAnswer;
     if ($rootScope.DepressionAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy1 += 2;
     $rootScope.PhobieAnswer = PhobieAnswer;
     if ($rootScope.PhobieAnswer == 1)
-        $rootScope.scorePsy += 1;
+        $rootScope.scorePsy1 += 1;
     $rootScope.BipolaireAnswer = BipolaireAnswer;
     if ($rootScope.BipolaireAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy1 += 2;
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1)
-        $rootScope.scorePsy += 2;
+        $rootScope.scorePsy1 += 2;
     $state.go('psycho2');
   }
 })
@@ -1862,31 +1862,27 @@ $scope.goPsycho = function(){
   $scope.test = 
   url = ""
   $scope.procreation = 0;
-  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1)
-        $rootScope.scorePsy += 2;
-    $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1)
-        $rootScope.scorePsy += 1;
-    $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1)
-        $rootScope.scorePsy += 2;
-        $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1)
-        $rootScope.scorePsy += 2;
+  $scope.Submit = function(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation){
+    $rootScope.procreation = procreation;
+    if ($rootScope.procreation == 1)
+        $rootScope.scorePsy2 += 1;
+    $rootScope.yearsProcreation = yearsProcreation;
+    if ($rootScope.yearsProcreation <= 2)
+        $rootScope.scorePsy2 += 1;
+    else if ($rootScope.yearsProcreation >= 3)
+        $rootScope.scorePsy2 += 2;
+
+    $rootScope.NbProcreation = NbProcreation;
+    if ($rootScope.NbProcreation <= 2)
+        $rootScope.scorePsy2 += 1;
+    else if ($rootScope.NbProcreation > 2)
+        $rootScope.scorePsy2 += 2;
+    $rootScope.OocyteDonation = OocyteDonation;
+    if ($rootScope.OocyteDonation == 1)
+        $rootScope.scorePsy2 += 2;
+    $rootScope.spermDonation = spermDonation;
+    if ($rootScope.spermDonation == 1)
+        $rootScope.scorePsy2 += 2;
     $state.go('psycho3');
   }
 })
