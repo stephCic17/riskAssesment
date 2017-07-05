@@ -1861,6 +1861,7 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
+  $scope.procreation = 0;
   $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1)
