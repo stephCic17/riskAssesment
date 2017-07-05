@@ -8,11 +8,13 @@
      <h3 class="questionText">Vous et votre fertilité</h3>
 <form name="med" ng-submit="Submit(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer )" novalidate="">
   <ion-list>
-    <ion-checkbox ng-model="AngoisseCriseAnswer">
+    <ion-checkbox ng-model="procreation">
       recours à l'aide médicale à la procréation  
     </ion-checkbox>
-    <ion-checkbox ng-model="BoulimieAnswer">
-      Boulimie
+    <div ng-hide="procreation == 1">
+      <p>combien d'années avez vous passé entre le début du traitement et l'arrivée d'une grossesse
+    <input type="number" ng-model="yearsProcreation"> </p>
+      </div>  
     </ion-checkbox>
     <ion-checkbox ng-model="AnorexieAnswer">
       Anorexie
