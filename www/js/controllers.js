@@ -1857,6 +1857,7 @@ $scope.goPsycho = function(){
     $state.go('psycho2');
   }
 })
+
 .controller('Psycho2Ctrl', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
@@ -1987,17 +1988,57 @@ $scope.goPsycho = function(){
   url = ""
   $scope.Submit = function(){
      if ($rootScope.scorePsy1 >= 2) {
-      $rootScope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver votre";
-      if ( $rootScope.AngoisseCriseAnswer == 1 
-        || $rootScope.BoulimieAnswer == 1 
-        || $rootScope.AnorexieAnswer == 1 
-        || $rootScope.TocAnswer == 1
-        || $rootScope.DepressionAnswer == 1
-        || $rootScope.PhobieAnswer == 1
-        || $rootScope.BipolaireAnswer == 1
-        || $rootScope.HPAnswer == 1) {
-        $rootScope.profilPsy1 += "toto";
-      }
+      $rootScope.scorePsyAdd = $rootScope.AngoisseCriseAnswer 
+      + $rootScope.BoulimieAnswer 
+      + $rootScope.AnorexieAnswer
+      + $rootScope.TocAnswer
+      + $rootScope.DepressionAnswer
+      + $rootScope.PhobieAnswer
+      + $rootScope.BipolaireAnswer;
+        if ($rootScope.scorePsyAdd > 1)
+          $rootScope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
+        $rootScope.profil1Psy1End = " ";
+        if ($rootScope.AngoisseCriseAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos crise d'angoisses";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre boulimie";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.TocAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre anorexie";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos TOC";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre dépression";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos phobies";
+          $rootScope.scorePsyAdd -= 1;
+          if ($rootScope.scorePsyAdd >= 1)
+            $rootScope.profil1Psy1End += ", ";
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos troubles bipolaires";
+        }
+        $rootScope.profil1Psy1End += ".";
+        $rootScope.profilPsy1 += $rootScope.profil1Psy1End;
     }
   }
 })
