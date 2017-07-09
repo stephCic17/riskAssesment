@@ -954,7 +954,6 @@ $scope.goPsycho = function(){
       }
       else
         $rootScope.StandingWork = 0;
-      if ($scope.yesc == true || $scope.noc == true )
       $state.go('app.step00');
     }
 })

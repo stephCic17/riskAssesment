@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 }
 }
   })
+.state('step00', {
+   url: '/step00',
+   views: {
+    'menuContent': {
+      templateUrl: 'templates/step00.html',
+      controller: 'Step00Ctrl'
+    } 
+  }
+ })
+ 
 .state('app.psychoHome', {
   url: '/psychoHome',
   views: {
@@ -270,14 +280,7 @@ controller: 'dateIVGCtrl'
           controller: 'Step0Ctrl'
     })
 
-.state('step00', {
-      url: '/step00',
-'menuContent': {
-          templateUrl: 'templates/step00.html',
-          controller: 'Step00Ctrl'
-}
-    })
-  .state('tab.dash', {
+ .state('tab.dash', {
     url: '/dash',
     views: {
       'tab-dash': {
