@@ -272,11 +272,10 @@ controller: 'dateIVGCtrl'
 
 .state('step00', {
       url: '/step00',
-        views: {
 'menuContent': {
           templateUrl: 'templates/step00.html',
           controller: 'Step00Ctrl'
-}}
+}
     })
   .state('tab.dash', {
     url: '/dash',
