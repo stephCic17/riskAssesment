@@ -1981,7 +1981,7 @@ $scope.goPsycho = function(){
   }
 })
 
-.controller('PsychoResultCtrl', function($scope, $state,  $http, $rootScope) {
+.controller('PsychoResult', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
   url = ""
@@ -2037,7 +2037,8 @@ $scope.goPsycho = function(){
           $rootScope.profil1Psy1End += "vos troubles bipolaires";
         }
         $rootScope.profil1Psy1End += ".";
-        $scope.profilPsy1 += $rootScope.profil1Psy1End;
+        $rootScope.profilPsy1 += $rootScope.profil1Psy1End;
+        $scope.profilPsy1 = $rootScope.profilPsy1;
     }
   }
 })
