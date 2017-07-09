@@ -1923,7 +1923,7 @@ $scope.goPsycho = function(){
     if ($rootScope.traumaDelevery == 1)
         $rootScope.scorePsy3 += 5;
 
-    $state.go('psycho2');
+    $state.go('app.psychoResult');
   }
 })
 .controller('Psycho4Ctrl', function($scope, $state,  $http, $rootScope) {
