@@ -1981,7 +1981,7 @@ $scope.goPsycho = function(){
   }
 })
 
-.controller('PsychoResult', function($scope, $state,  $http, $rootScope) {
+.controller('PsychoResultCtrl', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
   url = ""
