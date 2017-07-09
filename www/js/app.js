@@ -77,6 +77,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 }
 }
 })
+.state('app.psychoResult', {
+  url: '/psychoResult',
+  views: {
+'menuContent': {
+  templateUrl: 'templates/psychoTest/psychoResult.html',
+  controller: 'PsychoResultCtrl'
+}
+}
+})
+
 .state('psycho1', {
 url:'/psycho1',
 templateUrl: 'templates/psychoTest/psycho1.html',
