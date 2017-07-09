@@ -120,13 +120,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true)
+      if ($scope.yesc==true)
         $rootScope.PregnantGood = 1;
       else
         $rootScope.PregnantBad = 0;
-      if (yes == true )
+      if ($scope.yesc == true )
           $state.go('step3');
-      if (no == true)
+      if ($scope.noc == true)
         $state.go('dateIVG');
     }
 })
