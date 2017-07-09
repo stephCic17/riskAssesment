@@ -911,7 +911,7 @@ $scope.goPsycho = function(){
     if ($rootScope.TimeTravel > 90)
       $rootScope.score += 2; 
     if ($rootScope.NbWork <= 6)     
-      $state.go('app.step00');
+      $state.go('step28');
     else
       $state.go('step28');
   }
