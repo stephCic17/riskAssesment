@@ -2040,6 +2040,8 @@ $scope.goPsycho = function(){
         $rootScope.profilPsy1 += $rootScope.profil1Psy1End;
         $scope.profilPsy1 = $rootScope.profilPsy1;
     }
+        $scope.profilPsy1 = $rootScope.profilPsy1;
+
   }
 })
 
