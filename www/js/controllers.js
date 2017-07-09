@@ -1289,7 +1289,7 @@ $scope.goPsycho = function(){
 ///////////////////////////////////////////////////////////positif
   
   if ($rootScope.Age < 38)
-    $scope.positif1 = " - Vous avez le bon l'âge optimal pour faire un enfant";
+    $scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
   if ($rootScope.Smoke == 0){
       $scope.positif2 = "- Vous ne fumez pas ";
     }
