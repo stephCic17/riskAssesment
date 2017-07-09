@@ -261,13 +261,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.BigChild = 1;
         $rootScope.score += 50;
         }
       else 
         $rootScope.BigChild = 0;
-      if (yes == true || no == true ) {
+      if ($scope.yesc == true || $scope.noc == true ) {
         if ($rootScope.HChild == 1 && $rootScope.BigChild == 1)
           $state.go('step9');
        else
@@ -307,14 +307,14 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.LessChild = 1;
         $rootScope.score += 50;
         $state.go('step9');
       }
       else {
         $rootScope.LessChild = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
         $state.go('step10');
       }
     }
@@ -351,13 +351,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.Prema = 1;
         $rootScope.score += 50;
       }
       else
         $rootScope.Prema = 0;
-       if (yes == true || no == true )
+       if ($scope.yesc == true || $scope.noc == true )
       $state.go('step10');
     }
 })
@@ -393,13 +393,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.PreEclamp = 1;
         $rootScope.score += 50;
       }
       else
         $rootScope.PreEclamp = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step11');
     }
 })
@@ -436,13 +436,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.PregnantDiabete = 1;
         $rootScope.score += 2;
       }
       else
         $rootScope.PregnantDiabete = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step13');
     }
 })
@@ -494,10 +494,10 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.Miscarriage= 1;
         $rootScope.score += 2;
-      if (yes == true)
+      if ($scope.yesc == true)
         $state.go('step14');
       }
       else {
@@ -549,13 +549,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.IMG = 1;
         $rootScope.score += 2;
       }
       else
         $rootScope.IMG = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step16');
     }
 })
@@ -608,13 +608,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.score += 200;
         $rootScope.Epilepsy = 1;
       }
       else
         $rootScope.Epilepsy = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step18');
     }
 })
@@ -651,13 +651,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.Phlebitis = 1;
         $rootScope.score += 2;
       }
       else
         $rootScope.Phlebitis = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step19');
     }
 })
@@ -693,13 +693,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.HighBloodPresure = 1;
         $rootScope.score += 2;
       }
       else
         $rootScope.HighBloodPresure = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step20');
     }
 })
@@ -737,13 +737,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.diabetesH = 1;
         $rootScope.score += 50;
       }
       else
         $rootScope.diabetesH = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('step21');
     }
 })
@@ -779,7 +779,7 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.Medicament= 1;
         $state.go('step22');
       }
@@ -877,13 +877,13 @@ $scope.goPsycho = function(){
      }
     }
     $scope.Submit = function(yes, no){
-      if (yes==true){
+      if ($scope.yesc==true){
         $rootScope.Work= 1;
         $state.go('step26');
       }
       else {
         $rootScope.Work= 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
         $state.go('app.step00');
       }
     }
@@ -948,13 +948,13 @@ $scope.goPsycho = function(){
      }
     }
       $scope.Submit = function(yes, no){
-      if (yes==true) {
+      if ($scope.yesc==true) {
         $rootScope.StandingWork = 1;
         $rootScope.score += 2;
       }
       else
         $rootScope.StandingWork = 0;
-      if (yes == true || no == true )
+      if ($scope.yesc == true || $scope.noc == true )
       $state.go('app.step00');
     }
 })
