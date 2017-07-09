@@ -58,13 +58,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 }
 }
   })
-.state('step00', {
-   url: '/step00',
-   views: {
-    'menuContent': {
-      templateUrl: 'templates/step00.html',
-      controller: 'Step00Ctrl'
-    } 
+.state('app.step00', {
+      url: '/step00',
+      views: {
+'menuContent': {
+          templateUrl: 'templates/step00.html',
+          controller: 'Step00Ctrl'
+}
   }
  })
  
