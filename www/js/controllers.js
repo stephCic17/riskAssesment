@@ -1977,7 +1977,7 @@ $scope.goPsycho = function(){
         $rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
     if ($rootScope.TraumaExperiencePsy == 1)
         $rootScope.scorePsy4 += 10;
-    $state.go('psychoResult');
+    $state.go('app.psychoResult');
   }
 })
 
