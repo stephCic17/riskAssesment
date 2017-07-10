@@ -1883,7 +1883,7 @@ $scope.goPsycho = function(){
   $scope.procreation = 0;
   $scope.Submit = function(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation){
     $rootScope.procreation = procreation;
-    if ($rootScope.procreation == 1)
+    if ($rootScope.procreation == 1) 
         $rootScope.scorePsy2 += 1;
     $rootScope.yearsProcreation = yearsProcreation;
     if ($rootScope.yearsProcreation <= 2)
@@ -2062,9 +2062,17 @@ $scope.goPsycho = function(){
             $rootScope.scorePsy1Add -= 1;   
           }
         }
-
         $rootScope.profil1Psy1End += ".";
         $scope.profilPsy1 += $rootScope.profil1Psy1End;
+
+        if ($rootScope.scorePsy2 > 2)
+          $scope.profilPsy2 = "Votre parcours d'infertilité augmente votre risque de présenter une dépression du post partum.";
+        if ($rootScope.scorePsy3 >= 5)
+          $scope.profilPsy3 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
+        if ($rootScope.scorePsy4 >= 5 && $rootScope.scorePsy4 < 10)
+          $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
+        if ($rootScope.scorePsy4 > 10 )
+          $scope.profilPsy4 = "Vos antécédent obstétricaux augmente votre risque de dépression ou de syndrome de stress post traumatique.";
 })
 
 
