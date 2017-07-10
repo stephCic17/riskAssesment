@@ -2057,7 +2057,6 @@ $scope.goPsycho = function(){
         }
         $rootScope.profil1Psy1End += ".";
         $scope.profilPsy1 += $rootScope.profil1Psy1End;
-    }
 })
 
 
