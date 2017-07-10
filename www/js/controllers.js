@@ -1829,47 +1829,47 @@ $scope.goPsycho = function(){
   $scope.test = 
   url = ""
   $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-        $rootScope.scorePsyAdd = 0;
+        $rootScope.scorePsy1Add = 0;
         $rootScope.scorePsy1 = 0;
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1) {
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.BoulimieAnswer = BoulimieAnswer;
     if ($rootScope.BoulimieAnswer == 1) {
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.AnorexieAnswer = AnorexieAnswer;
     if ($rootScope.AnorexieAnswer == 1) {
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.TocAnswer = TocAnswer;
     if ($rootScope.TocAnswer == 1) {
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.DepressionAnswer = DepressionAnswer;
     if ($rootScope.DepressionAnswer == 1) {
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.PhobieAnswer = PhobieAnswer;
     if ($rootScope.PhobieAnswer == 1) {
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
     $rootScope.BipolaireAnswer = BipolaireAnswer;
     if ($rootScope.BipolaireAnswer == 1) {
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1) {
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsyAdd += 1;
+        $rootScope.scorePsy1Add += 1;
       }
       console.log($rootScope.BoulimieAnswer);
     $state.go('psycho2');
