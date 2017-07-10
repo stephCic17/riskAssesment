@@ -2053,12 +2053,7 @@ $scope.goPsycho = function(){
         }
         $rootScope.profil1Psy1End += ".";
         $scope.profilPsy1 += $rootScope.profil1Psy1End;
-        $scope.profilPsy1 = $rootScope.profilPsy1;
-        console.log("fin if");
       }
-        console.log("hors if");
-      $scope.profilPsy1 = $rootScope.profilPsy1;
-
 })
 
 
