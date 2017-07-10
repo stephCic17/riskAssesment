@@ -2004,7 +2004,6 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.Submit = function(){
            console.log("result scorPsy1 = ");
            console.log($rootScope.scorePsy1);
      if ($rootScope.scorePsy1 >= 2) {
@@ -2059,7 +2058,7 @@ $scope.goPsycho = function(){
       }
         console.log("hors if");
       $scope.profilPsy1 = $rootScope.profilPsy1;
-  }
+
 })
 
 
