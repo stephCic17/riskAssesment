@@ -2071,7 +2071,7 @@ $scope.goPsycho = function(){
         if ($rootScope.scorePsy2 > 2)
           $scope.profilPsy2 = "Votre parcours d'infertilité augmente votre risque de présenter une dépression du post partum.";
         if ($rootScope.scorePsy3 >= 5)
-          $scope.profilPsy3 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
+          $scope.profilPsy3 = "vos antécédents obstétricaux augmentent votre risque de survenue de syndrome de stress post traumatique. Ils augmentent aussi votre risuqe de dpéression du post partum. ";
         if ($rootScope.scorePsy4 >= 5 && $rootScope.scorePsy4 < 10)
           $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
         if ($rootScope.scorePsy4 > 10 )
