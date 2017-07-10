@@ -1853,7 +1853,7 @@ $scope.goPsycho = function(){
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1)
         $rootScope.scorePsy1 += 2;
-      cosole.log($rootScope.BoulimieAnswer);
+      console.log($rootScope.BoulimieAnswer);
     $state.go('psycho2');
   }
 })
@@ -1987,6 +1987,8 @@ $scope.goPsycho = function(){
   $scope.test = 
   url = ""
   $scope.Submit = function(){
+           console.log("result scorPsy1 = ");
+           console.log($rootScope.scorePsy1);
      if ($rootScope.scorePsy1 >= 2) {
         $rootScope.scorePsyAdd = $rootScope.AngoisseCriseAnswer 
           + $rootScope.BoulimieAnswer 
@@ -1995,6 +1997,8 @@ $scope.goPsycho = function(){
           + $rootScope.DepressionAnswer
           + $rootScope.PhobieAnswer
            + $rootScope.BipolaireAnswer;
+           console.log("result scorPsyAdd = ");
+           console.log($rootScope.scorePsyAdd);
         if ($rootScope.scorePsyAdd > 1)
           $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
         $rootScope.profil1Psy1End = " ";
