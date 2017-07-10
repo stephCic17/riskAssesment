@@ -1880,6 +1880,7 @@ $scope.goPsycho = function(){
   $scope.data = {};
   $scope.test = 
   url = ""
+  $rootScope.scorePsy2 = 0;
   $scope.procreation = 0;
   $scope.Submit = function(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation){
     $rootScope.procreation = procreation;
@@ -1914,6 +1915,7 @@ $scope.goPsycho = function(){
   $scope.test = 
   url = ""
   $scope.Submit = function(forceps, ventouse, urgenceCesa, generalAnest, hemorragie, babySeparation, dieDelevery, dieBaby, traumaDelevery){
+    $rootScope.scorePsy3 = 0;
     $rootScope.forceps = forceps;
     if ($rootScope.forceps == 1)
         $rootScope.scorePsy3 += 1;
@@ -1959,6 +1961,7 @@ $scope.goPsycho = function(){
   $scope.ChildPrema = 0;
   $scope.ChildChronique = 0;
   $scope.DieBabyPsy = 0;
+  $rootScope.scorePsy4 = 0;
   $scope.Submit = function(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy){
     $rootScope.FCPsy = FCPsy;
     if ($rootScope.FCPsy == 1)
