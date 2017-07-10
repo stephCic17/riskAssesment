@@ -1830,6 +1830,7 @@ $scope.goPsycho = function(){
   url = ""
   $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
         $rootScope.scorePsyAdd = 0;
+        $rootScope.scorePsy1 = 0;
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1) {
         $rootScope.scorePsy1 += 1;
