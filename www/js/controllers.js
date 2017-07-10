@@ -2008,20 +2008,34 @@ $scope.goPsycho = function(){
         if ($rootScope.scorePsy1Add > 1)
           $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
         $rootScope.profil1Psy1End = " ";
-        if ($rootScope.AngoisseCriseAnswer == 1) 
+        if ($rootScope.AngoisseCriseAnswer == 1) {
           $rootScope.profil1Psy1End += "vos crise d'angoisses";
-        if ($rootScope.BoulimieAnswer == 1) 
+          testScore();
+          }
+        if ($rootScope.BoulimieAnswer == 1) {
           $rootScope.profil1Psy1End += "votre boulimie";
-        if ($rootScope.TocAnswer == 1) 
+          testScore();
+          }
+        if ($rootScope.TocAnswer == 1) {
           $rootScope.profil1Psy1End += "votre anorexie";
-        if ($rootScope.BoulimieAnswer == 1) 
+          testScore();
+          }
+        if ($rootScope.BoulimieAnswer == 1) {
           $rootScope.profil1Psy1End += "vos TOC";
-        if ($rootScope.BoulimieAnswer == 1) 
+          testScore();
+          }
+        if ($rootScope.BoulimieAnswer == 1) {
           $rootScope.profil1Psy1End += "votre dépression";
-        if ($rootScope.BoulimieAnswer == 1) 
+          testScore();
+          }
+        if ($rootScope.BoulimieAnswer == 1) {
           $rootScope.profil1Psy1End += "vos phobies";
-        if ($rootScope.BoulimieAnswer == 1) 
+          testScore();          
+          }
+        if ($rootScope.BoulimieAnswer == 1) {
           $rootScope.profil1Psy1End += "vos troubles bipolaires";
+          testScore();
+        }
         $rootScope.profil1Psy1End += ".";
         $scope.profilPsy1 += $rootScope.profil1Psy1End;
       }
