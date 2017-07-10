@@ -1987,15 +1987,15 @@ $scope.goPsycho = function(){
   url = ""
   $scope.Submit = function(){
      if ($rootScope.scorePsy1 >= 2) {
-      $rootScope.scorePsyAdd = $rootScope.AngoisseCriseAnswer 
-      + $rootScope.BoulimieAnswer 
-      + $rootScope.AnorexieAnswer
-      + $rootScope.TocAnswer
-      + $rootScope.DepressionAnswer
-      + $rootScope.PhobieAnswer
-      + $rootScope.BipolaireAnswer;
+        $rootScope.scorePsyAdd = $rootScope.AngoisseCriseAnswer 
+          + $rootScope.BoulimieAnswer 
+          + $rootScope.AnorexieAnswer
+          + $rootScope.TocAnswer
+          + $rootScope.DepressionAnswer
+          + $rootScope.PhobieAnswer
+           + $rootScope.BipolaireAnswer;
         if ($rootScope.scorePsyAdd > 1)
-          $rootScope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
+          $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
         $rootScope.profil1Psy1End = " ";
         if ($rootScope.AngoisseCriseAnswer == 1) {
           $rootScope.profil1Psy1End += "vos crise d'angoisses";
@@ -2037,11 +2037,12 @@ $scope.goPsycho = function(){
           $rootScope.profil1Psy1End += "vos troubles bipolaires";
         }
         $rootScope.profil1Psy1End += ".";
-        $rootScope.profilPsy1 += $rootScope.profil1Psy1End;
+        $scope.profilPsy1 += $rootScope.profil1Psy1End;
         $scope.profilPsy1 = $rootScope.profilPsy1;
-    }
-        $scope.profilPsy1 = $rootScope.profilPsy1;
-
+        console.log("fin if");
+      }
+        console.log("hors if");
+      $scope.profilPsy1 = $rootScope.profilPsy1;
   }
 })
 
