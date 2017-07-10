@@ -1853,6 +1853,7 @@ $scope.goPsycho = function(){
         $rootScope.HPAnswer = HPAnswer;
     if ($rootScope.HPAnswer == 1)
         $rootScope.scorePsy1 += 2;
+      cosole.log($rootScope.BoulimieAnswer);
     $state.go('psycho2');
   }
 })
