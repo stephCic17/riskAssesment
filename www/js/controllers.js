@@ -1567,8 +1567,16 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-        $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
-        $rootScope.profil1Psy1End = " ";
+        $scope.profilPsy1 = ""; 
+        $scope.profilPsy2 = ""; 
+        $scope.profilPsy3 = ""; 
+        $scope.profilPsy4 = ""; 
+
+
+       if ($rootScope.scorePsy1Add > 0) {
+            $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
+         $rootScope.profil1Psy1End = " ";
+      
         if ($rootScope.AngoisseCriseAnswer == 1) {
           $rootScope.profil1Psy1End += "vos crise d'angoisses";
          if ($rootScope.scorePsy1Add > 1){
@@ -1627,6 +1635,7 @@ angular.module('starter.controllers', [])
         }
         $rootScope.profil1Psy1End += ".";
         $scope.profilPsy1 += $rootScope.profil1Psy1End;
+        }
 
         if ($rootScope.scorePsy2 > 2)
           $scope.profilPsy2 = "Votre parcours d'infertilité augmente votre risque de présenter une dépression du post partum.";
@@ -1636,6 +1645,18 @@ angular.module('starter.controllers', [])
           $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
         if ($rootScope.scorePsy4 > 10 )
           $scope.profilPsy4 = "Vos antécédent obstétricaux augmente votre risque de dépression ou de syndrome de stress post traumatique.";
+
+          console.log('1 =');
+          console.log($scope.profilPsy1);
+          console.log('2 =');
+          console.log($scope.profilPsy1);
+          console.log('3 =');
+          console.log($scope.profilPsy1);
+          console.log('4 =');
+          console.log($scope.profilPsy1);
+
+          if ($scope.profilPsy1 == "" && $scope.profilPsy2 == "" && $scope.profilPsy3 == "" && $scope.profilPsy4 == "")
+            $scope.profilPsy1 = "Vous n'avez pas de disposition partiuliere a la depression";
 })
 .controller('DashCtrl', function($scope) {})
 
