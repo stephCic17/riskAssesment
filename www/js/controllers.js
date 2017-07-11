@@ -1384,6 +1384,259 @@ angular.module('starter.controllers', [])
 })
 
 
+.controller('Psycho1Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
+        $rootScope.scorePsy1Add = 0;
+        $rootScope.scorePsy1 = 0;
+    $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
+    if ($rootScope.AngoisseCriseAnswer == 1) {
+        $rootScope.scorePsy1 += 1;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.BoulimieAnswer = BoulimieAnswer;
+    if ($rootScope.BoulimieAnswer == 1) {
+        $rootScope.scorePsy1 += 2;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.AnorexieAnswer = AnorexieAnswer;
+    if ($rootScope.AnorexieAnswer == 1) {
+        $rootScope.scorePsy1 += 2;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.TocAnswer = TocAnswer;
+    if ($rootScope.TocAnswer == 1) {
+        $rootScope.scorePsy1 += 1;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.DepressionAnswer = DepressionAnswer;
+    if ($rootScope.DepressionAnswer == 1) {
+        $rootScope.scorePsy1 += 2;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.PhobieAnswer = PhobieAnswer;
+    if ($rootScope.PhobieAnswer == 1) {
+        $rootScope.scorePsy1 += 1;
+        $rootScope.scorePsy1Add += 1;
+      }
+    $rootScope.BipolaireAnswer = BipolaireAnswer;
+    if ($rootScope.BipolaireAnswer == 1) {
+        $rootScope.scorePsy1 += 2;
+        $rootScope.scorePsy1Add += 1;
+      }
+        $rootScope.HPAnswer = HPAnswer;
+    if ($rootScope.HPAnswer == 1) {
+        $rootScope.scorePsy1 += 2;
+        $rootScope.scorePsy1Add += 1;
+      }
+      console.log($rootScope.BoulimieAnswer);
+    $state.go('psycho2');
+  }
+})
+
+.controller('Psycho2Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $rootScope.scorePsy2 = 0;
+  $scope.procreation = 0;
+  $scope.Submit = function(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation){
+    $rootScope.procreation = procreation;
+    if ($rootScope.procreation == 1) 
+        $rootScope.scorePsy2 += 1;
+    $rootScope.yearsProcreation = yearsProcreation;
+    if ($rootScope.yearsProcreation <= 2)
+        $rootScope.scorePsy2 += 1;
+    else if ($rootScope.yearsProcreation >= 3)
+        $rootScope.scorePsy2 += 2;
+
+    $rootScope.NbProcreation = NbProcreation;
+    if ($rootScope.NbProcreation <= 2)
+        $rootScope.scorePsy2 += 1;
+    else if ($rootScope.NbProcreation > 2)
+        $rootScope.scorePsy2 += 2;
+    $rootScope.OocyteDonation = OocyteDonation;
+    if ($rootScope.OocyteDonation == 1)
+        $rootScope.scorePsy2 += 2;
+    $rootScope.spermDonation = spermDonation;
+    if ($rootScope.spermDonation == 1)
+        $rootScope.scorePsy2 += 2;
+    if ($rootScope.Child == 1)
+      $state.go('psycho3');
+    else 
+      $state.go('psycho4');
+  }
+})
+
+.controller('Psycho3Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.Submit = function(forceps, ventouse, urgenceCesa, generalAnest, hemorragie, babySeparation, dieDelevery, dieBaby, traumaDelevery){
+    $rootScope.scorePsy3 = 0;
+    $rootScope.forceps = forceps;
+    if ($rootScope.forceps == 1)
+        $rootScope.scorePsy3 += 1;
+    $rootScope.ventouse = ventouse;
+    if ($rootScope.ventouse == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.urgenceCesa = urgenceCesa;
+    if ($rootScope.urgenceCesa == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.generalAnest = generalAnest;
+    if ($rootScope.generalAnest == 1)
+        $rootScope.scorePsy3 += 1;
+    $rootScope.hemorragie = hemorragie;
+    if ($rootScope.hemorragie == 1)
+        $rootScope.scorePsy3 += 2;
+    $rootScope.babySeparation = babySeparation;
+    if ($rootScope.babySeparation == 1)
+        $rootScope.scorePsy3 += 5;
+    $rootScope.dieDelevery = dieDelevery;
+    if ($rootScope.dieDelevery == 1)
+        $rootScope.scorePsy3 += 5;
+        $rootScope.dieBaby = dieBaby;
+    if ($rootScope.dieBaby == 1)
+        $rootScope.scorePsy3 += 5;
+      $rootScope.traumaDelevery = traumaDelevery;
+    if ($rootScope.traumaDelevery == 1)
+        $rootScope.scorePsy3 += 5;
+
+    $state.go('app.psychoResult');
+  }
+})
+.controller('Psycho4Ctrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+  $scope.FCPsy = 0;
+  $scope.IVGPsy = 0;
+  $scope.GEUPsy = 0;
+  $scope.DieIV = 0;
+  $scope.IMGPsy = 0;
+  $scope.ISGPsy = 0;
+  $scope.ChildHand = 0;
+  $scope.ChildPrema = 0;
+  $scope.ChildChronique = 0;
+  $scope.DieBabyPsy = 0;
+  $rootScope.scorePsy4 = 0;
+  $scope.Submit = function(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy){
+    $rootScope.FCPsy = FCPsy;
+    if ($rootScope.FCPsy == 1)
+        $rootScope.scorePsy4 += 1;
+    $rootScope.IVGPsy = IVGPsy;
+    if ($rootScope.IVGPsy == 1)
+        $rootScope.scorePsy4 += 1;
+    $rootScope.GEUPsy = GEUPsy;
+    if ($rootScope.GEUPsy == 1)
+        $rootScope.scorePsy4 += 1;
+    $rootScope.DieIV = DieIV;
+    if ($rootScope.DieIV == 1)
+        $rootScope.scorePsy4 += 2;
+    $rootScope.IMGPsy = IMGPsy;
+    if ($rootScope.IMGPsy == 1)
+        $rootScope.scorePsy4 += 2;
+    $rootScope.ISGPsy = ISGPsy;
+    if ($rootScope.ISGPsy == 1)
+        $rootScope.scorePsy4 += 3;
+    $rootScope.ChildHand = ChildHand;
+    if ($rootScope.ChildHand == 1)
+        $rootScope.scorePsy4 += 3;
+        $rootScope.ChildPrema = ChildPrema;
+    if ($rootScope.ChildPrema == 1)
+        $rootScope.scorePsy4 += 1;
+        $rootScope.ChildChronique = ChildChronique;
+    if ($rootScope.ChildChronique == 1)
+        $rootScope.scorePsy4 += 3;
+            $rootScope.DieBabyPsy = DieBabyPsy;
+    if ($rootScope.DieBabyPsy == 1)
+        $rootScope.scorePsy4 += 3;
+            $rootScope.PregnantTraumaPsy = PregnantTraumaPsy;
+    if ($rootScope.PregnantTraumaPsy == 1)
+        $rootScope.scorePsy4 += 10;
+        $rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
+    if ($rootScope.TraumaExperiencePsy == 1)
+        $rootScope.scorePsy4 += 10;
+    $state.go('app.psychoResult');
+  }
+})
+
+.controller('PsychoResultCtrl', function($scope, $state,  $http, $rootScope) {
+  $scope.data = {};
+  $scope.test = 
+  url = ""
+        $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
+        $rootScope.profil1Psy1End = " ";
+        if ($rootScope.AngoisseCriseAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos crise d'angoisses";
+         if ($rootScope.scorePsy1Add > 1){
+          $rootScope.profil1Psy1End += ", ";
+          $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.BoulimieAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre boulimie";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.TocAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre anorexie";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.DepressionAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos TOC";
+          if ($rootScope.scorePsy1Add > 1){
+           $rootScope.profil1Psy1End += ", ";
+           $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.AnorexieAnswer == 1) {
+          $rootScope.profil1Psy1End += "votre dépression";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.PhobieAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos phobies";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.BipolaireAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos troubles bipolaires";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        if ($rootScope.HpAnswerAnswer == 1) {
+          $rootScope.profil1Psy1End += "vos troubles bipolaires";
+          if ($rootScope.scorePsy1Add > 1){
+            $rootScope.profil1Psy1End += ", ";
+            $rootScope.scorePsy1Add -= 1;   
+          }
+        }
+        $rootScope.profil1Psy1End += ".";
+        $scope.profilPsy1 += $rootScope.profil1Psy1End;
+
+        if ($rootScope.scorePsy2 > 2)
+          $scope.profilPsy2 = "Votre parcours d'infertilité augmente votre risque de présenter une dépression du post partum.";
+        if ($rootScope.scorePsy3 >= 5)
+          $scope.profilPsy3 = "vos antécédents obstétricaux augmentent votre risque de survenue de syndrome de stress post traumatique. Ils augmentent aussi votre risuqe de dpéression du post partum. ";
+        if ($rootScope.scorePsy4 >= 5 && $rootScope.scorePsy4 <= 10)
+          $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
+        if ($rootScope.scorePsy4 > 10 )
+          $scope.profilPsy4 = "Vos antécédent obstétricaux augmente votre risque de dépression ou de syndrome de stress post traumatique.";
+})
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {

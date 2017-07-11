@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
-
+.number{
+  text-align: center;
+}
 .resultDivRisk {
  background-color: rgba(255,153,153, 0.5);
  padding: 4px;
