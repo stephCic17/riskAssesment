@@ -6002,6 +6002,8 @@ button.item.item-complex {
   padding: 16px 49px 16px 16px;
   border: 2px solid white;
   background-color: rgba(106,144,149, 1);
+  color: white;
+  font-weight: bold;
   }
 
 a.item-content {
