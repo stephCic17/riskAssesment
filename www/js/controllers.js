@@ -1222,7 +1222,7 @@ angular.module('starter.controllers', [])
   if ($rootScope.Smoke == 0)
       $scope.positif2 = "- Vous ne fumez pas ";
     if ($rootScope.BigChild == 0 && $rootScope.LessChild == 0 && $rootScope.Prema == 0 && $rootScope.PreEclamp == 0 && $rootScope.Child == 1 && $rootScope.IMG == 0 && $rootScope.Miscarriage == 0)
-      $rootScope.positif3 = "- Vos précédentes grossesses se sont bien passées .";
+      $rootScope.positif3 = "- Vos précédentes grossesses se sont bien passées, donc vous avez les meilleurs chances que les grossesse suivantes se passent bien !";
     if ($rootScope.IMG == 1)
       $scope.profil4 = " - La plus grande partie des anomalies foetales sont des accidents et leur récidive est rare";
     if ($rootScope.Alcool == 0)
