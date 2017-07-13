@@ -86,6 +86,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 }
 }
 })
+.state('app.video', {
+  url: '/video',
+  views: {
+'menuContent': {
+  templateUrl: 'templates/video.html',
+}
+}
+})
 
 .state('psycho1', {
 url:'/psycho1',

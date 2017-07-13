@@ -6000,8 +6000,9 @@ button.item.item-complex {
   position: relative;
   z-index: 2;
   padding: 16px 49px 16px 16px;
-  border: none;
-  background-color: #fff; }
+  border: 2px solid white;
+  background-color: rgba(106,144,149, 1);
+  }
 
 a.item-content {
   display: block;
