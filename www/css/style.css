@@ -1,4 +1,9 @@
 /* Empty. Add your own CSS if you like */
+.dateMenstruation {
+  text-align: center;
+  min-width: 90%;
+}
+
 .number{
   text-align: center;
 }

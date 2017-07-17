@@ -286,10 +286,10 @@ url:'/stopIVG',
 templateUrl: 'templates/stopIVG.html',
 controller: 'stopIVGCtrl'
 })
-.state('dateIVG', {
-url:'/dateIVG',
-templateUrl: 'templates/dateIVG.html',
-controller: 'dateIVGCtrl'
+.state('dateMenstruation', {
+url:'/dateMenstruation',
+templateUrl: 'templates/dateMenstruation.html',
+controller: 'dateMenstruationCtrl'
 })
 
 .state('step0', {

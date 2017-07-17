@@ -21,24 +21,24 @@ angular.module('starter.controllers', [])
   $scope.goPsycho = function(){
     $state.go('psycho1');
   }
-})
+}) 
 
 .controller('Step1Ctrl', function($scope, $state,  $http, $rootScope) {
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.nb = function(HAge) {
-    $rootScope.Age = HAge;
-    if ($rootScope.Age > 0){
-      if ($rootScope.Age > 42)
-        $rootScope.score = 50;
-      else if ($rootScope.Age == 42)
-        $rootScope.score = 20;
-      else if ($rootScope.Age > 38)
-        $rootScope.score = 2;
-      else 
-        $rootScope.score = 0;
-      $state.go('step2');
+    $scope.nb = function(HAge) {
+      $rootScope.Age = HAge;
+      if ($rootScope.Age > 0){
+        if ($rootScope.Age > 42)
+          $rootScope.score = 50;
+        else if ($rootScope.Age == 42)
+          $rootScope.score = 20;
+        else if ($rootScope.Age > 38)
+         $rootScope.score = 2;
+        else 
+          $rootScope.score = 0;
+        $state.go('step2');
     }
   }
 })
@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
     else
       $rootScope.Pregnant = 0;
     if ($rootScope.Pregnant == 1)
-      $state.go('step2-1');
+      $state.go('dateMenstruation');
     else if (no == true)
       $state.go('step3');
     }
@@ -125,9 +125,9 @@ angular.module('starter.controllers', [])
     else
       $rootScope.PregnantBad = 0;
     if ($scope.yesc == true )
-      $state.go('step3');
+      $state.go('psycho2');
     if ($scope.noc == true)
-      $state.go('dateIVG');
+      $state.go('stopIVG');
   }
 })
 
@@ -212,7 +212,7 @@ angular.module('starter.controllers', [])
     else {
       $rootScope.Child = 0;
       if (yes == true || no == true )
-        $state.go('step13');
+        $state.go('psycho4');
     }
   }
 })
@@ -400,7 +400,8 @@ angular.module('starter.controllers', [])
       else
         $rootScope.PreEclamp = 0;
       if ($scope.yesc == true || $scope.noc == true )
-      $state.go('step11');
+        if ($rootScope.Child == 1)
+        $state.go('psycho3');
     }
 })
 
@@ -443,7 +444,7 @@ angular.module('starter.controllers', [])
       else
         $rootScope.PregnantDiabete = 0;
       if ($scope.yesc == true || $scope.noc == true )
-      $state.go('step13');
+      $state.go('step12');
     }
 })
 
@@ -456,10 +457,10 @@ angular.module('starter.controllers', [])
     $rootScope.NbCesa = NbCesa;
     if ($rootScope.NbCesa > 0){
       $rootScope.score += 2;
-      $state.go('step13');
+      $state.go('psycho4');
     }
-    else if ($rootScope.nbCesa == 0)
-      $state.go('step13');  
+
+      $state.go('psycho4');  
   }
 })
 
@@ -884,7 +885,7 @@ angular.module('starter.controllers', [])
       else {
         $rootScope.Work= 0;
       if ($scope.yesc == true || $scope.noc == true )
-        $state.go('app.step00');
+        $state.go('psycho1');
       }
     }
 })
@@ -954,7 +955,7 @@ angular.module('starter.controllers', [])
       }
       else
         $rootScope.StandingWork = 0;
-      $state.go('app.step00');
+      $state.go('psycho1');
     }
 })
 
@@ -1251,13 +1252,13 @@ angular.module('starter.controllers', [])
   }
 
 })
-.controller('dateIVGCtrl', function($scope, $state,$http,$rootScope){
+.controller('dateMenstruationCtrl', function($scope, $state,$http,$rootScope){
 
  $scope.submit = function(gros) {
       // Date des dernieres regles //
     $rootScope.LastMenstruation = new Date(gros);
     $rootScope.WeekPregnant = Math.round(((new Date().getTime() - $rootScope.LastMenstruation.getTime()) / (1000 * 60 * 60 * 24)) / 7);
-    $state.go('stopIVG');
+    $state.go('step2-1');
     }
 })
 
@@ -1432,7 +1433,7 @@ angular.module('starter.controllers', [])
         $rootScope.scorePsy1Add += 1;
       }
       console.log($rootScope.BoulimieAnswer);
-    $state.go('psycho2');
+    $state.go('app.step00');
   }
 })
 
@@ -1463,10 +1464,7 @@ angular.module('starter.controllers', [])
     $rootScope.spermDonation = spermDonation;
     if ($rootScope.spermDonation == 1)
         $rootScope.scorePsy2 += 2;
-    if ($rootScope.Child == 1)
-      $state.go('psycho3');
-    else 
-      $state.go('psycho4');
+      $state.go('step3');
   }
 })
 
@@ -1504,7 +1502,7 @@ angular.module('starter.controllers', [])
     if ($rootScope.traumaDelevery == 1)
         $rootScope.scorePsy3 += 5;
 
-    $state.go('app.psychoResult');
+    $state.go('step11');
   }
 })
 .controller('Psycho4Ctrl', function($scope, $state,  $http, $rootScope) {
@@ -1559,7 +1557,10 @@ angular.module('starter.controllers', [])
         $rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
     if ($rootScope.TraumaExperiencePsy == 1)
         $rootScope.scorePsy4 += 10;
-    $state.go('app.psychoResult');
+      if ($rootScope.FCPsy == 1)
+        $state.go('step14');
+      else
+        $state.go('step16'); 
   }
 })
 
@@ -1645,15 +1646,6 @@ angular.module('starter.controllers', [])
           $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
         if ($rootScope.scorePsy4 > 10 )
           $scope.profilPsy4 = "Vos antécédent obstétricaux augmente votre risque de dépression ou de syndrome de stress post traumatique.";
-
-          console.log('1 =');
-          console.log($scope.profilPsy1);
-          console.log('2 =');
-          console.log($scope.profilPsy1);
-          console.log('3 =');
-          console.log($scope.profilPsy1);
-          console.log('4 =');
-          console.log($scope.profilPsy1);
 
           if ($scope.profilPsy1 == "" && $scope.profilPsy2 == "" && $scope.profilPsy3 == "" && $scope.profilPsy4 == "")
             $scope.profilPsy1 = "Vous n'avez pas de disposition partiuliere a la depression";
