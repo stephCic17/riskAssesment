@@ -2,38 +2,53 @@
 .dateMenstruation {
   text-align: center;
   min-width: 90%;
+  background-color: 
 }
 
 .number{
   text-align: center;
 }
-.resultDivRisk {
+.ResultRisk p{
  background-color: rgba(255,153,153, 0.5);
- padding: 4px;
+
 }
-.resultDivRisk p{
+.together {
+  margin: 0 0 10px;
+}
+.ResultRisk p{
+ text-align: left;
+ font-size: .9em;
+ margin: 0;
+}
+.ResultFacteur p{
+ background-color: rgba(255,130,153, 0.2);
+ text-align: left;
+ font-size: .9em;
+ margin: 0;
+}
+.ResultConseil p{
+ background-color: rgba(130,130,230, 0.5);
+ margin: 0;
+}
+.ResultConseil p {
  text-align: left;
  font-size: .9em;
 }
+.ResultPositif {
+ background-color: rgba(106,144,149, 0.5);
+margin: 0;
+}
+.ResultPositif p{
+ text-align: left;
+ font-size: .9em;
+ margin: 0;
+}
+
 .titleVideo{
   margin-top: 20px;
   margin-bottom: 5px;
   padding:0;
   color: rgb(106,144,149);
-}
-.resultDivConseil {
- background-color: rgba(106,144,149, 0.5);
-}
-.resultDivConseil p {
- text-align: left;
- font-size: .9em;
-}
-.resultDivPositif {
- background-color: rgba(230,230,230, 0.5);
-}
-.resultDivPositif p{
- text-align: left;
- font-size: .9em;
 }
 .progressingDiv{
   min-width:100%;

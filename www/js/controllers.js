@@ -514,7 +514,7 @@ angular.module('starter.controllers', [])
     $scope.nb = function(NbMiacariage) {
       $rootScope.miscarriage = NbMiacariage;
       if ($rootScope.miscarriage > 0){
-        $state.go('step15');
+        $state.go('step16');
       }
     }
 })
@@ -1110,130 +1110,168 @@ angular.module('starter.controllers', [])
       document.getElementById("cresultProfil").setAttribute('style','color : green');
       $rootScope.cresultProfil = "D'apres vos réponses vous ne présentez pas de risque particulier pour votre grossesse";
     }
-    if ( $rootScope.Age < 35 )
+    
+    if ( $rootScope.Age < 35 ) {
       $scope.profil1 = $rootScope.RAgeA;
-    else if ( $rootScope.Age < 38 )
+      $scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
+    }
+    else if ( $rootScope.Age < 38 ) {
       $scope.profil1 = $rootScope.RAgeB;
+      $scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
+    }
     else if ( $rootScope.Age < 42 )
+    {
       $scope.risk1 = " - A votre Age, vous présentez un risque élevé d'anomalie chromosomique foetale";
+      $scope.positif1 = " - Être plus âgée pour élever ses enfants est ausi un gage de maturité ! ";
+    
+    }
     else if ( $rootScope.Age >= 42 )
+    {
       $scope.risk1 = " - A votre Age, vous présentez un risque très élevé d'anomalie chromosomique foetale";
-    if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1)
+       $scope.positif1 = " - Être plus âgée pour élever ses enfants est ausi un gage de maturité ! ";
+    
+    }
+    
+    if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1) {
       $scope.risk2 = " - Vous fumez, ce qui peut entrainer de nombreuses complications.";
-    else if ($rootScope.Smoke == 1)
+      $scope.conseil2 = " - Arrêtez de fumer !";
+    }
+    else if ($rootScope.Smoke == 1) {
       $scope.risk2 = "- Vous fumez, ce qui va entrainer de nombreuses complications lors d'une future grossesse.";
+      $scope.conseil2 = "- Arrêtez de fumer avant d'entammer une grossesse ! ";
+    } 
+    
     if ($rootScope.BigChild == 1)
       $rootScope.risk3 = "- Vous avez eus un enfant de  + de 4kg, ce qui peut favoriser l'apparition du vous place dans un groupe à risque de développer un diabète de grossesse";
-
-    if ($rootScope.Prema == 0 && $rootScope.LessChild == 1)
-      $rootScope.risk4 =  "Vous avez eu un enfant de - de 2kg200 qui n'était pas prématuré, il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
-    if ($rootScope.NbMiacarriage >= 3)
-      $rootScope.risk6 = "- Vous avez eu un nombre élevé de fausse couches";
-    if ($rootScope.IMG == 1)
-      $rootScope.risk7 = " - Vous avez déjà effectué une IMG et vous pourriez avoir un risque de récidive";
-    if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0){
-      $scope.risk8 = " - Vous consommez de l'alcool";
-    }
-    else if ($rootScope.Alcool >= 10)
-      $scope.risk8 = " - Vous consommez une quantité d'alcool importante";
-   if ($rootScope.Epilepsy == 1)
-      $scope.risk9 = " - Votre épilepsie.";
-    if ($rootScope.Phlebitis == 1)
-      $scope.risk10 = " - Votre antécédent de phlébite";
-    if ($rootScope.HighBloodPresure == 1)
-      $scope.risk11 = " -Votre hypertension";
-    if ($rootScope.diabetesH == 1)
-      $scope.risk12 = "- Votre diabète";
-    if ($rootScope.IMC < 17)
-      $scope.risk13 = "- Votre Poids ";
-    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) 
-      $scope.risk13 = " - Votre Poids ";
-    else if ($rootScope.IMC > 22 && $rootScope.IMC <= 28)
-      $scope.risk14 = " - Votre poids ";
-    else if ($rootScope.IMC > 28)
-      $scope.risk14 = " - Votre Poids ";
-    if ($rootScope.Work == 1){
-      if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12)
-        $scope.risk15 = " - Votre nombre d'heure de travail est élevé.";
-      else if ($rootScope.NbWork > 12)
-        $scope.risk15 = " - Votre nombre d'heure de travail est vraiment très élevé";
-      if ($rootScope.TimeTravel > 90)
-        $scope.risk16 = " - Votre temps de trajet pour aller au travail est élevé";
-      if ($rootScope.StandingWork == 1)
-        $scope.risk17 = " - Vous travaillez debout plus de 6 heures par jour";
-    }
-
-
-
-///////////////////////////////////////////////////////////Conseil
-
-    if ($rootScope.Pregnant == 1 && $rootScope.Smoke == 1)
-      $scope.conseil2 = " - Arrêtez de fumer !";
-    else if ($rootScope.Smoke == 1)
-      $scope.conseil2 = "- Arrêtez de fumer avant d'entammer une grossesse ! ";
     if ($rootScope.BigChild == 1 && $rootScope.diabetesH == 0)
       $rootScope.conseil3 = "- Effectuez un dépistage de diabète de grossesse";
-    if ($rootScope.Pregnant == 0 )
-      $rootScope.conseil4 = "- Puisque vous n' êtes pas encore enceinte, vous avez le temps d'anticiper. En particulier, vous devez prendre de acide folique au dosage de 0,4 mg par jour avant la conception et jusqu'au 3 ème mois de grossesse.";
-    else 
-       $rootScope.conseil4 = "- Vous devez prendre de acide folique au dosage de 0,4 mg par jour avant la conception et jusqu'au 3 ème mois de grossesse.";
-      
+    
+    if ($rootScope.Prema == 0 && $rootScope.LessChild == 1)
+      $rootScope.risk4 =  "Vous avez eu un enfant de - de 2kg200 qui n'était pas prématuré, il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
+
     if ($rootScope.NbMiacarriage >= 3)
-      $rootScope.conseil6 = " - Effectuez un bilan de fausse couche à répétition et bénéficiez d'une prise en charge adaptée en fonction des résultats de ce bilan.";
-    if ($rootScope.IMG == 1)
-      $rootScope.conseil7 = " - Prenez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
+      $rootScope.risk5 = "- Vous avez eu un nombre élevé de fausse couches";
+    if ($rootScope.NbMiacarriage >= 3)
+      $rootScope.conseil5 = " - Effectuez un bilan de fausse couche à répétition et bénéficiez d'une prise en charge adaptée en fonction des résultats de ce bilan.";
+
+    if ($rootScope.IMG == 1) {
+      $rootScope.risk6 = " - Vous avez déjà effectué une IMG et vous pourriez avoir un risque de récidive";
+      $rootScope.conseil6 = " - Prenez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
+      $scope.profil6 = " - La plus grande partie des anomalies foetales sont des accidents et leur récidive est rare";
+    }
+
+    if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0)
+      $scope.risk7 = " - Vous consommez de l'alcool";
+    else if ($rootScope.Alcool >= 10) {
+      $scope.risk7 = " - Vous consommez une quantité d'alcool importante";
+      $scope.conseil7 = " - Prenez rendez-vous dans un centre spécialisée pour vous aider à arrêter l'alcool ";
+    }
     if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 1)
-      $scope.conseil8 = " - Stoppez votre consommation d'alcool !";
+      $scope.conseil7 = " - Stoppez votre consommation d'alcool !";
     else if ($rootScope.Alcool < 10 && $rootScope.Alcool > 0 && $rootScope.Pregnant == 0)
-      $scope.conseil8 = " - Il sera nécessaire de stopper votre consommation d'alcool lorsque vous serez enceinte!";
-    else if ($rootScope.Alcool >= 10)
-      $scope.conseil8 = " - Prenez rendez-vous dans un centre spécialisée pour vous aider à arrêter l'alcool ";
+      $scope.conseil7 = " - Il sera nécessaire de stopper votre consommation d'alcool lorsque vous serez enceinte!";
+   
+   if ($rootScope.Epilepsy == 1)
+      $scope.risk8 = " - Votre épilepsie.";
    if ($rootScope.AntiepilepsyAnswer == 1)
-    $scope.conseil9 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+      $scope.conseil8 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+
+    if ($rootScope.Phlebitis == 1)
+      $scope.risk9 = " - Votre antécédent de phlébite";
     if ($rootScope.AntiCoagulentAnswer == 1)
-      $scope.conseil10 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
-
-
+      $scope.conseil9 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+   
+    if ($rootScope.HighBloodPresure == 1)
+      $scope.risk10 = " -Votre hypertension";
     if ($rootScope.AntiHighBloodAnswer == 1)
-      $scope.conseil11 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+      $scope.conseil10 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
+   
+    if ($rootScope.diabetesH == 1)
+      $scope.risk11 = "- Votre diabète";
     if ($rootScope.InsulineAnswer == 1)
-      $scope.conseil12 = " -Vous devez être prise en charge par une équipe spécialisée pour le choix des antidiabetiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée. ";
-    if ($rootScope.IMC < 17)
-      $scope.conseil13 = "- Alimentez-vous correctement ";
-    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) 
-      $scope.conseil13 = " - Attention à ne pas prendre trop de poids ";
-    if ($rootScope.Work == 1) {
-      if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12)
-        $scope.conseil15 = " - Essayer d'aménager vos heures de travail";
-      else if ($rootScope.NbWork > 12)
-        $scope.conseil15 = " - Essayer d'aménager vos heures de travail";
-      if ($rootScope.TimeTravel > 90)
-        $scope.conseil16 = " - Essayer d'aménager vos heures de présence au travail pour diminuer les temps de trajets.";
-      if ($rootScope.StandingWork == 1)
-        $scope.conseil17 = " - Nous vous conseillons de discuter dès à présent avec votre employeur de la possibilité d'aménager vos conditions de travail. Vous risquez d'être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
+      $scope.conseil11 = " -Vous devez être prise en charge par une équipe spécialisée pour le choix des antidiabetiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée. ";
+
+    if ($rootScope.IMC < 18.5) {
+      $scope.risk12 = "- Votre MAIGREUR ";
+      $scope.conseil12 = "- Alimentez-vous correctement ";
+    }
+    else if ($rootScope.IMC > 35 && $rootScope.IMC < 40)
+      $scope.risk12 = " - Votre obésité ";
+    else if ($rootScope.IMC > 40) {
+      $scope.risk12 = " - Votre obésité massive ";
+      $scope.conseil12 = " - Vous devez être prise en charge dans un centre spécialisé. ";
+    }
+
+    if ($rootScope.Work == 1){
+      if ($rootScope.NbWork > 10 && $rootScope.NbWork <= 12) {
+        $scope.risk13 = " - Votre nombre d'heure de travail est élevé.";
+        $scope.conseil13 = " - Essayer d'aménager vos heures de travail";
       }
+      else if ($rootScope.NbWork > 12) {
+        $scope.risk13 = " - Votre nombre d'heure de travail est vraiment très élevé";
+        $scope.conseil13 = " - Essayer d'aménager vos heures de travail";
+      }
+      if ($rootScope.TimeTravel > 90) {
+        $scope.risk14 = " - Votre temps de trajet pour aller au travail est élevé";
+        $scope.conseil14 = " - Essayer d'aménager vos heures de présence au travail pour diminuer les temps de trajets.";
+      }
+      if ($rootScope.StandingWork == 1) {
+        $scope.risk15 = " - Vous travaillez debout plus de 6 heures par jour";
+        $scope.conseil15 = " - Nous vous conseillons de discuter dès à présent avec votre employeur de la possibilité d'aménager vos conditions de travail. Vous risquez d'être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
+      }
+    }
+    else
+      $scope.profil16 = " - Vous ne travaillez pas, vous pouvez donc prendre le temps de vous occuper de vous et préparer la venue de votre enfant ";
 
 
+//    else if ($rootScope.IMC > 22 && $rootScope.diabetesH == 1) 
+  //    $scope.risk12 = " - Votre Poids ";
 
+//    if ($rootScope.Pregnant == 0 )
+ //     $rootScope.conseil4 = "- Puisque vous n' êtes pas encore enceinte, vous avez le temps d'anticiper. En particulier, vous devez prendre de acide folique au dosage de 0,4 mg par jour avant la conception et jusqu'au 3 ème mois de grossesse.";
+   // else 
+    //   $rootScope.conseil4 = "- Vous devez prendre de acide folique au dosage de 0,4 mg par jour avant la conception et jusqu'au 3 ème mois de grossesse.";
+//  if ($rootScope.Smoke == 0)
+ //     $scope.positif2 = "- Vous ne fumez pas ";
+ //   if ($rootScope.BigChild == 0 && $rootScope.LessChild == 0 && $rootScope.Prema == 0 && $rootScope.PreEclamp == 0 && $rootScope.Child == 1 && $rootScope.IMG == 0 && $rootScope.Miscarriage == 0)
+  //    $rootScope.positif3 = "- Vos précédentes grossesses se sont bien passées, donc vous avez les meilleurs chances que les grossesse suivantes se passent bien !";
+ //   if ($rootScope.Alcool == 0)
+   //   $scope.positif7 = " - Vous ne buvez pas !";
+//   if ($rootScope.HighBloodPresure == 0 && $rootScope.epilepsy == 0 && $rootScope.Phlebitis == 0 && $rootScope.diabetesH == 0)
+ //   $scope.positif9 = " - Vous ne présentez pas de problème de santé ayant un impac sur la grossesse";
+ //if  ($rootScope.IMC <= 22 && $rootScope.IMC >= 17 ) 
+  //    $scope.positif13 = " - Votre poids est idéal ";
 
-///////////////////////////////////////////////////////////positif
-  
-  if ($rootScope.Age < 38)
-    $scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
-  if ($rootScope.Smoke == 0)
-      $scope.positif2 = "- Vous ne fumez pas ";
-    if ($rootScope.BigChild == 0 && $rootScope.LessChild == 0 && $rootScope.Prema == 0 && $rootScope.PreEclamp == 0 && $rootScope.Child == 1 && $rootScope.IMG == 0 && $rootScope.Miscarriage == 0)
-      $rootScope.positif3 = "- Vos précédentes grossesses se sont bien passées, donc vous avez les meilleurs chances que les grossesse suivantes se passent bien !";
-    if ($rootScope.IMG == 1)
-      $scope.profil4 = " - La plus grande partie des anomalies foetales sont des accidents et leur récidive est rare";
-    if ($rootScope.Alcool == 0)
-      $scope.positif8 = " - Vous ne buvez pas !";
-   if ($rootScope.HighBloodPresure == 0 && $rootScope.epilepsy == 0 && $rootScope.Phlebitis == 0 && $rootScope.diabetesH == 0)
-    $scope.positif9 = " - Vous ne présentez pas de problème de santé ayant un impac sur la grossesse";
- if  ($rootScope.IMC <= 22 && $rootScope.IMC >= 17 ) 
-      $scope.positif13 = " - Votre poids est idéal ";
-    if ($rootScope.Work == 0)
-      $scope.profil18 = " - Vous ne travaillez pas, vous pouvez donc prendre le temps de vous occuper de vous et préparer la venue de votre enfant ";
+       if ($rootScope.scorePsy1 >= 2) {
+          if ($rootScope.AngoisseCriseAnswer == 1) 
+              $rootScope.profilPsy1A = "- Vos crise d'angoisses";
+          if ($rootScope.BoulimieAnswer == 1) 
+              $rootScope.profilPsy1B = "- Votre boulimie";
+          if ($rootScope.TocAnswer == 1) 
+              $rootScope.profilPsy1C = "- Votre anorexie";
+          if ($rootScope.DepressionAnswer == 1) 
+              $rootScope.profilPsy1D += "- Vos TOC";
+          if ($rootScope.AnorexieAnswer == 1) 
+              $rootScope.profilPsy1E = "- Votre dépression";
+          if ($rootScope.PhobieAnswer == 1) 
+              $rootScope.profilPsy1F = "- Vos phobies";
+          if ($rootScope.BipolaireAnswer == 1) 
+              $rootScope.profilPsy1G = "- Vos troubles bipolaires";
+          if ($rootScope.HpAnswerAnswer == 1) 
+              $rootScope.profilPsy1H = "- Votre séjour en hopital psychiatrique";
+        } 
+
+        if ($rootScope.scorePsy1 >= 2 || $rootScope.scorePsy2 > 2 || $rootScope.scorePsy3 >= 5 || $rootScope.scorePsy4 <= 10)
+        {
+          $scope.profilPsyFacteur = "Vos facteurs agravant sont :"
+          $scope.profilPsyResult = "- Risque de dépression du post partum.";
+          if ($rootScope.scorePsy2 > 2)
+            $scope.profilPsyFacteur1 = "- Votre parcours d'infertilité";
+          if ($rootScope.scorePsy3 >= 5)
+            $scope.profilPsyFacteur2 = "- Vos antécédents obstétricaux";
+          $scope.conseilPsy = "- Vous devriez consulter un professionel";
+        
+        }
 
     $scope.changeview = function() {
       $state.go('step0');
@@ -1282,88 +1320,33 @@ angular.module('starter.controllers', [])
       $rootScope.RAgeB = "Vous présentez un risque modéré d'anomalie chromosomique foetale.";
       $rootScope.RAgeC = "Vous présentez un risque élevé d'anomalie chromosomique foetale.";
       $rootScope.RAgeD = "Vous présentrez un risque très élevé d'anomalie chromosomique foetale.";
-
-      $rootScope.QPregnant = "Etes vous enceinte?";
       $rootScope.Pregnant = "Félication !";
-
-      $rootScope.QSmoke = "Fumez-vous?";
       $rootScope.RSmokeA = "Vous devez vous fixer l'objectif d'arrêter de fumer !";
       $rootScope.RSmokeB = "Vous devez vous fixer l'objectif d'arrêter de fumer !";
-
-      $rootScope.QChild = "Avez-vous des enfants?";
-
-      $rootScope.QHChild = "Combien?";
-
-      $rootScope.QBigChild = "Avez-vous accouché d'un enfant de plus de 4 kilos ? ";
       $rootScope.BigChildAnswer = "Vous devrez effectuer un dépistage du diabète de grossesse dès le premier trimestre";
-
-      $rootScope.QLessChild = "Avez-vous accouché d'un enfant de moins de 2kg200 ?";
-
-      $rootScope.QPrema = "Votre enfant était il prématuré ?";
       $rootScope.PremaNo =  "Il s'agit donc d'un antécédent de retard de croissance intra-utérin qui vous expose à un risque de récidive d'environ 10 % ";
-
-      $rootScope.QPreEclamp = "Avez-vous eu une pré-éclampsie ? ";
-
-      $rootScope.QPregnantDiabete = "Avez-vous un diabète de grossesse (diabète gestationnel) ?";
-
-      $rootScope.QNbCesa = "Combien de césarienne avez-vous eu ?";
       $rootScope.NbCesaAnswer = "Le mode d'accouchement le plus probable pour cette grossesse sera donc la césarienne.";
-
-      $rootScope.QMiscarriage = "Avez-vous fait des fausses couches ?";
-
-      $rootScope.QNbMiscarriage = "Combien de fausse couche avez-vous fait ?";
       $rootScope.NbMiacarriageAnswer = "Vous devez effectuer un bilan de fausse couche à répétition et bénéficier d'une prise en charge adaptée en fonction des résultats de ce bilan.";
-
-      $rootScope.QIMG = "Avez-vous fait une ou des IMG ?";
       $rootScope.IMGYesAnswer = "Nous vous conseillons une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
-
-      $rootScope.QAlcool = "Combien de verres d'alcool buvez-vous par semaine ?";
       $rootScope.AlcoolAnswerHighoZero = "Pendant la grossesse la seule façon de protéger votre foetus est de stopper toute consommation d'alcool.";
-
       $rootScope.AlcoolAnswerHighoTen = "Vous avez peut être un problème de dépendance avec l'alcool, nous vous conseillons une consultation spécialisée afin de faire le point.";
-
-      $rootScope.QEpilepsy = "Avez-vous une épilepsie ? ";
       $rootScope.EpilepsyAnswer = "Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
-
-      $rootScope.QPhlebitis = "Avez-vous déjà eu une phlébite ?";
       $rootScope.PhlebitisAnswer = "Votre condition de femme enceinte augmente votre risque de récidive de phlébite et ce jusqu'à 6 semaines après l'accouchement. Vous devez porter des bas de contention durant toute la grossesse et les 6 semaines après l'accouchement. Il peut être nécessaire de vous prescrire de l'héparine durant la grossesse et ou après l'accouchement. Vous devrez en discuter avec votre gynécologue.";
-
-      $rootScope.QHighBloodPresure = "Avez-vous de l'hypertension artérielle ?";
       $rootScope.HighBloodPresureAnswer = "A cause de votre hypertension, vous présentez une grossesse à risque. Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
-
-      $rootScope.QdiabetesH = "Avez-vous du diabète ?";
       $rootScope.diabetesHAnswer = "A cause de votre diabète, vous présentez une grossesse à risque. Vous devez être prise en charge par une équipe spécialisée pour le choix des antidiabetiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
-
-      $rootScope.QMedicament = "Prennez-vous des médicaments ?";
-
-      $rootScope.QTypeMedicament = "Selectionnez les médicaments que vous prennez ";
       $rootScope.EpileptiqueMed = "Anti-Epileptique";
       $rootScope.AntiCoagulentMed = "Anticoagulent";
       $rootScope.AntiHighBloodMed = "Antihypertenseur";
       $rootScope.InsulineMed = "Insuline";
       $rootScope.AntiDepressantMed = "Antidepresseur";
-
-      $rootScope.QSize = "Quelle est votre taille ?";
-
-      $rootScope.QWeight = "Quel est votre poids ?";
-
       $rootScope.IMCLessAnswer =  "Votre sous poids vous expose à un risque de menace d'accouchement prématuré et de bébé avec un retard de croissance intra-utérin.";
       $rootScope.IMCHighAnswer =  "Votre poids vous expose à un risque de diabète pendant la grossesse et donc de gros bébé à terme.";
       $rootScope.IMCMoreHighAnswer = "Votre surpoids vous expose à un risque important de diabète, de malformation foetale. Votre accouchement peut être compliqué par une phlébite ou une embolie pulmonaire en particulier si il a eu lieu par césarienne.";
-
-      $rootScope.QWork = "Travaillez-vous ?";
       $rootScope.WorkNoAnswer = "Vous ne travaillez pas, profitez-en pour prendre le temps de prendre soin de vous, de préparer vous même vos repas, organiser votre préparation à l'accouchement et la venue de votre bébé.";
-
-      $rootScope.QNbWork = "Combien d'heures de travail effectuez-vous par jour ?";
       $rootScope.NbWorkTenAnswer = "Vos heures de présence au travail sont élevées.";
       $rootScope.NbWorkTwelveAnswer = "Vos heures de présence au travail sont très élevées, vous devez essayer d'aménager vos heures de présence au travail, ce qui sera de toute façon indispensable lorsque votre bébé sera né :-).";
-
-      $rootScope.QTimeTravel = "Quel est votre temps de trajet par jour (en minute) ?";
       $rootScope.TimeTravelAnswer =  "Votre temps de transport est très élevé, vous devez essayer d'aménager vos heures de présence au travail, ce qui sera de toute façon indispensable lorsque votre bébé sera né :-)." ;
-
-      $rootScope.QStandingWork = "Travaillez-vous debout plus de 6 heures par jour ? ";
       $rootScope.StandingWorkAnswer = "Vous risquez d'être en difficulté pour mener votre grossesse à terme sans vous épuiser et sans menace d'accouchement prématuré. Il serait utile de discuter dès à présent avec votre employeur d'aménager vos conditions de travail.";
-
       // Divers
       $rootScope.And = " et le ";
       $rootScope.ToxoYes = "Oui";
@@ -1375,7 +1358,6 @@ angular.module('starter.controllers', [])
       $rootScope.No = "Non";
       $rootScope.ModifDatePregnant = "Bonjour, rentrer votre date de début de grossesse corrigé"
       $rootScope.DeliveryDatePregnant = "Rentrez votre date d'accouchement";
-
 
       $state.go('step1');
     }
@@ -1393,46 +1375,29 @@ angular.module('starter.controllers', [])
         $rootScope.scorePsy1Add = 0;
         $rootScope.scorePsy1 = 0;
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-    if ($rootScope.AngoisseCriseAnswer == 1) {
+    if ($rootScope.AngoisseCriseAnswer == 1) 
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.BoulimieAnswer = BoulimieAnswer;
-    if ($rootScope.BoulimieAnswer == 1) {
+    if ($rootScope.BoulimieAnswer == 1) 
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.AnorexieAnswer = AnorexieAnswer;
-    if ($rootScope.AnorexieAnswer == 1) {
+    if ($rootScope.AnorexieAnswer == 1) 
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.TocAnswer = TocAnswer;
-    if ($rootScope.TocAnswer == 1) {
+    if ($rootScope.TocAnswer == 1) 
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.DepressionAnswer = DepressionAnswer;
-    if ($rootScope.DepressionAnswer == 1) {
+    if ($rootScope.DepressionAnswer == 1) 
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.PhobieAnswer = PhobieAnswer;
-    if ($rootScope.PhobieAnswer == 1) {
+    if ($rootScope.PhobieAnswer == 1) 
         $rootScope.scorePsy1 += 1;
-        $rootScope.scorePsy1Add += 1;
-      }
     $rootScope.BipolaireAnswer = BipolaireAnswer;
-    if ($rootScope.BipolaireAnswer == 1) {
+    if ($rootScope.BipolaireAnswer == 1) 
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsy1Add += 1;
-      }
         $rootScope.HPAnswer = HPAnswer;
-    if ($rootScope.HPAnswer == 1) {
+    if ($rootScope.HPAnswer == 1) 
         $rootScope.scorePsy1 += 2;
-        $rootScope.scorePsy1Add += 1;
-      }
-      console.log($rootScope.BoulimieAnswer);
     $state.go('app.step00');
   }
 })
@@ -1452,7 +1417,6 @@ angular.module('starter.controllers', [])
         $rootScope.scorePsy2 += 1;
     else if ($rootScope.yearsProcreation >= 3)
         $rootScope.scorePsy2 += 2;
-
     $rootScope.NbProcreation = NbProcreation;
     if ($rootScope.NbProcreation <= 2)
         $rootScope.scorePsy2 += 1;
@@ -1568,87 +1532,7 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-        $scope.profilPsy1 = ""; 
-        $scope.profilPsy2 = ""; 
-        $scope.profilPsy3 = ""; 
-        $scope.profilPsy4 = ""; 
 
-
-       if ($rootScope.scorePsy1Add > 0) {
-            $scope.profilPsy1 = "Vos antécédents psychiatriques augmentent votre risque de dépression du post partum. Votre accouchement pourrait aggraver ";
-         $rootScope.profil1Psy1End = " ";
-      
-        if ($rootScope.AngoisseCriseAnswer == 1) {
-          $rootScope.profil1Psy1End += "vos crise d'angoisses";
-         if ($rootScope.scorePsy1Add > 1){
-          $rootScope.profil1Psy1End += ", ";
-          $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.BoulimieAnswer == 1) {
-          $rootScope.profil1Psy1End += "votre boulimie";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.TocAnswer == 1) {
-          $rootScope.profil1Psy1End += "votre anorexie";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.DepressionAnswer == 1) {
-          $rootScope.profil1Psy1End += "vos TOC";
-          if ($rootScope.scorePsy1Add > 1){
-           $rootScope.profil1Psy1End += ", ";
-           $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.AnorexieAnswer == 1) {
-          $rootScope.profil1Psy1End += "votre dépression";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.PhobieAnswer == 1) {
-          $rootScope.profil1Psy1End += "vos phobies";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.BipolaireAnswer == 1) {
-          $rootScope.profil1Psy1End += "vos troubles bipolaires";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        if ($rootScope.HpAnswerAnswer == 1) {
-          $rootScope.profil1Psy1End += "vos troubles bipolaires";
-          if ($rootScope.scorePsy1Add > 1){
-            $rootScope.profil1Psy1End += ", ";
-            $rootScope.scorePsy1Add -= 1;   
-          }
-        }
-        $rootScope.profil1Psy1End += ".";
-        $scope.profilPsy1 += $rootScope.profil1Psy1End;
-        }
-
-        if ($rootScope.scorePsy2 > 2)
-          $scope.profilPsy2 = "Votre parcours d'infertilité augmente votre risque de présenter une dépression du post partum.";
-        if ($rootScope.scorePsy3 >= 5)
-          $scope.profilPsy3 = "vos antécédents obstétricaux augmentent votre risque de survenue de syndrome de stress post traumatique. Ils augmentent aussi votre risuqe de dpéression du post partum. ";
-        if ($rootScope.scorePsy4 >= 5 && $rootScope.scorePsy4 <= 10)
-          $scope.profilPsy4 = "Vous mérité une consultation complémentairepour évaluer votre risque réel de stress post traumatique.";
-        if ($rootScope.scorePsy4 > 10 )
-          $scope.profilPsy4 = "Vos antécédent obstétricaux augmente votre risque de dépression ou de syndrome de stress post traumatique.";
-
-          if ($scope.profilPsy1 == "" && $scope.profilPsy2 == "" && $scope.profilPsy3 == "" && $scope.profilPsy4 == "")
-            $scope.profilPsy1 = "Vous n'avez pas de disposition partiuliere a la depression";
 })
 .controller('DashCtrl', function($scope) {})
 
