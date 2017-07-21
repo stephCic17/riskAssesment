@@ -47,31 +47,104 @@ angular.module('starter.controllers', [])
   $scope.data = {};
   $scope.test = 
   url = ""
-  $scope.checked = function(yes, no){
-    if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
+    $scope.yesc = false;
+    $scope.noc = false;
+    $scope.IDNc = false;
+
+  $scope.checked = function(yes, no, IDN){
+    console.log("yes = ");
+    console.log(yes);
+    console.log("no = ");
+    console.log(no);
+    console.log("IDN = ");
+    console.log(IDN);
+    console.log("yesc = ");
+    console.log($scope.yesc);
+    console.log("noc = ");
+    console.log($scope.noc);
+    console.log("idnc = ");
+    console.log($scope.IDNc);
+    console.log("");
+    if (yes == false && $scope.yesc == true || no == false && $scope.noc == true || IDN == false && $scope.IDNc == true )
+    {
+
       yes = false;
       no=false;
+      IDN = false;
       $scope.yesc=false;
-      $scope.noc=false;
-      document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
+      $scope.noc=false; 
+      $scope.IDNc = false;
+      console.log("ici2");
+      document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+      document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
     }
-    else if (yes == true && !no || $scope.noc == true && yes == true){
+    else if (yes == true && $scope.yesc == false)
+    {
       yes = true;
       no=false;
+      IDN = false;
       $scope.yesc=true;
       $scope.noc=false; 
+      $scope.IDNc = false;
+      console.log("ici2");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+      document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+
      }
-    else if (no == true && !yes || $scope.yesc == true && no == true){
+    else if (no == true && $scope.noc == false)
+    {
       no = true;
       yes=false;
+      IDN = false;
       $scope.yesc=false;
       $scope.noc=true;
+      $scope.IDNc = false;
+      console.log("ici3");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+      document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
     }
+    else if (IDN == true && $scope.IDNc == false)
+    {
+      no = false;
+      yes = false;
+      IDN = true;
+      $scope.noc = false;
+      $scope.yesc = false;
+      $scope.IDNc = true; 
+      console.log("ici4");
+      document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
+      document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
+      document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
+    }
+    else
+    {
+
+      yes = false;
+      no=false;
+      IDN = false;
+      $scope.yesc=false;
+      $scope.noc=false; 
+      $scope.IDNc = false;
+      console.log("ici2");
+      document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+      document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+      document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+    }
+    console.log(yes);
+    console.log("no = ");
+    console.log(no);
+    console.log("IDN = ");
+    console.log(IDN);
+    console.log("yesc = ");
+    console.log($scope.yesc);
+    console.log("noc = ");
+    console.log($scope.noc);
+    console.log("idnc = ");
+    console.log($scope.IDNc);
+    console.log("");
   }
   $scope.Submit = function(yes, no){
     if (yes==true)
@@ -1261,7 +1334,7 @@ angular.module('starter.controllers', [])
               $rootScope.profilPsy1H = "- Votre séjour en hopital psychiatrique";
         } 
 
-        if ($rootScope.scorePsy1 >= 2 || $rootScope.scorePsy2 > 2 || $rootScope.scorePsy3 >= 5 || $rootScope.scorePsy4 <= 10)
+        if ($rootScope.scorePsy1 >= 2 || $rootScope.scorePsy2 > 2 || $rootScope.scorePsy3 >= 5)
         {
           $scope.profilPsyFacteur = "Vos facteurs agravant sont :"
           $scope.profilPsyResult = "- Risque de dépression du post partum.";
@@ -1372,7 +1445,6 @@ angular.module('starter.controllers', [])
   $scope.test = 
   url = ""
   $scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer){
-        $rootScope.scorePsy1Add = 0;
         $rootScope.scorePsy1 = 0;
     $rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
     if ($rootScope.AngoisseCriseAnswer == 1) 
