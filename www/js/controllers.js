@@ -52,19 +52,6 @@ angular.module('starter.controllers', [])
     $scope.IDNc = false;
 
   $scope.checked = function(yes, no, IDN){
-    console.log("yes = ");
-    console.log(yes);
-    console.log("no = ");
-    console.log(no);
-    console.log("IDN = ");
-    console.log(IDN);
-    console.log("yesc = ");
-    console.log($scope.yesc);
-    console.log("noc = ");
-    console.log($scope.noc);
-    console.log("idnc = ");
-    console.log($scope.IDNc);
-    console.log("");
     if (yes == false && $scope.yesc == true || no == false && $scope.noc == true || IDN == false && $scope.IDNc == true )
     {
 
@@ -87,7 +74,6 @@ angular.module('starter.controllers', [])
       $scope.yesc=true;
       $scope.noc=false; 
       $scope.IDNc = false;
-      console.log("ici2");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
@@ -101,7 +87,6 @@ angular.module('starter.controllers', [])
       $scope.yesc=false;
       $scope.noc=true;
       $scope.IDNc = false;
-      console.log("ici3");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
       document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
@@ -114,7 +99,6 @@ angular.module('starter.controllers', [])
       $scope.noc = false;
       $scope.yesc = false;
       $scope.IDNc = true; 
-      console.log("ici4");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
       document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
@@ -128,32 +112,25 @@ angular.module('starter.controllers', [])
       $scope.yesc=false;
       $scope.noc=false; 
       $scope.IDNc = false;
-      console.log("ici2");
       document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
       document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
     }
-    console.log(yes);
-    console.log("no = ");
-    console.log(no);
-    console.log("IDN = ");
-    console.log(IDN);
-    console.log("yesc = ");
-    console.log($scope.yesc);
-    console.log("noc = ");
-    console.log($scope.noc);
-    console.log("idnc = ");
-    console.log($scope.IDNc);
-    console.log("");
   }
   $scope.Submit = function(yes, no){
-    if (yes==true)
+    if ($scope.yesc == true)
+    {
       $rootScope.Pregnant = 1;
-    else
-      $rootScope.Pregnant = 0;
-    if ($rootScope.Pregnant == 1)
       $state.go('dateMenstruation');
-    else if (no == true)
+    }
+    else if ($scope.IDNc == 1)
+    {
+      $rootScope.Pregnant = 2;
+      $state.go('dateMenstruation');
+    }
+    else
+    {
+      $rootScope.Pregnant = 0;
       $state.go('step3');
     }
 })
@@ -1369,7 +1346,10 @@ angular.module('starter.controllers', [])
       // Date des dernieres regles //
     $rootScope.LastMenstruation = new Date(gros);
     $rootScope.WeekPregnant = Math.round(((new Date().getTime() - $rootScope.LastMenstruation.getTime()) / (1000 * 60 * 60 * 24)) / 7);
-    $state.go('step2-1');
+    if ($rootScope.Pregnant == 1)
+      $state.go('step2-1');
+    else
+      $state.go('step3');
     }
 })
 
