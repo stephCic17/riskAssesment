@@ -503,6 +503,32 @@ angular.module('starter.controllers', [])
       $scope.data = {};
   $scope.test = 
     url = ""
+     $scope.checked = function(yes, no){
+    if (yes == false && $scope.yesc == true || no == false && $scope.noc == true){
+      yes = false;
+      no=false;
+      $scope.yesc=false;
+      $scope.noc=false;
+      document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
+      document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+    }
+    else if (yes == true && !no || $scope.noc == true && yes == true ){
+      yes = true;
+      no=false;
+      $scope.yesc=true;
+      $scope.noc=false;
+      document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
+      document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
+    }
+    else if (no == true && !yes || $scope.yesc == true && no == true){
+      no = true;
+      yes=false;
+      $scope.yesc=false;
+      $scope.noc=true;
+      document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
+      document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
+    }
+  }
   $scope.nb = function(NbCesa) {
     $rootScope.NbCesa = NbCesa;
     if ($rootScope.NbCesa > 0){
