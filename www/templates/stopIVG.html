@@ -1,9 +1,30 @@
 <ion-view view-title="result" name="result">
-  <ion-content class="padding">
-  <div ng-hide="nbReste <= 0">
-  <p>Prenez le temps de la réflexion et pour se faire allez surfer sur <a href="http://ivg.org">IVG.org</a></p>
-  <p>Il vous reste <span ng-bind="nbReste"></span> semaine pour vous décider</p>
-  </div>
-    <div ng-hide="nbReste > 0">
-  <p>Vous etes hors délai pour l'avortement</a></p>
-  </div>
+	<ion-content class="padding">
+		<div ng-hide="nbReste <= 0">
+			<p>
+				Prenez le temps de la réflexion et pour se faire allez surfer sur 
+				<a href="http://ivg.org">
+					IVG.org
+				</a>
+			</p>
+			<p>
+				Il vous reste 
+				<span ng-bind="nbReste"></span> 
+				semaine pour vous décider
+			</p>
+		</div>
+		
+		<div ng-hide="nbReste > 0">
+			<p>
+				Vous etes hors délai pour l'avortement
+			</p>
+		</div>
+
+		<div class="buttonValid">
+				<button type="Submit" class="button">
+			  		Valider
+			  	</button>
+			</div>
+			
+	</ion-content>
+</ion-view>

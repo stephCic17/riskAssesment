@@ -1,28 +1,49 @@
 <ion-view name=step2-view>
-<ion-content>
-<div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:6%;"><p class="transparentText">t </p></div></div>
-</div>
-</ion-content>
-  <ion-content class="containQuestion">
-    <h3 class="questionText">Êtes-vous enceinte&nbsp?</h3>  
-    <form name="check" ng-submit="Submit(yes, no, IDN)" novalidate="">
-      <div class="buttons">
-        <ion-list>
-     <div id="yesCheck" class=checkboxValid>
-            <ion-checkbox ng-checked="yesc" ng-click="checked(yes, no, IDN)" ng-model="yes">Oui</ion-checkbox>
-          </div>
-          <div id="noCheck" class=checkboxValid>
-            <ion-checkbox ng-checked="noc" ng-click="checked(yes, no, IDN)" ng-model="no">Non</ion-checkbox>
-          </div>
-          <div id="IDNCheck" class=checkboxValid>
-            <ion-checkbox ng-checked="IDNc" ng-click="checked(yes, no, IDN)" ng-model="IDN">Je ne sais pas</ion-checkbox>
-          </div>
-        </ion-list>
-      </div>    
-      <div class="buttonValid">
-        <button type="Submit" class="button">Valider</button>
-      </div>
-    </form>
-  </ion-content>
+  	<ion-content>
+
+  	<!-- div progressing questionaire -->
+
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:6%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
+
+	</ion-content>
+  
+  	<ion-content class="containQuestion">
+	
+		<h3 class="questionText">
+			Êtes-vous enceinte&nbsp?
+		</h3>  
+	 	
+	 	<form name="check" ng-submit="Submit(yes, no, IDN)" novalidate="">
+		
+			<div class="buttons">
+			  	<ion-list>
+	  				<div id="yesCheck" class=checkboxValid>
+						<ion-checkbox ng-checked="yesc" ng-click="checked(yes, no, IDN)" ng-model="yes">
+							Oui
+						</ion-checkbox>
+			 		</div>
+			 		<div id="noCheck" class=checkboxValid>
+						<ion-checkbox ng-checked="noc" ng-click="checked(yes, no, IDN)" ng-model="no">
+							Non
+						</ion-checkbox>
+					</div>
+					<div id="IDNCheck" class=checkboxValid>
+						<ion-checkbox ng-checked="IDNc" ng-click="checked(yes, no, IDN)" ng-model="IDN">
+							Je ne sais pas
+						</ion-checkbox>
+					</div>
+				</ion-list>
+			</div>  
+		
+			<div class="buttonValid">
+		  		<button type="Submit" class="button">Valider</button>
+			</div>
+		
+		</form>
+  	
+  	</ion-content>
 </ion-view>

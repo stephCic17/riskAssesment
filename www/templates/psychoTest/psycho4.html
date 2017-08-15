@@ -1,54 +1,63 @@
 <ion-view name=Psycho4-view>
-<ion-content class="noscroll">
-    <div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:66%;"><p class="transparentText">t </p></div></div>
+	<ion-content class="noscroll">
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:66%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
+
   </ion-content> 
   <ion-content class="containQuestion">
  
-     <h3 class="questionText">Avez-vous connu le malheur </h3>
-<form name="med" ng-submit="Submit(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy )" novalidate="">
-  <ion-list>
-    <ion-checkbox ng-model="FCPsy">
-      Fauche couche
-    </ion-checkbox>
-    <ion-checkbox ng-model="IVGPsy">
-      Interruption volontaire de grossesse
-    </ion-checkbox>
-    <ion-checkbox ng-model="GEUPsy">
-      Grossesse extra utérine
-    </ion-checkbox>
-    <ion-checkbox ng-model="DieIV">
-      Mort foetale in utéro
-    </ion-checkbox>
-      <ion-checkbox ng-model="IMGPsy">
-      Interruption médical de la grossesse
-      </ion-checkbox>
-       <ion-checkbox ng-model="ISGPsy">
-      Interruption sélective de la grossesse
-      </ion-checkbox>
-       <ion-checkbox ng-model="ChildHand">
-      Enfant porteur de handicap
-      </ion-checkbox>
-      <ion-checkbox ng-model="ChildPrema">
-      Enfant prématuré
-      </ion-checkbox>
-      <ion-checkbox ng-model="ChildChronique">
-      Enfant atteint d'une maladie chronique
-      </ion-checkbox>
-      <ion-checkbox ng-model="DieBabyPsy">
-      Mort d'un enfant
-      </ion-checkbox>
-      <ion-checkbox ng-hide="FCPsy == 0 && GEUPsy == 0 && DieIV == 0 && ISGPsy == 0 && ChildHand == 0 && ChildPrema == 0 && ChildChronique == 0 && DieBabyPsy == 0 && IVGPsy == 0  " ng-model="PregnantTraumaPsy">
-        Ces expériences ont été traumatiques
-      </ion-checkbox>
-      <ion-checkbox ng-model="TraumaExperiencePsy">
-        en dehors des situation de grossesse j'ai connu des évènement que je qualifierais de traumatiques
-      </ion-checkbox>
+		<h3 class="questionText">
+			Avez-vous connu une de ces situation&nbsp?
+		</h3>
 
-  </ion-list>
-   <div class="buttonValid">
-     <button class="button" type="Submit">Valider</button>
-   </div>
-</form>
-   </ion-content>
-</ion-view>
+		<form name="med" ng-submit="Submit(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy )" novalidate="">
+			<ion-list>
+				<ion-checkbox ng-model="FCPsy">
+					Fauche couche
+				</ion-checkbox>
+				<ion-checkbox ng-model="IVGPsy">
+					Interruption volontaire de grossesse
+				</ion-checkbox>
+				<ion-checkbox ng-model="GEUPsy">
+					Grossesse extra utérine
+				</ion-checkbox>
+				<ion-checkbox ng-model="DieIV">
+					Mort foetale in utéro
+				</ion-checkbox>
+				<ion-checkbox ng-model="IMGPsy">
+					Interruption médical de la grossesse
+				</ion-checkbox>
+				<ion-checkbox ng-model="ISGPsy">
+					Interruption sélective de la grossesse
+				</ion-checkbox>
+				<ion-checkbox ng-model="ChildHand">
+					Enfant porteur de handicap
+				</ion-checkbox>
+				<ion-checkbox ng-model="ChildPrema">
+					Enfant prématuré
+				</ion-checkbox>
+				<ion-checkbox ng-model="ChildChronique">
+					Enfant atteint d'une maladie chronique
+				</ion-checkbox>
+				<ion-checkbox ng-model="DieBabyPsy">
+					Mort d'un enfant
+				</ion-checkbox>
+				<ion-checkbox ng-hide="FCPsy == 0 && GEUPsy == 0 && DieIV == 0 && ISGPsy == 0 && ChildHand == 0 && ChildPrema == 0 && ChildChronique == 0 && DieBabyPsy == 0 && IVGPsy == 0  " ng-model="PregnantTraumaPsy">
+					Ces expériences ont été traumatiques
+				</ion-checkbox>
+				<ion-checkbox ng-model="TraumaExperiencePsy">
+					en dehors des situation de grossesse j'ai connu des évènement que je qualifierais de traumatiques
+				</ion-checkbox>
+			</ion-list>
+	
+			<div class="buttonValid">
+	  			<button class="button" type="Submit">
+	  				Valider
+	  			</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>s

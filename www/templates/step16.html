@@ -1,17 +1,28 @@
 <ion-view  name=step16-view>
-<ion-content>
-<div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:48%;"><p class="transparentText">t </p></div></div>
-  </ion-content> 
-  <ion-content class="containQuestion">
+	<ion-content>
 
-       <h3 class="questionText">Combien de verres d'alcool buvez-vous par semaine&nbsp?</h3>
-            <div class=item range>       
-<input type=range name=volume min=0 max=30 ng-model=data.nb ng-change=drag(data.nb)></div>
-<div>{{data.nb}}</div>
-  <div class="buttonValid">
-<button class=button button-block button-calm ng-click=nb()>Valider</button>
-</div>
+	  	<!-- div progressing questionaire -->
+		<div class="progressingDiv">
+		    <div class="progressingInsideDiv" style="width:48%;">
+		    	<p class="transparentText">t</p>
+		    </div>
+		</div>
+	</ion-content> 
+	
+	<ion-content class="containQuestion">
+		<h3 class="questionText">
+			Combien de verres d'alcool buvez-vous par semaine&nbsp?
+		</h3>
+        
+			<div class=item range>       
+				<input type=range name=volume min=0 max=30 ng-model=data.nb ng-change=drag(data.nb)>
+			</div>
 
-
+			<div>{{data.nb}}</div>
+			<div class="buttonValid">
+				<button class=button button-block button-calm ng-click=nb()>
+					Valider
+				</button>
+			</div>
+	</ion-content>
 </ion-view>

@@ -1,15 +1,28 @@
 <ion-view name=step14-view>
-<ion-content>
-  <div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:42%;"><p class="transparentText">t </p></div></div>
-  </ion-content> 
-  <ion-content class="containQuestion">
+	<ion-content>
+		
+	  	<!-- div progressing questionaire -->
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:42%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
+
+	</ion-content> 
+	<ion-content class="containQuestion">
  
-     <h3 class="questionText">Combien de fausse couche avez-vous fait&nbsp?</h3>    
-     <input class="numberInput" type=number ng-model=NbMiscariage placeholder=>
-     <div class="buttonValid">
-      <button class=button button-block button-calm ng-click=nb(NbMiscariage)>Ok</button>
-    </div>
-  </ion-content>
+		<h3 class="questionText">
+			Combien de fausse couche avez-vous fait&nbsp?
+		</h3>    
+	
+		<input class="numberInput" type=number ng-model=NbMiscariage placeholder=>
+		
+		<div class="buttonValid">
+			<button class=button button-block button-calm ng-click=nb(NbMiscariage)>
+				Ok
+			</button>
+		</div>
+	
+	</ion-content>
 </ion-view>
  

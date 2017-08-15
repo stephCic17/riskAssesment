@@ -1,34 +1,55 @@
 <ion-view name=psycho2>
-<ion-content class="noscroll">
-    <div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:66%;"><p class="transparentText">t </p></div></div>
-  </ion-content> 
-  <ion-content class="containQuestion">
+	<ion-content class="noscroll">
+	
+  	<!-- div progressing questionaire -->
+	<div class="progressingDiv">
+		<div class="progressingInsideDiv" style="width:66%;">
+			<p class="transparentText">t</p>
+		</div>
+	</div>
+  
+	</ion-content> 
+	<ion-content class="containQuestion">
  
-     <h3 class="questionText">Vous et votre fertilité</h3>
-<form name="med" ng-submit="Submit(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation)" novalidate="">
-  <ion-list>
-    <ion-checkbox ng-model="procreation">
-      recours à l'aide médicale à la procréation  
-    </ion-checkbox>
-    <div ng-hide="procreation == 0">
-      <p>combien d'années avez vous passé entre le début du traitement et l'arrivée d'une grossesse
-    <input class="numberInput" type="number" ng-model="yearsProcreation"> </p>
-      </div>  
-      <div ng-hide="procreation == 0">
-      <p>combien de fois avez-vous eus recours à l'aide médicale à la procreation 
-          <input class="numberInput" type="number" ng-model="NbProcreation"> </p>
-      </div> 
-    <ion-checkbox ng-model="OocyteDonation">
-      Bénéficié d'un don d'ovocyte
-    </ion-checkbox>
-      <ion-checkbox ng-model="spermDonation">
-      Bénéficié d'un don de sperme
-      </ion-checkbox>
-  </ion-list>
-   <div class="buttonValid">
-   <button class="button" type="Submit">Valider</button>
-   </div>
-</form>
-   </ion-content>
+		<h3 class="questionText">
+			Vous et votre fertilité
+		</h3>
+
+		<form name="med" ng-submit="Submit(procreation, yearsProcreation, NbProcreation, OocyteDonation, spermDonation)" novalidate="">
+  			
+  			<ion-list>
+				<ion-checkbox ng-model="procreation">
+					recours à l'aide médicale à la procréation  
+				</ion-checkbox>
+				<div ng-hide="procreation == 0">
+					<p>
+						combien d'années avez vous passé entre le début du traitement et l'arrivée d'une grossesse
+						<input class="numberInput" type="number" ng-model="yearsProcreation"> 
+					</p>
+				</div>  
+	
+				<div ng-hide="procreation == 0">
+					<p>
+						combien de fois avez-vous eus recours à l'aide médicale à la procreation 
+						<input class="numberInput" type="number" ng-model="NbProcreation"> 
+					</p>
+				</div> 
+	
+	 			<ion-checkbox ng-model="OocyteDonation">
+					Bénéficié d'un don d'ovocyte
+	 			</ion-checkbox>
+				<ion-checkbox ng-model="spermDonation">
+					Bénéficié d'un don de sperme
+				</ion-checkbox>
+			</ion-list>
+		
+			<div class="buttonValid">
+				<button class="button" type="Submit">
+					Valider
+				</button>
+			</div>
+
+		</form>
+	
+	</ion-content>
 </ion-view>

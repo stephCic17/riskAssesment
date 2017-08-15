@@ -1,16 +1,27 @@
 <ion-view name=step23-view>
-<ion-content>
- <div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:69%;"><p class="transparentText">t </p></div></div>
-  </ion-content> 
-  <ion-content class="containQuestion">
-  
-     <h3 class="questionText">Quelle est votre taille (en cm)&nbsp?</h3>    
- 
-      <input class="numberInput" type=number ng-model=Size placeholder=>
+	<ion-content>
+	
+	  	<!-- div progressing questionaire -->
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:69%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
 
-         <div class="buttonValid">
-      <button class=button button-block button-calm ng-click=nb(Size)>Ok</button>
-  </div>
-  </ion-content>
+	</ion-content> 
+	<ion-content class="containQuestion">
+  
+		<h3 class="questionText">
+			Quelle est votre taille (en cm)&nbsp?
+		</h3>    
+ 
+		<input class="numberInput" type=number ng-model=Size placeholder=>
+			
+			<div class="buttonValid">
+				<button class=button button-block button-calm ng-click=nb(Size)>
+					Ok
+				</button>
+			</div>
+
+	</ion-content>
 </ion-view>

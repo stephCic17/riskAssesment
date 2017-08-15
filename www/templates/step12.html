@@ -1,27 +1,46 @@
 <ion-view name=step12-view>
-<ion-content>
-<div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:36%;"><p class="transparentText">t </p></div></div>
-  </ion-content> 
-  <ion-content class="containQuestion">
+	<ion-content>
+
+	  	<!-- div progressing questionaire -->
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:36%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
+	</ion-content> 
+
+	<ion-content class="containQuestion">
   
-     <h3 class="questionText">Avez-vous eu une ou des césariennes ?</h3>      
-     <form name="check" ng-submit="Submit(yes, no)" novalidate="">
-      <div class="buttons">
-        <ion-list>
-           <div id="yesCheck8" class=checkboxValid>
-            <ion-checkbox ng-checked="yesc" ng-click="checked(yes, no)" ng-model="yes">Oui</ion-checkbox>
-          </div>
-          <div id="noCheck8" class=checkboxValid>
-            <ion-checkbox ng-checked="noc" ng-click="checked(yes, no)" ng-model="no">Non</ion-checkbox>
-          </div>
-        </ion-list>
-      </div>
-      <div ng-if="yesc == 1">
-      	<input class="numberInput" type=number ng-model=NbCeasa placeholder=>
-      <div class="buttonValid">
-      <button class=button button-block button-calm ng-click=nb(NbCesa)>Ok</button>
-	  </div>
-  	</div>
-  </ion-content>
+		<h3 class="questionText">
+			Avez-vous eu une ou des césariennes ?
+		</h3>      
+
+		<form name="check" ng-submit="Submit(yes, no)" novalidate="">
+			<div class="buttons">
+				<ion-list>
+					<div id="yesCheck8" class=checkboxValid>
+						<ion-checkbox ng-checked="yesc" ng-click="checked(yes, no)" ng-model="yes">
+							Oui
+						</ion-checkbox>
+					</div>
+					<div id="noCheck8" class=checkboxValid>
+						<ion-checkbox ng-checked="noc" ng-click="checked(yes, no)" ng-model="no">
+							Non
+						</ion-checkbox>
+					</div>
+				</ion-list>
+			</div>
+			
+			<div ng-if="yesc == 1">
+				<input class="numberInput" type=number ng-model=NbCeasa placeholder=>
+			</div>
+			
+			<div class="buttonValid">
+				<button class=button button-block button-calm ng-click=nb(NbCesa)>
+					Ok
+				</button>
+			</div>
+
+		</form>
+	</ion-content>
 </ion-view>

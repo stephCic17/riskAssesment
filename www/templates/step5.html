@@ -1,17 +1,28 @@
 <ion-view name=step5-view>
-<ion-content>
-          <div class="progressingDiv">
-    <div class="progressingInsideDiv" style="width:15%;"><p class="transparentText">t </p></div></div>
-</div>
-  </ion-content> 
-  <ion-content class="containQuestion">
+	<ion-content>
+		
+  	<!-- div progressing questionaire -->
+		<div class="progressingDiv">
+			<div class="progressingInsideDiv" style="width:15%;">
+				<p class="transparentText">t</p>
+			</div>
+		</div>
 
-       <h3 class="questionText">Combien avez-vous d'enfant&nbsp?</h3>
+	</ion-content> 
+  
+	<ion-content class="containQuestion">
 
-        <input class="numberInput" type=number ng-model=HChild placeholder=>
+		<h3 class="questionText">
+			Combien avez-vous d'enfant&nbsp?
+		</h3>
 
-        <div class="buttonValid">
-      <button class=button button-block button-calm ng-click=nb(HChild)>Valider</button>
-  </div>
-  </ion-content>
+		<input class="numberInput" type=number ng-model=child placeholder=>
+
+			<div class="buttonValid">
+				<button class=button button-block button-calm ng-click=InputNumber(child)>
+					Valider
+				</button>
+			</div>
+
+	</ion-content>
 </ion-view>
