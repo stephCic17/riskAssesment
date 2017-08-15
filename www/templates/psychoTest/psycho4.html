@@ -13,39 +13,39 @@
 			Avez-vous connu une de ces situation&nbsp?
 		</h3>
 
-		<form name="med" ng-submit="Submit(FCPsy, IVGPsy, GEUPsy, DieIV, IMGPsy, ISGPsy, ChildHand, ChildPrema, ChildChronique, DieBabyPsy, PregnantTraumaPsy, TraumaExperiencePsy )" novalidate="">
+		<form name="med" ng-submit="Submit(FC, IVG, GEU, DieInUtero, IMG, ISG, ChildHandicap, ChildPrema, ChildChroniqueSeek, DieBabyP, PregnantTraumaPsy, TraumaExperiencePsy )" novalidate="">
 			<ion-list>
 				<ion-checkbox ng-model="FCPsy">
 					Fauche couche
 				</ion-checkbox>
-				<ion-checkbox ng-model="IVGPsy">
+				<ion-checkbox ng-model="IVG">
 					Interruption volontaire de grossesse
 				</ion-checkbox>
-				<ion-checkbox ng-model="GEUPsy">
+				<ion-checkbox ng-model="GEU">
 					Grossesse extra utérine
 				</ion-checkbox>
-				<ion-checkbox ng-model="DieIV">
+				<ion-checkbox ng-model="DieInUtero">
 					Mort foetale in utéro
 				</ion-checkbox>
-				<ion-checkbox ng-model="IMGPsy">
+				<ion-checkbox ng-model="IMG">
 					Interruption médical de la grossesse
 				</ion-checkbox>
-				<ion-checkbox ng-model="ISGPsy">
+				<ion-checkbox ng-model="ISG">
 					Interruption sélective de la grossesse
 				</ion-checkbox>
-				<ion-checkbox ng-model="ChildHand">
+				<ion-checkbox ng-model="ChildHandicap">
 					Enfant porteur de handicap
 				</ion-checkbox>
 				<ion-checkbox ng-model="ChildPrema">
 					Enfant prématuré
 				</ion-checkbox>
-				<ion-checkbox ng-model="ChildChronique">
+				<ion-checkbox ng-model="ChildChroniqueSeek">
 					Enfant atteint d'une maladie chronique
 				</ion-checkbox>
-				<ion-checkbox ng-model="DieBabyPsy">
+				<ion-checkbox ng-model="DieBabyP">
 					Mort d'un enfant
 				</ion-checkbox>
-				<ion-checkbox ng-hide="FCPsy == 0 && GEUPsy == 0 && DieIV == 0 && ISGPsy == 0 && ChildHand == 0 && ChildPrema == 0 && ChildChronique == 0 && DieBabyPsy == 0 && IVGPsy == 0  " ng-model="PregnantTraumaPsy">
+				<ion-checkbox ng-hide="FC == 0 && GEU == 0 && DieInUtero == 0 && ISG == 0 && ChildHandicap == 0 && ChildPrema == 0 && ChildChroniqueSeek == 0 && DieBabyP == 0 && IVG == 0  " ng-model="PregnantTraumaPsy">
 					Ces expériences ont été traumatiques
 				</ion-checkbox>
 				<ion-checkbox ng-model="TraumaExperiencePsy">

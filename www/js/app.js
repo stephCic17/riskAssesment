@@ -111,189 +111,189 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 		.state('step1', 
 			{
 				url:'/step1',
-				templateUrl: 'templates/step1.html',
+				templateUrl: 'templates/gynecoTest/step1.html',
 				controller: 'Step1Ctrl'
 			})
 
 		.state('step2', 
 			{
 				url:'/step2',
-				templateUrl: 'templates/step2.html',
+				templateUrl: 'templates/gynecoTest/step2.html',
 				controller: 'Step2Ctrl'
 			})
 
 		.state('step2-1', 
 			{
 				url:'/step2-1',
-				templateUrl: 'templates/step2-1.html',
+				templateUrl: 'templates/gynecoTest/step2-1.html',
 				controller: 'Step2-1Ctrl'
 			})
 
 		.state('step3', 
 			{
 				url:'/step3',
-				templateUrl: 'templates/step3.html',
+				templateUrl: 'templates/gynecoTest/step3.html',
 				controller: 'Step3Ctrl'
 			})
 
 		.state('step4', 
 			{
 				url:'/step4',
-				templateUrl: 'templates/step4.html',
+				templateUrl: 'templates/gynecoTest/step4.html',
 				controller: 'Step4Ctrl'
 			})
 
 		.state('step5', 
 			{
 				url:'/step5',
-				templateUrl: 'templates/step5.html',
+				templateUrl: 'templates/gynecoTest/step5.html',
 				controller: 'Step5Ctrl'
 			})
 
 		.state('step6', 
 			{
 				url:'/step6',
-				templateUrl: 'templates/step6.html',
+				templateUrl: 'templates/gynecoTest/step6.html',
 				controller: 'Step6Ctrl'
 			})
 
 		.state('step7', 
 			{
 				url:'/step7',
-				templateUrl: 'templates/step7.html',
+				templateUrl: 'templates/gynecoTest/step7.html',
 				controller: 'Step7Ctrl'
 			})
 
 		.state('step8', 
 			{
 				url:'/step8',
-				templateUrl: 'templates/step8.html',
+				templateUrl: 'templates/gynecoTest/step8.html',
 				controller: 'Step8Ctrl'
 			})
 
 		.state('step9', 
 			{
 				url:'/step9',
-				templateUrl: 'templates/step9.html',
+				templateUrl: 'templates/gynecoTest/step9.html',
 				controller: 'Step9Ctrl'
 			})
 
 		.state('step10', 
 			{
 				url:'/step10',
-				templateUrl: 'templates/step10.html',
+				templateUrl: 'templates/gynecoTest/step10.html',
 				controller: 'Step10Ctrl'
 			})
 
 		.state('step11', 
 			{
 				url:'/step11',
-				templateUrl: 'templates/step11.html',
+				templateUrl: 'templates/gynecoTest/step11.html',
 				controller: 'Step11Ctrl'
 			})
 
 		.state('step12', 
 			{
 				url:'/step12',
-				templateUrl: 'templates/step12.html',
+				templateUrl: 'templates/gynecoTest/step12.html',
 				controller: 'Step12Ctrl'
 			})
 
 		.state('step14', 
 			{
 				url:'/step14',
-				templateUrl: 'templates/step14.html',
+				templateUrl: 'templates/gynecoTest/step14.html',
 				controller: 'Step14Ctrl'
 			})
 
 		.state('step16', 
 			{
 				url:'/step16',
-				templateUrl: 'templates/step16.html',
+				templateUrl: 'templates/gynecoTest/step16.html',
 				controller: 'Step16Ctrl'
 			})
 
 		.state('step17', 
 			{
 				url:'/step17',
-				templateUrl: 'templates/step17.html',
+				templateUrl: 'templates/gynecoTest/step17.html',
 				controller: 'Step17Ctrl'
 			})
 
 		.state('step18', 
 			{
 				url:'/step18',
-				templateUrl: 'templates/step18.html',
+				templateUrl: 'templates/gynecoTest/step18.html',
 				controller: 'Step18Ctrl'
 			})
 
 		.state('step19', 
 			{
 				url:'/step19',
-				templateUrl: 'templates/step19.html',
+				templateUrl: 'templates/gynecoTest/step19.html',
 				controller: 'Step19Ctrl'
 			})
 
 		.state('step20', 
 			{
 				url:'/step20',
-				templateUrl: 'templates/step20.html',
+				templateUrl: 'templates/gynecoTest/step20.html',
 				controller: 'Step20Ctrl'
 			})
 
 		.state('step21', 
 			{
 				url:'/step21',
-				templateUrl: 'templates/step21.html',
+				templateUrl: 'templates/gynecoTest/step21.html',
 				controller: 'Step21Ctrl'
 			})
 
 		.state('step22', 
 			{
 				url:'/step22',
-				templateUrl: 'templates/step22.html',
+				templateUrl: 'templates/gynecoTest/step22.html',
 				controller: 'Step22Ctrl'
 			})
 		
 		.state('step23', 
 			{
 				url:'/step23',
-				templateUrl: 'templates/step23.html',
+				templateUrl: 'templates/gynecoTest/step23.html',
 				controller: 'Step23Ctrl'
 			})
 	
 		.state('step24', 
 			{
 				url:'/step24',
-				templateUrl: 'templates/step24.html',
+				templateUrl: 'templates/gynecoTest/step24.html',
 				controller: 'Step24Ctrl'
 			})
 		
 		.state('step25', 
 			{
 				url:'/step25',
-				templateUrl: 'templates/step25.html',
+				templateUrl: 'templates/gynecoTest/step25.html',
 				controller: 'Step25Ctrl'
 			})
 
 		.state('step26', 
 			{
 				url:'/step26',
-				templateUrl: 'templates/step26.html',
+				templateUrl: 'templates/gynecoTest/step26.html',
 				controller: 'Step26Ctrl'
 			})
 		
 		.state('step27', 
 			{
 				url:'/step27',
-				templateUrl: 'templates/step27.html',
+				templateUrl: 'templates/gynecoTest/step27.html',
 				controller: 'Step27Ctrl'
 			})
 
 		.state('step28', 
 			{
 				url:'/step28',
-				templateUrl: 'templates/step28.html',
+				templateUrl: 'templates/gynecoTest/step28.html',
 				controller: 'Step28Ctrl'
 			})
 
@@ -307,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 		.state('dateMenstruation', 
 			{
 				url:'/dateMenstruation',
-				templateUrl: 'templates/dateMenstruation.html',
+				templateUrl: 'templates/gynecoTest/dateMenstruation.html',
 				controller: 'dateMenstruationCtrl'
 			});
 

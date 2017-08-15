@@ -158,46 +158,6 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step30Ctrl', function( $scope, $state,  $http, $rootScope ) 
-	{
-		$scope.data = {};
-		$scope.Submit = function(AngoisseCriseAnswer,BoulimieAnswer, AnorexieAnswer, TocAnswer, DepressionAnswer, PhobieAnswer, BipolaireAnswer, HPAnswer)
-		{
-			$rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-			if ( $rootScope.AngoisseCriseAnswer == 1 )
-				$rootScope.scorePsy += 1;
-
-			$rootScope.BoulimieAnswer = BoulimieAnswer;
-			if ( $rootScope.BoulimieAnswer == 1 )
-				$rootScope.scorePsy += 2;
-	
-			$rootScope.AnorexieAnswer = AnorexieAnswer;
-			if ( $rootScope.AnorexieAnswer == 1 )
-				$rootScope.scorePsy += 2;
-	
-			$rootScope.TocAnswer = TocAnswer;
-			if ( $rootScope.TocAnswer == 1 )
-				$rootScope.scorePsy += 1;
-		
-			$rootScope.DepressionAnswer = DepressionAnswer;
-			if ( $rootScope.DepressionAnswer == 1 )
-				$rootScope.scorePsy += 2;
-			
-			$rootScope.PhobieAnswer = PhobieAnswer;
-			if ( $rootScope.PhobieAnswer == 1 )
-				$rootScope.scorePsy += 1;
-			
-			$rootScope.BipolaireAnswer = BipolaireAnswer;
-			if ( $rootScope.BipolaireAnswer == 1 )
-				$rootScope.scorePsy += 2;
-		
-			$rootScope.HPAnswer = HPAnswer;
-			if ( $rootScope.HPAnswer == 1 )
-				$rootScope.scorePsy += 2;
-		
-			$state.go('app.step00');
-		}
-	})
 
 .controller('Psycho1Ctrl', function( $scope, $state,  $http, $rootScope ) 
 	{
@@ -347,69 +307,69 @@ angular.module('starter.controllers', [])
 	{
 		$scope.data = {};
 
-		$scope.FCPsy = 0;
-		$scope.IVGPsy = 0;
-		$scope.GEUPsy = 0;
-		$scope.DieIV = 0;
-		$scope.IMGPsy = 0;
-		$scope.ISGPsy = 0;
-		$scope.ChildHand = 0;
+		$scope.FC = 0;
+		$scope.IVG = 0;
+		$scope.GEU = 0;
+		$scope.DieInUtero = 0;
+		$scope.IMG = 0;
+		$scope.ISG = 0;
+		$scope.ChildHandicap = 0;
 		$scope.ChildPrema = 0;
-		$scope.ChildChronique = 0;
-		$scope.DieBabyPsy = 0;
+		$scope.ChildChroniqueSeek = 0;
+		$scope.DieBabyP = 0;
 		$rootScope.scorePsy4 = 0;
 
-		$scope.Submit = function( FCPsy,
-									IVGPsy, 
-									GEUPsy, 
-									DieIV, 
-									IMGPsy, 
-									ISGPsy, 
-									ChildHand, 
+		$scope.Submit = function( FC,
+									IVG, 
+									GEU, 
+									DieInUtero, 
+									IMG, 
+									ISG, 
+									ChildHandicap, 
 									ChildPrema, 
-									ChildChronique, 
-									DieBabyPsy, 
+									ChildChroniqueSeek, 
+									DieBabyP, 
 									PregnantTraumaPsy, 
 									TraumaExperiencePsy )
 		{
-			$rootScope.FCPsy = FCPsy;
-			if ( $rootScope.FCPsy == 1 )
+			$rootScope.FC = FC;
+			if ( $rootScope.FC == 1 )
 				$rootScope.scorePsy4 += 1;
 
-			$rootScope.IVGPsy = IVGPsy;
-			if ( $rootScope.IVGPsy == 1 )
+			$rootScope.IVG = IVG;
+			if ( $rootScope.IVG == 1 )
 				$rootScope.scorePsy4 += 1;
 
-			$rootScope.GEUPsy = GEUPsy;
-			if ( $rootScope.GEUPsy == 1 )
+			$rootScope.GEU = GEU;
+			if ( $rootScope.GEU == 1 )
 				$rootScope.scorePsy4 += 1;
 
-			$rootScope.DieIV = DieIV;
-			if ( $rootScope.DieIV == 1 )
+			$rootScope.DieInUtero = DieInUtero;
+			if ( $rootScope.DieInUtero == 1 )
 				$rootScope.scorePsy4 += 2;
 
-			$rootScope.IMGPsy = IMGPsy;
-			if ( $rootScope.IMGPsy == 1 )
+			$rootScope.IMG = IMG;
+			if ( $rootScope.IMG == 1 )
 				$rootScope.scorePsy4 += 2;
 	
-			$rootScope.ISGPsy = ISGPsy;
-			if ( $rootScope.ISGPsy == 1 )
+			$rootScope.ISG = ISG;
+			if ( $rootScope.ISG == 1 )
 				$rootScope.scorePsy4 += 3;
 		
-			$rootScope.ChildHand = ChildHand;
-			if ( $rootScope.ChildHand == 1 )
+			$rootScope.ChildHandicap = ChildHandicap;
+			if ( $rootScope.ChildHandicap == 1 )
 				$rootScope.scorePsy4 += 3;
 		
 			$rootScope.ChildPrema = ChildPrema;
 			if ( $rootScope.ChildPrema == 1 )
 				$rootScope.scorePsy4 += 1;
 		
-			$rootScope.ChildChronique = ChildChronique;
-			if ( $rootScope.ChildChronique == 1 )
+			$rootScope.ChildChroniqueSeek = ChildChroniqueSeek;
+			if ( $rootScope.ChildChroniqueSeek == 1 )
 				$rootScope.scorePsy4 += 3;
 		
-			$rootScope.DieBabyPsy = DieBabyPsy;
-			if ( $rootScope.DieBabyPsy == 1 )
+			$rootScope.DieBabyP = DieBabyP;
+			if ( $rootScope.DieBabyP == 1 )
 				$rootScope.scorePsy4 += 3;
 			
 			$rootScope.PregnantTraumaPsy = PregnantTraumaPsy;
@@ -420,7 +380,7 @@ angular.module('starter.controllers', [])
 			if ( $rootScope.TraumaExperiencePsy == 1 )
 				$rootScope.scorePsy4 += 10;
 			
-			if ( $rootScope.FCPsy == 1 )
+			if ( $rootScope.FC == 1 )
 				$state.go('step14');
 			else
 				$state.go('step16'); 
