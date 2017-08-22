@@ -1,0 +1,14 @@
+.scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: calc(100% - 44px) !important;
+}
+.scroll {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.center-button-box {
+  text-align: center;
+}

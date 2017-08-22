@@ -1,0 +1,8 @@
+.step-count {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  color: #529599;
+  font-size: 14px;
+  z-index: 9999;
+}

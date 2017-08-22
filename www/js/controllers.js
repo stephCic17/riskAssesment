@@ -1,12 +1,15 @@
 angular.module('starter.controllers', [])
 
-.config( function( $ionicConfigProvider ) 
+.config( function( $ionicConfigProvider )
 	{
+
 		$ionicConfigProvider.backButton.text('').icon('ion-chevron-left custom-icon');
 	})
 
-.controller('Step1Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step1Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
+		var stepNumber = 2;
+		$rootScope.currentStep = stepNumber;
 		$scope.data = {};
 		$scope.InputNumber = function( age )
 		{
@@ -19,17 +22,18 @@ angular.module('starter.controllers', [])
 					$rootScope.score = 20;
 				else if ( $rootScope.Age > 38 )
 					$rootScope.score = 2;
-				else 
+				else
 					$rootScope.score = 0;
-				$state.go('step2');
+				$rootScope.updateBar();
+				$state.go('step' + stepNumber);
 			}
 		}
 	})
 
-.controller('Step5Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step5Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-		$scope.InputNumber = function( child ) 
+		$scope.InputNumber = function( child )
 		{
 			$rootScope.HChild = child;
 			if ( $rootScope.HChild > 0 )
@@ -37,11 +41,11 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step14Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step14Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
-		$scope.nb = function( NbMiacariage ) 
+
+		$scope.nb = function( NbMiacariage )
 		{
 			$rootScope.miscarriage = NbMiacariage;
 			if ( $rootScope.miscarriage > 0 )
@@ -49,12 +53,12 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step16Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step16Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.data.nb = 0;
 
-		$scope.nb = function() 
+		$scope.nb = function()
 		{
 			$rootScope.Alcool = $scope.data.nb;
 			if ( $rootScope.Alcool >= 0 )
@@ -66,7 +70,7 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step22Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step22Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 
@@ -79,15 +83,15 @@ angular.module('starter.controllers', [])
 			$rootScope.AntiCoagulentAnswer = AntiCoagulentAnswer;
 			if ( $rootScope.AntiCoagulentAnswer == 1 )
 				$rootScope.score += 200;
-	
+
 			$rootScope.AntiHighBloodAnswer = AntiHighBloodAnswer;
 			if ( $rootScope.AntiHighBloodAnswer == 1 )
 				$rootScope.score += 2;
-		
+
 			$rootScope.AntidepressantAnswer = AntidepressantAnswer;
 			if ( $rootScope.AntidepressantAnswer == 1 )
 				$rootScope.score += 2;
-			
+
 			$rootScope.InsulineAnswer = InsulineAnswer;
 			if ( $rootScope.InsulineAnswer == 1 )
 				$rootScope.score += 200;
@@ -99,7 +103,7 @@ angular.module('starter.controllers', [])
 .controller('Step23Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.nb = function( Size )
 		{
 			$rootScope.Size = Size;
@@ -115,16 +119,16 @@ angular.module('starter.controllers', [])
 		{
 			$rootScope.Weight = Weight;
 			$rootScope.IMC = $rootScope.Weight / Math.pow( $rootScope.Size/100, 2 );
-			
+
 			if ( $rootScope.IMC > 28 )
 				$rootScope.score += 50;
 			else if ( $rootScope.IMC > 22 )
-				$rootScope.score += 20;     
+				$rootScope.score += 20;
 			else if ( $rootScope.IMC > 17 )
-				$rootScope.score += 0;      
+				$rootScope.score += 0;
 			else if ( $rootScope.IMC < 17 )
-				$rootScope.score += 50;     
-			
+				$rootScope.score += 50;
+
 			$state.go('step25');
 		}
 	})
@@ -137,7 +141,7 @@ angular.module('starter.controllers', [])
 		{
 			$rootScope.NbWork = NbWork;
 			if ( $rootScope.NbWork > 10 )
-				$rootScope.score += 2;      
+				$rootScope.score += 2;
 			$state.go('step27');
 		}
 	})
@@ -150,8 +154,8 @@ angular.module('starter.controllers', [])
 		{
 			$rootScope.TimeTravel = TimeTravel;
 			if ( $rootScope.TimeTravel > 90 )
-				$rootScope.score += 2; 
-			if ( $rootScope.NbWork <= 6 )     
+				$rootScope.score += 2;
+			if ( $rootScope.NbWork <= 6 )
 				$state.go('app.step00');
 			else
 				$state.go('step28');
@@ -159,142 +163,142 @@ angular.module('starter.controllers', [])
 	})
 
 
-.controller('Psycho1Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Psycho1Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 
 		$scope.Submit = function( AngoisseCriseAnswer,
 									BoulimieAnswer,
-									AnorexieAnswer, 
-									TocAnswer, 
-									DepressionAnswer, 
-									PhobieAnswer, 
-									BipolaireAnswer, 
+									AnorexieAnswer,
+									TocAnswer,
+									DepressionAnswer,
+									PhobieAnswer,
+									BipolaireAnswer,
 									HPAnswer )
 		{
 			$rootScope.scorePsy1 = 0;
 
 			$rootScope.AngoisseCriseAnswer = AngoisseCriseAnswer;
-		
+
 			$rootScope.BoulimieAnswer = BoulimieAnswer;
-			if ( $rootScope.BoulimieAnswer == 1 ) 
+			if ( $rootScope.BoulimieAnswer == 1 )
 				$rootScope.scorePsy1 += 2;
-		
+
 			$rootScope.AnorexieAnswer = AnorexieAnswer;
-			if ( $rootScope.AnorexieAnswer == 1 ) 
+			if ( $rootScope.AnorexieAnswer == 1 )
 				$rootScope.scorePsy1 += 2;
-		
+
 			$rootScope.TocAnswer = TocAnswer;
-			if ( $rootScope.TocAnswer == 1 ) 
+			if ( $rootScope.TocAnswer == 1 )
 				$rootScope.scorePsy1 += 1;
-		
+
 	 		$rootScope.DepressionAnswer = DepressionAnswer;
-				if ( $rootScope.DepressionAnswer == 1 ) 
+				if ( $rootScope.DepressionAnswer == 1 )
 					$rootScope.scorePsy1 += 2;
-		
+
 			$rootScope.PhobieAnswer = PhobieAnswer;
-			if ( $rootScope.PhobieAnswer == 1 ) 
+			if ( $rootScope.PhobieAnswer == 1 )
 				$rootScope.scorePsy1 += 1;
-			
+
 			$rootScope.BipolaireAnswer = BipolaireAnswer;
-			if ( $rootScope.BipolaireAnswer == 1 ) 
+			if ( $rootScope.BipolaireAnswer == 1 )
 				$rootScope.scorePsy1 += 2;
-		
+
 			$rootScope.HPAnswer = HPAnswer;
-			if ( $rootScope.HPAnswer == 1 ) 
+			if ( $rootScope.HPAnswer == 1 )
 				$rootScope.scorePsy1 += 2;
-		
+
 			$state.go('app.step00');
 		}
 	})
 
-.controller('Psycho2Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Psycho2Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 		$rootScope.scorePsy2 = 0;
 		$scope.procreation = 0;
-	
-		$scope.Submit = function( procreation, 
+
+		$scope.Submit = function( procreation,
 									yearsProcreation,
 								NbProcreation,
 									OocyteDonation,
 									spermDonation )
 		{
 			$rootScope.procreation = procreation;
-			if ( $rootScope.procreation == 1 ) 
+			if ( $rootScope.procreation == 1 )
 			$rootScope.scorePsy2 += 1;
-		
+
 			$rootScope.yearsProcreation = yearsProcreation;
 			if ( $rootScope.yearsProcreation <= 2)
 				$rootScope.scorePsy2 += 1;
 			else if ( $rootScope.yearsProcreation >= 3)
 				$rootScope.scorePsy2 += 2;
-		
+
 			$rootScope.NbProcreation = NbProcreation;
 			if ( $rootScope.NbProcreation <= 2)
 				$rootScope.scorePsy2 += 1;
 			else if ( $rootScope.NbProcreation > 2)
 				$rootScope.scorePsy2 += 2;
-		
+
 			$rootScope.OocyteDonation = OocyteDonation;
 			if ( $rootScope.OocyteDonation == 1 )
 				$rootScope.scorePsy2 += 2;
-	 	
+
 			$rootScope.spermDonation = spermDonation;
 			if ( $rootScope.spermDonation == 1 )
  				$rootScope.scorePsy2 +=  2 ;
-		
+
 			$state.go('step3') ;
 		 }
 	})
 
-.controller('Psycho3Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Psycho3Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		 $scope.Submit = function( forceps,
 									ventouse,
 						 			urgenceCesa,
 									generalAnest,
 									hemorragie,
 									babySeparation,
-									dieDelevery, 
- 									dieBaby, 
+									dieDelevery,
+ 									dieBaby,
 									traumaDelevery )
 		{
 			$rootScope.scorePsy3 = 0;
 			$rootScope.forceps = forceps;
 			if ( $rootScope.forceps == 1 )
 				$rootScope.scorePsy3 += 1;
-		
+
 			$rootScope.ventouse = ventouse;
 			if ( $rootScope.ventouse == 1 )
 				$rootScope.scorePsy3 += 2;
-			
+
 			$rootScope.urgenceCesa = urgenceCesa;
 			if ( $rootScope.urgenceCesa == 1 )
 				$rootScope.scorePsy3 += 2;
-		
+
 			$rootScope.generalAnest = generalAnest;
 			if ( $rootScope.generalAnest == 1 )
 				$rootScope.scorePsy3 += 1;
-		
+
 			$rootScope.hemorragie = hemorragie;
 			if ( $rootScope.hemorragie == 1 )
 				$rootScope.scorePsy3 += 2;
-		
+
 			$rootScope.babySeparation = babySeparation;
 			if ( $rootScope.babySeparation == 1 )
 				$rootScope.scorePsy3 += 5;
-	
+
 			$rootScope.dieDelevery = dieDelevery;
 			if ( $rootScope.dieDelevery == 1 )
 				$rootScope.scorePsy3 += 5;
-	
+
 			$rootScope.dieBaby = dieBaby;
 			if ( $rootScope.dieBaby == 1 )
 				$rootScope.scorePsy3 += 5;
-	
+
 			$rootScope.traumaDelevery = traumaDelevery;
 			if ( $rootScope.traumaDelevery == 1 )
 				$rootScope.scorePsy3 += 5;
@@ -303,7 +307,7 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Psycho4Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Psycho4Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 
@@ -320,16 +324,16 @@ angular.module('starter.controllers', [])
 		$rootScope.scorePsy4 = 0;
 
 		$scope.Submit = function( FC,
-									IVG, 
-									GEU, 
-									DieInUtero, 
-									IMG, 
-									ISG, 
-									ChildHandicap, 
-									ChildPrema, 
-									ChildChroniqueSeek, 
-									DieBabyP, 
-									PregnantTraumaPsy, 
+									IVG,
+									GEU,
+									DieInUtero,
+									IMG,
+									ISG,
+									ChildHandicap,
+									ChildPrema,
+									ChildChroniqueSeek,
+									DieBabyP,
+									PregnantTraumaPsy,
 									TraumaExperiencePsy )
 		{
 			$rootScope.FC = FC;
@@ -351,43 +355,43 @@ angular.module('starter.controllers', [])
 			$rootScope.IMG = IMG;
 			if ( $rootScope.IMG == 1 )
 				$rootScope.scorePsy4 += 2;
-	
+
 			$rootScope.ISG = ISG;
 			if ( $rootScope.ISG == 1 )
 				$rootScope.scorePsy4 += 3;
-		
+
 			$rootScope.ChildHandicap = ChildHandicap;
 			if ( $rootScope.ChildHandicap == 1 )
 				$rootScope.scorePsy4 += 3;
-		
+
 			$rootScope.ChildPrema = ChildPrema;
 			if ( $rootScope.ChildPrema == 1 )
 				$rootScope.scorePsy4 += 1;
-		
+
 			$rootScope.ChildChroniqueSeek = ChildChroniqueSeek;
 			if ( $rootScope.ChildChroniqueSeek == 1 )
 				$rootScope.scorePsy4 += 3;
-		
+
 			$rootScope.DieBabyP = DieBabyP;
 			if ( $rootScope.DieBabyP == 1 )
 				$rootScope.scorePsy4 += 3;
-			
+
 			$rootScope.PregnantTraumaPsy = PregnantTraumaPsy;
 			if ( $rootScope.PregnantTraumaPsy == 1 )
 				$rootScope.scorePsy4 += 10;
-			
+
 			$rootScope.TraumaExperiencePsy = TraumaExperiencePsy;
 			if ( $rootScope.TraumaExperiencePsy == 1 )
 				$rootScope.scorePsy4 += 10;
-			
+
 			if ( $rootScope.FC == 1 )
 				$state.go('step14');
 			else
-				$state.go('step16'); 
+				$state.go('step16');
 		}
 	})
 
-.controller('Step2Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step2Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.yesc = false;
@@ -395,15 +399,15 @@ angular.module('starter.controllers', [])
 		$scope.IDNc = false;
 		$scope.checked = function( yes, no, IDN )
 		{
-			if ( yes == false && $scope.yesc == true 
-				|| no == false && $scope.noc == true 
+			if ( yes == false && $scope.yesc == true
+				|| no == false && $scope.noc == true
 				|| IDN == false && $scope.IDNc == true )
 			{
 				yes = false;
 				no = false;
 				IDN = false;
 				$scope.yesc = false;
-				$scope.noc = false; 
+				$scope.noc = false;
 				$scope.IDNc = false;
 				document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 				document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
@@ -415,7 +419,7 @@ angular.module('starter.controllers', [])
 				no = false;
 				IDN = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				$scope.IDNc = false;
 				document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
@@ -440,7 +444,7 @@ angular.module('starter.controllers', [])
 				IDN = true;
 				$scope.noc = false;
 				$scope.yesc = false;
-				$scope.IDNc = true; 
+				$scope.IDNc = true;
 				document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("IDNCheck").setAttribute('style','border : 2px solid rgb(106,144,149)');
@@ -451,7 +455,7 @@ angular.module('starter.controllers', [])
 				no = false;
 				IDN = false;
 				$scope.yesc = false;
-				$scope.noc = false; 
+				$scope.noc = false;
 				$scope.IDNc = false;
 				document.getElementById("yesCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 				document.getElementById("noCheck").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
@@ -478,7 +482,7 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step2-1Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step2-1Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		yes = false;
@@ -487,7 +491,7 @@ angular.module('starter.controllers', [])
 		$scope.noc = false;
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -497,7 +501,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
@@ -507,7 +511,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -531,12 +535,12 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step3Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step3Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -546,17 +550,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck2").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck2").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck2").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck2").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -582,12 +586,12 @@ angular.module('starter.controllers', [])
 	})
 
 
-.controller('Step4Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step4Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -597,13 +601,13 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck3").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck3").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck3").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck3").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
@@ -624,7 +628,7 @@ angular.module('starter.controllers', [])
 				$rootScope.Child = 1;
 				$state.go('step5');
 			}
-			else 
+			else
 			{
 				$rootScope.Child = 0;
 				if ( yes == true || no == true )
@@ -635,12 +639,12 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('Step6Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step6Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -650,17 +654,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck4").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck4").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck4").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck4").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -679,11 +683,11 @@ angular.module('starter.controllers', [])
 				$rootScope.BigChild = 1;
 				$rootScope.score += 50;
 			}
-			else 
+			else
 				$rootScope.BigChild = 0;
-			
-			if ( $scope.yesc == true 
-					|| $scope.noc == true ) 
+
+			if ( $scope.yesc == true
+					|| $scope.noc == true )
 			{
 				if ( $rootScope.HChild == 1 && $rootScope.BigChild == 1 )
 					$state.go('step9');
@@ -693,12 +697,12 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step8Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step8Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -714,11 +718,11 @@ angular.module('starter.controllers', [])
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck5").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck5").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -737,22 +741,22 @@ angular.module('starter.controllers', [])
 				$rootScope.score += 50;
 				$state.go('step9');
 			}
-			else 
+			else
 			{
 				$rootScope.LessChild = 0;
-				if ( $scope.yesc == true 
+				if ( $scope.yesc == true
 						|| $scope.noc == true )
 					$state.go('step10');
 			}
 		}
 	})
 
-.controller('Step9Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step9Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -762,17 +766,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 					no = true;
@@ -781,29 +785,29 @@ angular.module('starter.controllers', [])
 					$scope.noc = true;
 					document.getElementById("yesCheck6").setAttribute('style','border : 2px solid rgb(218,218,218)');
 					document.getElementById("noCheck6").setAttribute('style','border : 2px solid rgb(106,144,149)');
-			}	
+			}
 		}
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.Prema = 1;
 				$rootScope.score += 50;
 			}
 			else
-				$rootScope.Prema = 0; 
-			if ( $scope.yesc == true 
+				$rootScope.Prema = 0;
+			if ( $scope.yesc == true
 					|| $scope.noc == true )
 				$state.go('step10');
 		}
 	})
 
-.controller('Step10Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step10Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -813,17 +817,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck7").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck7").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck7").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck7").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -836,15 +840,15 @@ angular.module('starter.controllers', [])
 		}
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.PreEclamp = 1;
 				$rootScope.score += 50;
 			}
 			else
 				$rootScope.PreEclamp = 0;
-			
-			if ( $scope.yesc == true 
+
+			if ( $scope.yesc == true
 					|| $scope.noc == true )
 				if ( $rootScope.Child == 1 )
 					$state.go('psycho3');
@@ -852,12 +856,12 @@ angular.module('starter.controllers', [])
 	})
 
 
-.controller('Step11Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step11Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -867,17 +871,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck8").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck8").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 	
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck8").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck8").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -891,25 +895,25 @@ angular.module('starter.controllers', [])
 
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.PregnantDiabete = 1;
 				$rootScope.score += 2;
 			}
 			else
 				$rootScope.PregnantDiabete = 0;
-			
+
 			$state.go('step12');
 		}
 	})
 
 
-.controller('Step12Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step12Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.checked = function(yes, no)
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -919,7 +923,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
@@ -929,7 +933,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -940,8 +944,8 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck1").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-		
-		$scope.nb = function( NbCesa ) 
+
+		$scope.nb = function( NbCesa )
 		{
 			$rootScope.NbCesa = NbCesa;
 			if ( $rootScope.NbCesa > 0 )
@@ -950,15 +954,15 @@ angular.module('starter.controllers', [])
 				$state.go('psycho4');
 			}
 
-			$state.go('psycho4');  
+			$state.go('psycho4');
 		}
 	})
 
 
-.controller('Step15Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step15Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.checked = function(yes, no)
 		{
 			if (yes == false && $scope.yesc == true
@@ -971,17 +975,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck10").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if (yes == true && !no 
+			else if (yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
-				yes = true;	
+				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck10").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if (no == true && !yes 
+			else if (no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -992,10 +996,10 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck10").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-	
+
 		$scope.Submit = function(yes, no)
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.IMG = 1;
 				$rootScope.score += 2;
@@ -1007,13 +1011,13 @@ angular.module('starter.controllers', [])
 	})
 
 
-.controller('Step17Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step17Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.checked = function(yes, no)
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1023,17 +1027,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1042,11 +1046,11 @@ angular.module('starter.controllers', [])
 				$scope.noc = true;
 				document.getElementById("yesCheck11").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck11").setAttribute('style','border : 2px solid rgb(106,144,149)');
-			}	
+			}
 		}
 		$scope.Submit = function(yes, no)
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.score += 200;
 				$rootScope.Epilepsy = 1;
@@ -1058,13 +1062,13 @@ angular.module('starter.controllers', [])
 	})
 
 
-.controller('Step18Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step18Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 
 		$scope.checked = function(yes, no)
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1074,17 +1078,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck12").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck12").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1095,10 +1099,10 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck12").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-	
+
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.Phlebitis = 1;
 				$rootScope.score += 2;
@@ -1109,13 +1113,13 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step19Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step19Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1125,17 +1129,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck13").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck13").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck13").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck13").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1162,13 +1166,13 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('Step20Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step20Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
 
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1177,18 +1181,18 @@ angular.module('starter.controllers', [])
 				$scope.noc = false;
 				document.getElementById("yesCheck14").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
-			}	
-			else if ( yes == true && !no 
+			}
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck14").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1199,10 +1203,10 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck14").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-	
+
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc ==true ) 
+			if ( $scope.yesc ==true )
 			{
 				$rootScope.diabetesH = 1;
 				$rootScope.score += 50;
@@ -1213,13 +1217,13 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step21Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step21Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1229,17 +1233,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck15").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck15").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1250,7 +1254,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck15").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-		
+
 		$scope.Submit = function( yes, no )
 		{
 			if ( $scope.yesc == true )
@@ -1258,7 +1262,7 @@ angular.module('starter.controllers', [])
 				$rootScope.Medicament = 1;
 				$state.go('step22');
 			}
-			else 
+			else
 			{
 				$rootScope.Medicament = 0;
 				$state.go('step23');
@@ -1268,13 +1272,13 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('Step25Ctrl', function( $scope, $state,  $http, $rootScope ) 
+.controller('Step25Ctrl', function( $scope, $state,  $http, $rootScope )
 	{
 		$scope.data = {};
-	
+
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1284,17 +1288,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck16").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck16").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1305,7 +1309,7 @@ angular.module('starter.controllers', [])
 				document.getElementById("noCheck16").setAttribute('style','border : 2px solid rgb(106,144,149)');
 			}
 		}
-		
+
 		$scope.Submit = function( yes, no )
 		{
 			if ( $scope.yesc == true )
@@ -1313,7 +1317,7 @@ angular.module('starter.controllers', [])
 				$rootScope.Work= 1;
 				$state.go('step26');
 			}
-			else 
+			else
 			{
 				$rootScope.Work= 0;
 				$state.go('psycho1');
@@ -1328,7 +1332,7 @@ angular.module('starter.controllers', [])
 
 		$scope.checked = function( yes, no )
 		{
-			if ( yes == false && $scope.yesc == true 
+			if ( yes == false && $scope.yesc == true
 					|| no == false && $scope.noc == true )
 			{
 				yes = false;
@@ -1338,17 +1342,17 @@ angular.module('starter.controllers', [])
 				document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( yes == true && !no 
+			else if ( yes == true && !no
 						|| $scope.noc == true && yes == true )
 			{
 				yes = true;
 				no = false;
 				$scope.yesc = true;
-				$scope.noc = false; 
+				$scope.noc = false;
 				document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(106,144,149)');
 				document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(218, 218, 218)');
 			}
-			else if ( no == true && !yes 
+			else if ( no == true && !yes
 						|| $scope.yesc == true && no == true )
 			{
 				no = true;
@@ -1357,12 +1361,12 @@ angular.module('starter.controllers', [])
 				$scope.noc = true;
 				document.getElementById("yesCheck17").setAttribute('style','border : 2px solid rgb(218,218,218)');
 				document.getElementById("noCheck17").setAttribute('style','border : 2px solid rgb(106,144,149)');
-			}	
+			}
 		}
-		
+
 		$scope.Submit = function( yes, no )
 		{
-			if ( $scope.yesc == true ) 
+			if ( $scope.yesc == true )
 			{
 				$rootScope.StandingWork = 1;
 				$rootScope.score += 2;
@@ -1373,43 +1377,43 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('Step00Ctrl', function( $scope, $state, $http, $rootScope ) 
+.controller('Step00Ctrl', function( $scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
-		if ( $rootScope.PregnantGood == 1 ) 
+		if ( $rootScope.PregnantGood == 1 )
 			$scope.Positif = "Félicitation vous êtes enceinte !";
 		else if ( $rootScope.Child == 0 )
-			$scope.Positif = "Félicitation vous allez avoir votre premier enfant"; 
+			$scope.Positif = "Félicitation vous allez avoir votre premier enfant";
 		else if ( $rootScope.Age < 38)
 			$scope.Positif = "Vous avez le bon l'âge optimal pour faire un enfant";
 		document.getElementById("Positif").setAttribute('style','color : green');
-		if ( $rootScope.score >= 200 ) 
+		if ( $rootScope.score >= 200 )
 		{
 			document.getElementById("cresultProfil").setAttribute('style','color : red');
 			$scope.cresultProfil = "D'après vos réponse vous présentez une grossesse à haut et devez être suivi dans une maternité de type 3.";
-		}   
-		else if ( $rootScope.score >= 50 ) 
+		}
+		else if ( $rootScope.score >= 50 )
 		{
 			document.getElementById("cresultProfil").setAttribute('style','color : red');
 			$rootScope.cresultProfil = "D'apres vos réponse vous présentez une grossesse à haut risque mais qui ne necessite pas un suivi dans une maternité de type 3";
 		}
-		else if ( $rootScope.score >= 20 ) 
+		else if ( $rootScope.score >= 20 )
 		{
 			document.getElementById("cresultProfil").setAttribute('style','color : orange');
 			$rootScope.cresultProfil = "D'apres vos réponses vous présentez une grossesse à risque ";
 		}
-		else 
+		else
 		{
 			document.getElementById("cresultProfil").setAttribute('style','color : green');
 			$rootScope.cresultProfil = "D'apres vos réponses vous ne présentez pas de risque particulier pour votre grossesse";
 		}
 
-		if ( $rootScope.Age < 35 ) 
+		if ( $rootScope.Age < 35 )
 		{
 			$scope.profil1 = $rootScope.RAgeA;
 			$scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
 		}
-		else if ( $rootScope.Age < 38 ) 
+		else if ( $rootScope.Age < 38 )
 		{
 			$scope.profil1 = $rootScope.RAgeB;
 			$scope.positif1 = " - Vous avez l'âge optimal pour faire un enfant";
@@ -1425,20 +1429,20 @@ angular.module('starter.controllers', [])
 			$scope.positif1 = " - Être plus âgée pour élever ses enfants est ausi un gage de maturité ! ";
 		}
 
-		if ( $rootScope.Pregnant == 1 && $rootScope.Smoke == 1 ) 
+		if ( $rootScope.Pregnant == 1 && $rootScope.Smoke == 1 )
 		{
 			$scope.risk2 = " - Vous fumez, ce qui peut entrainer de nombreuses complications.";
 			$scope.conseil2 = " - Arrêtez de fumer !";
 		}
-		else if ( $rootScope.Smoke == 1 ) 
+		else if ( $rootScope.Smoke == 1 )
 		{
 			$scope.risk2 = "- Vous fumez, ce qui va entrainer de nombreuses complications lors d'une future grossesse.";
 			$scope.conseil2 = "- Arrêtez de fumer avant d'entammer une grossesse ! ";
-		} 
+		}
 
 		if ( $rootScope.BigChild == 1 )
 			$rootScope.risk3 = "- Vous avez eus un enfant de  + de 4kg, ce qui peut favoriser l'apparition du vous place dans un groupe à risque de développer un diabète de grossesse";
-		if ( $rootScope.BigChild == 1 
+		if ( $rootScope.BigChild == 1
 				&& $rootScope.diabetesH == 0 )
 			$rootScope.conseil3 = "- Effectuez un dépistage de diabète de grossesse";
 
@@ -1450,45 +1454,45 @@ angular.module('starter.controllers', [])
 		if ( $rootScope.NbMiacarriage >= 3 )
 			$rootScope.conseil5 = " - Effectuez un bilan de fausse couche à répétition et bénéficiez d'une prise en charge adaptée en fonction des résultats de ce bilan.";
 
-		if ( $rootScope.IMG == 1 ) 
+		if ( $rootScope.IMG == 1 )
 		{
 			$rootScope.risk6 = " - Vous avez déjà effectué une IMG et vous pourriez avoir un risque de récidive";
 			$rootScope.conseil6 = " - Prenez rendez-vous pour une consultation spécialisée afin d'évaluer le risque de récidive de malformation foetale.";
 			$scope.profil6 = " - La plus grande partie des anomalies foetales sont des accidents et leur récidive est rare";
 		}
 
-		if ( $rootScope.Alcool < 10 
+		if ( $rootScope.Alcool < 10
 				&& $rootScope.Alcool > 0 )
 			$scope.risk7 = " - Vous consommez de l'alcool";
-		else if ( $rootScope.Alcool >= 10 ) 
+		else if ( $rootScope.Alcool >= 10 )
 		{
 			$scope.risk7 = " - Vous consommez une quantité d'alcool importante";
 			$scope.conseil7 = " - Prenez rendez-vous dans un centre spécialisée pour vous aider à arrêter l'alcool ";
 		}
-		if ( $rootScope.Alcool < 10 
-				&& $rootScope.Alcool > 0 
+		if ( $rootScope.Alcool < 10
+				&& $rootScope.Alcool > 0
 				&& $rootScope.Pregnant == 1 )
 			$scope.conseil7 = " - Stoppez votre consommation d'alcool !";
-		else if ($rootScope.Alcool < 10 
-					&& $rootScope.Alcool > 0 
+		else if ($rootScope.Alcool < 10
+					&& $rootScope.Alcool > 0
 					&& $rootScope.Pregnant == 0 )
 			$scope.conseil7 = " - Il sera nécessaire de stopper votre consommation d'alcool lorsque vous serez enceinte!";
 
 		if ( $rootScope.Epilepsy == 1 )
 			$scope.risk8 = " - Votre épilepsie.";
-		
+
 		if ( $rootScope.AntiepilepsyAnswer == 1 )
 			$scope.conseil8 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antiépileptiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
 
 		if ( $rootScope.Phlebitis == 1 )
 			$scope.risk9 = " - Votre antécédent de phlébite";
-		
+
 		if ( $rootScope.AntiCoagulentAnswer == 1 )
 			$scope.conseil9 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
 
 		if ( $rootScope.HighBloodPresure == 1 )
 			$scope.risk10 = " -Votre hypertension";
-		
+
 		if ( $rootScope.AntiHighBloodAnswer == 1 )
 			$scope.conseil10 = " - Vous devez être prise en charge par une équipe spécialisée pour le choix des antihypertenseurs et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée.";
 
@@ -1497,15 +1501,15 @@ angular.module('starter.controllers', [])
 		if ( $rootScope.InsulineAnswer == 1 )
 			$scope.conseil11 = " -Vous devez être prise en charge par une équipe spécialisée pour le choix des antidiabetiques et leur dosage ainsi que pour la mise en place d'une surveillance foetale adaptée. ";
 
-		if ( $rootScope.IMC < 18.5) 
+		if ( $rootScope.IMC < 18.5)
 		{
 			$scope.risk12 = "- Votre MAIGREUR ";
 			$scope.conseil12 = "- Alimentez-vous correctement ";
 		}
-		else if ( $rootScope.IMC > 35 
+		else if ( $rootScope.IMC > 35
 					&& $rootScope.IMC < 40 )
 			$scope.risk12 = " - Votre obésité ";
-		else if ( $rootScope.IMC > 40 ) 
+		else if ( $rootScope.IMC > 40 )
 		{
 			$scope.risk12 = " - Votre obésité massive ";
 			$scope.conseil12 = " - Vous devez être prise en charge dans un centre spécialisé. ";
@@ -1513,23 +1517,23 @@ angular.module('starter.controllers', [])
 
 		if ( $rootScope.Work == 1 )
 		{
-			if ( $rootScope.NbWork > 10 
-					&& $rootScope.NbWork <= 12 ) 
+			if ( $rootScope.NbWork > 10
+					&& $rootScope.NbWork <= 12 )
 			{
 				$scope.risk13 = " - Votre nombre d'heure de travail est élevé.";
 				$scope.conseil13 = " - Essayer d'aménager vos heures de travail";
 			}
-			else if ( $rootScope.NbWork > 12 ) 
+			else if ( $rootScope.NbWork > 12 )
 			{
 				$scope.risk13 = " - Votre nombre d'heure de travail est vraiment très élevé";
 				$scope.conseil13 = " - Essayer d'aménager vos heures de travail";
 			}
-			if ( $rootScope.TimeTravel > 90 ) 
+			if ( $rootScope.TimeTravel > 90 )
 			{
 				$scope.risk14 = " - Votre temps de trajet pour aller au travail est élevé";
 				$scope.conseil14 = " - Essayer d'aménager vos heures de présence au travail pour diminuer les temps de trajets.";
 			}
-			if ( $rootScope.StandingWork == 1 ) 
+			if ( $rootScope.StandingWork == 1 )
 			{
 				$scope.risk15 = " - Vous travaillez debout plus de 6 heures par jour";
 				$scope.conseil15 = " - Nous vous conseillons de discuter dès à présent avec votre employeur de la possibilité d'aménager vos conditions de travail. Vous risquez d'être en difficulté pendant votre grossesse si vous restez debout plus de 6 heures par jour.";
@@ -1538,43 +1542,43 @@ angular.module('starter.controllers', [])
 		else
 			$scope.profil16 = " - Vous ne travaillez pas, vous pouvez donc prendre le temps de vous occuper de vous et préparer la venue de votre enfant ";
 
-		if ( $rootScope.scorePsy1 >= 2 ) 
+		if ( $rootScope.scorePsy1 >= 2 )
 		{
-			if ( $rootScope.AngoisseCriseAnswer == 1 ) 
+			if ( $rootScope.AngoisseCriseAnswer == 1 )
 				$rootScope.profilPsy1A = "- Vos crise d'angoisses";
 
 			if ( $rootScope.BoulimieAnswer == 1 )
 				$rootScope.profilPsy1B = "- Votre boulimie";
 
-			if ( $rootScope.TocAnswer == 1 )  
+			if ( $rootScope.TocAnswer == 1 )
 				$rootScope.profilPsy1C = "- Votre anorexie";
 
-			if ( $rootScope.DepressionAnswer == 1 ) 
+			if ( $rootScope.DepressionAnswer == 1 )
 				$rootScope.profilPsy1D += "- Vos TOC";
 
-			if ( $rootScope.AnorexieAnswer == 1 ) 
+			if ( $rootScope.AnorexieAnswer == 1 )
 				$rootScope.profilPsy1E = "- Votre dépression";
 
-			if ( $rootScope.PhobieAnswer == 1 ) 
+			if ( $rootScope.PhobieAnswer == 1 )
 				$rootScope.profilPsy1F = "- Vos phobies";
 
-			if ( $rootScope.BipolaireAnswer == 1 ) 
+			if ( $rootScope.BipolaireAnswer == 1 )
 				$rootScope.profilPsy1G = "- Vos troubles bipolaires";
 
-			if ( $rootScope.HpAnswerAnswer == 1 ) 
+			if ( $rootScope.HpAnswerAnswer == 1 )
 				$rootScope.profilPsy1H = "- Votre séjour en hopital psychiatrique";
-		} 
+		}
 
-		if ( $rootScope.scorePsy1 >= 2 
-				|| $rootScope.scorePsy2 > 2 
+		if ( $rootScope.scorePsy1 >= 2
+				|| $rootScope.scorePsy2 > 2
 				|| $rootScope.scorePsy3 >= 5 )
 		{
 			$scope.profilPsyFacteur = "Vos facteurs agravant sont :"
 			$scope.profilPsyResult = "- Risque de dépression du post partum.";
-			
+
 			if ( $rootScope.scorePsy2 > 2 )
 				$scope.profilPsyFacteur1 = "- Votre parcours d'infertilité";
-			
+
 			if ( $rootScope.scorePsy3 >= 5 )
 				$scope.profilPsyFacteur2 = "- Vos antécédents obstétricaux";
 			$scope.conseilPsy = "- Vous devriez consulter un professionel";
@@ -1596,7 +1600,7 @@ angular.module('starter.controllers', [])
 .controller('dateMenstruationCtrl', function( $scope, $state,$http,$rootScope )
 	{
 
-		$scope.submit = function( menstruation ) 
+		$scope.submit = function( menstruation )
 		{
 			// Date des dernieres regles //
 			$rootScope.LastMenstruation = new Date( menstruation );
@@ -1608,7 +1612,7 @@ angular.module('starter.controllers', [])
 		}
 	})
 
-.controller('HomeCtrl', function($scope, $state, $http, $rootScope ) 
+.controller('HomeCtrl', function($scope, $state, $http, $rootScope )
 	{
 		$scope.data = {};
 		$scope.launch = function()

@@ -1,20 +1,20 @@
 <ion-view name=step29-view>
 	<ion-content class="noscroll">
-	
+
   	<!-- div progressing questionaire -->
 	<div class="progressingDiv">
 		<div class="progressingInsideDiv" style="width:32%;">
 			<p class="transparentText">t</p>
 		</div>
 	</div>
-  
-	</ion-content> 
+
+	</ion-content>
 	<ion-content class="containQuestion">
- 
+
 		<h3 ng-hide="HChild > 1" class="questionText">
 	 		Vous et vos accouchements
 		</h3>
-		
+
 		<h3 ng-hide="HChild == 1" class="questionText">
 			Vous et votre accouchement
 		</h3>
@@ -22,19 +22,19 @@
 		<form name="med" ng-submit="Submit(forceps, ventouse, urgenceCesa, generalAnest, hemorragie, babySeparation, dieDelevery, dieBaby, traumaDelevery )" novalidate="">
 		  <ion-list>
 				<ion-checkbox ng-model="forceps">
-					forceps 
+					forceps
 				</ion-checkbox>
 				<ion-checkbox ng-model="ventouse">
-					ventouse 
+					ventouse
 				</ion-checkbox>
 				<ion-checkbox ng-model="urgenceCesa">
-				  césarienne en urgence  
+				  césarienne en urgence
 				</ion-checkbox>
 				<ion-checkbox ng-model="generalAnest">
-	  				anesthésie générale 
+	  			anesthésie générale
 	 			</ion-checkbox>
 				<ion-checkbox ng-model="hemorragie">
-					hémorragie 
+					hémorragie
 				</ion-checkbox>
 				<ion-checkbox ng-model="babySeparation">
 					Séparation avec le bébé à la naissance pendant plus de 6 heures
@@ -43,20 +43,20 @@
 					penser que j'allais mourrir en accouchant
 				</ion-checkbox>
 				<ion-checkbox ng-model="dieBaby">
-					penser que mon bébé allait mourrir 
+					penser que mon bébé allait mourrir
 				</ion-checkbox>
 				<ion-checkbox ng-model="traumaDelevery">
-					j'ai subit un accouchement traumatique 
+					j'ai subit un accouchement traumatique
 				</ion-checkbox>
 			</ion-list>
-			
+
 			<div class="buttonValid">
 				<button class="button" type="Submit">
 					Valider
 				</button>
 			</div>
-	
+
 		</form>
-	
+
 	</ion-content>
 </ion-view>

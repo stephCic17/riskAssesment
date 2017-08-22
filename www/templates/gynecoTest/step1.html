@@ -7,16 +7,16 @@
 				<p class="transparentText">t</p>
 	 		</div>
 	 	</div>
-	</ion-content> 
-  	
-  	<ion-content class="containQuestion">
-		<h3 class="questionText">
-			Quel âge avez-vous&nbsp?
+	</ion-content>
+
+  	<ion-content class="form-question">
+		<h3 class="form-question-title">
+			Quel âge avez-vous ?
 		</h3>
-		<input class="numberInput" type=number ng-model=age placeholder=>
-		
-		<div class="buttonValid">
-			<button class=button button-block button-calm ng-click=InputNumber(age)>
+		<input class="input-block" type="number" ng-model="age" placeholder="">
+
+		<div class="center-button-box">
+			<button class="button button-block button-calm" ng-click="InputNumber(age)">
 				Valider
 			</button>
 		</div>

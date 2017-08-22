@@ -18,12 +18,20 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/center.css" rel="stylesheet">
+    <link href="css/input.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/progress-bar.css" rel="stylesheet">
+    <link href="css/bar.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/step-count.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
     <!-- ionic/angularjs js -->
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -39,12 +47,18 @@
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
+      <div class="progress-bar">
+        <div id="progression" class="progress-bar-state">
+        </div>
+      </div>
+      <div class="step-count">
+        <span id="step" class="step-count-number" ng-style="myStyle">1 / 24</span>
+      </div>
       <ion-nav-back-button class="button-clear">
-      
-      <img class="title-image" src="img/icon-back.png" />
       </ion-nav-back-button>
 
     </ion-nav-bar>
+
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
